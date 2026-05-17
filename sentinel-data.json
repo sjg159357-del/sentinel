@@ -1,0 +1,892 @@
+{
+  "_meta": {
+    "updated": "2025-05-16",
+    "source": "GitHub Actions Auto-Update",
+    "note": "pp는 실시간 스크래핑, macro는 World Bank API",
+    "last_annual_update": "2026-05-16",
+    "annual_sources": {
+      "law": "World Bank WGI: Rule of Law (GOV_WGI_RL.SC, 0-100)",
+      "demo": "World Bank WGI: Voice & Accountability (GOV_WGI_VA.SC, 0-100)",
+      "hd": "BIS: Household credit / GDP % (WS_TC, quarterly)",
+      "cd": "BIS: Non-financial corp credit / GDP % (WS_TC, quarterly)",
+      "dep3y": "World Bank: Official exchange rate (PA.NUS.FCRF), 3-year change %",
+      "citizen": "World Bank: Net migration (SM.POP.NETM), indexed 0-100"
+    }
+  },
+  "pp_rates": [
+    {
+      "id": "IR",
+      "pp": 1700,
+      "source": "bonbast.com",
+      "updated": "2025-05-16"
+    },
+    {
+      "id": "SY",
+      "pp": 300,
+      "source": "karamshaar.com",
+      "updated": "2025-05-16"
+    },
+    {
+      "id": "VE",
+      "pp": 45,
+      "source": "monitordolarve.com",
+      "updated": "2025-05-16"
+    },
+    {
+      "id": "AR",
+      "pp": 15,
+      "source": "ambito.com",
+      "updated": "2025-05-16"
+    },
+    {
+      "id": "NG",
+      "pp": 12,
+      "source": "abokiforex.app",
+      "updated": "2025-05-16"
+    },
+    {
+      "id": "LB",
+      "pp": 5,
+      "source": "lirarate.org",
+      "updated": "2025-05-16"
+    },
+    {
+      "id": "ZW",
+      "pp": 100,
+      "source": "zimpricecheck.com",
+      "updated": "2025-05-16"
+    },
+    {
+      "id": "ET",
+      "pp": 25,
+      "source": "ethioblackmarket.com",
+      "updated": "2025-05-16"
+    }
+  ],
+  "macro": {
+    "IR": {
+      "debt": 45,
+      "ca": 5,
+      "inf": 42
+    },
+    "TR": {
+      "debt": 35,
+      "ca": -4,
+      "inf": 65
+    },
+    "AR": {
+      "debt": 92,
+      "ca": -2,
+      "inf": 150
+    },
+    "EG": {
+      "debt": 96,
+      "ca": -3,
+      "inf": 33
+    },
+    "LB": {
+      "debt": 175,
+      "ca": -15,
+      "inf": 25
+    },
+    "KR": {
+      "debt": 55,
+      "ca": 3,
+      "inf": 3
+    },
+    "JP": {
+      "debt": 265,
+      "ca": 3,
+      "inf": 3
+    },
+    "US": {
+      "debt": 130,
+      "ca": -3,
+      "inf": 3
+    }
+  },
+  "annual": {
+    "AF": {
+      "law": 23.7,
+      "law_src": "WB_WGI",
+      "demo": 19.2,
+      "demo_src": "WB_WGI_VA",
+      "citizen": 59,
+      "citizen_src": "WB_NETMIG"
+    },
+    "AR": {
+      "law": 52.6,
+      "law_src": "WB_WGI",
+      "demo": 63.6,
+      "demo_src": "WB_WGI_VA",
+      "hd": 5.6,
+      "hd_src": "BIS_WS_TC",
+      "cd": 21.2,
+      "cd_src": "BIS_WS_TC",
+      "dep3y": 862.9,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 50,
+      "citizen_src": "WB_NETMIG"
+    },
+    "AU": {
+      "law": 82.3,
+      "law_src": "WB_WGI",
+      "demo": 83.3,
+      "demo_src": "WB_WGI_VA",
+      "hd": 113.2,
+      "hd_src": "BIS_WS_TC",
+      "cd": 62.0,
+      "cd_src": "BIS_WS_TC",
+      "dep3y": 13.8,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 25,
+      "citizen_src": "WB_NETMIG"
+    },
+    "BE": {
+      "law": 79.0,
+      "law_src": "WB_WGI",
+      "demo": 83.1,
+      "demo_src": "WB_WGI_VA",
+      "hd": 56.6,
+      "hd_src": "BIS_WS_TC",
+      "cd": 117.8,
+      "cd_src": "BIS_WS_TC",
+      "dep3y": 9.3,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 37,
+      "citizen_src": "WB_NETMIG"
+    },
+    "BD": {
+      "law": 40.4,
+      "law_src": "WB_WGI",
+      "demo": 36.5,
+      "demo_src": "WB_WGI_VA",
+      "dep3y": 35.9,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 62,
+      "citizen_src": "WB_NETMIG"
+    },
+    "BY": {
+      "law": 35.8,
+      "law_src": "WB_WGI",
+      "demo": 27.3,
+      "demo_src": "WB_WGI_VA",
+      "dep3y": 27.9,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 52,
+      "citizen_src": "WB_NETMIG"
+    },
+    "BO": {
+      "law": 35.1,
+      "law_src": "WB_WGI",
+      "demo": 49.2,
+      "demo_src": "WB_WGI_VA",
+      "dep3y": 0.0,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 51,
+      "citizen_src": "WB_NETMIG"
+    },
+    "BR": {
+      "law": 49.3,
+      "law_src": "WB_WGI",
+      "demo": 62.4,
+      "demo_src": "WB_WGI_VA",
+      "hd": 36.7,
+      "hd_src": "BIS_WS_TC",
+      "cd": 53.9,
+      "cd_src": "BIS_WS_TC",
+      "dep3y": -0.1,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 55,
+      "citizen_src": "WB_NETMIG"
+    },
+    "CA": {
+      "law": 82.1,
+      "law_src": "WB_WGI",
+      "demo": 83.2,
+      "demo_src": "WB_WGI_VA",
+      "hd": 100.2,
+      "hd_src": "BIS_WS_TC",
+      "cd": 118.0,
+      "cd_src": "BIS_WS_TC",
+      "dep3y": 9.2,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 10,
+      "citizen_src": "WB_NETMIG"
+    },
+    "CH": {
+      "law": 87.3,
+      "law_src": "WB_WGI",
+      "demo": 85.6,
+      "demo_src": "WB_WGI_VA",
+      "hd": 121.9,
+      "hd_src": "BIS_WS_TC",
+      "cd": 128.3,
+      "cd_src": "BIS_WS_TC",
+      "dep3y": -3.7,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 29,
+      "citizen_src": "WB_NETMIG"
+    },
+    "CN": {
+      "law": 47.0,
+      "law_src": "WB_WGI",
+      "demo": 27.9,
+      "demo_src": "WB_WGI_VA",
+      "hd": 59.0,
+      "hd_src": "BIS_WS_TC",
+      "cd": 142.4,
+      "cd_src": "BIS_WS_TC",
+      "dep3y": 11.6,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 51,
+      "citizen_src": "WB_NETMIG"
+    },
+    "CO": {
+      "law": 47.3,
+      "law_src": "WB_WGI",
+      "demo": 57.5,
+      "demo_src": "WB_WGI_VA",
+      "hd": 25.1,
+      "hd_src": "BIS_WS_TC",
+      "cd": 28.5,
+      "cd_src": "BIS_WS_TC",
+      "dep3y": 8.8,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 38,
+      "citizen_src": "WB_NETMIG"
+    },
+    "CU": {
+      "law": 46.2,
+      "law_src": "WB_WGI",
+      "demo": 34.6,
+      "demo_src": "WB_WGI_VA",
+      "citizen": 60,
+      "citizen_src": "WB_NETMIG"
+    },
+    "DE": {
+      "law": 84.9,
+      "law_src": "WB_WGI",
+      "demo": 84.8,
+      "demo_src": "WB_WGI_VA",
+      "hd": 49.1,
+      "hd_src": "BIS_WS_TC",
+      "cd": 89.5,
+      "cd_src": "BIS_WS_TC",
+      "dep3y": 9.3,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 70,
+      "citizen_src": "WB_NETMIG"
+    },
+    "EG": {
+      "law": 44.0,
+      "law_src": "WB_WGI",
+      "demo": 28.8,
+      "demo_src": "WB_WGI_VA",
+      "dep3y": 189.6,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 52,
+      "citizen_src": "WB_NETMIG"
+    },
+    "ET": {
+      "law": 38.9,
+      "law_src": "WB_WGI",
+      "demo": 35.1,
+      "demo_src": "WB_WGI_VA",
+      "dep3y": 88.9,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 49,
+      "citizen_src": "WB_NETMIG"
+    },
+    "GE": {
+      "law": 59.5,
+      "law_src": "WB_WGI",
+      "demo": 52.4,
+      "demo_src": "WB_WGI_VA",
+      "dep3y": -15.5,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 48,
+      "citizen_src": "WB_NETMIG"
+    },
+    "GH": {
+      "law": 57.9,
+      "law_src": "WB_WGI",
+      "demo": 60.4,
+      "demo_src": "WB_WGI_VA",
+      "dep3y": 144.3,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 52,
+      "citizen_src": "WB_NETMIG"
+    },
+    "HU": {
+      "law": 60.3,
+      "law_src": "WB_WGI",
+      "demo": 56.4,
+      "demo_src": "WB_WGI_VA",
+      "hd": 17.7,
+      "hd_src": "BIS_WS_TC",
+      "cd": 67.8,
+      "cd_src": "BIS_WS_TC",
+      "dep3y": 20.6,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 59,
+      "citizen_src": "WB_NETMIG"
+    },
+    "ID": {
+      "law": 53.4,
+      "law_src": "WB_WGI",
+      "demo": 53.8,
+      "demo_src": "WB_WGI_VA",
+      "hd": 15.7,
+      "hd_src": "BIS_WS_TC",
+      "cd": 24.1,
+      "cd_src": "BIS_WS_TC",
+      "dep3y": 10.8,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 51,
+      "citizen_src": "WB_NETMIG"
+    },
+    "IN": {
+      "law": 56.3,
+      "law_src": "WB_WGI",
+      "demo": 55.5,
+      "demo_src": "WB_WGI_VA",
+      "hd": 45.5,
+      "hd_src": "BIS_WS_TC",
+      "cd": 51.9,
+      "cd_src": "BIS_WS_TC",
+      "dep3y": 13.2,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 52,
+      "citizen_src": "WB_NETMIG"
+    },
+    "IR": {
+      "law": 35.7,
+      "law_src": "WB_WGI",
+      "demo": 29.7,
+      "demo_src": "WB_WGI_VA",
+      "dep3y": 0.0,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 44,
+      "citizen_src": "WB_NETMIG"
+    },
+    "JP": {
+      "law": 83.0,
+      "law_src": "WB_WGI",
+      "demo": 76.4,
+      "demo_src": "WB_WGI_VA",
+      "hd": 61.1,
+      "hd_src": "BIS_WS_TC",
+      "cd": 111.7,
+      "cd_src": "BIS_WS_TC",
+      "dep3y": 37.9,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 44,
+      "citizen_src": "WB_NETMIG"
+    },
+    "KZ": {
+      "law": 50.4,
+      "law_src": "WB_WGI",
+      "demo": 42.6,
+      "demo_src": "WB_WGI_VA",
+      "dep3y": 10.1,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 52,
+      "citizen_src": "WB_NETMIG"
+    },
+    "KE": {
+      "law": 49.0,
+      "law_src": "WB_WGI",
+      "demo": 50.6,
+      "demo_src": "WB_WGI_VA",
+      "dep3y": 23.0,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 52,
+      "citizen_src": "WB_NETMIG"
+    },
+    "KH": {
+      "law": 38.8,
+      "law_src": "WB_WGI",
+      "demo": 27.6,
+      "demo_src": "WB_WGI_VA",
+      "dep3y": -0.6,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 59,
+      "citizen_src": "WB_NETMIG"
+    },
+    "KR": {
+      "law": 76.2,
+      "law_src": "WB_WGI",
+      "demo": 71.0,
+      "demo_src": "WB_WGI_VA",
+      "hd": 89.4,
+      "hd_src": "BIS_WS_TC",
+      "cd": 110.9,
+      "cd_src": "BIS_WS_TC",
+      "dep3y": 19.2,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 44,
+      "citizen_src": "WB_NETMIG"
+    },
+    "LA": {
+      "law": 44.2,
+      "law_src": "WB_WGI",
+      "demo": 31.1,
+      "demo_src": "WB_WGI_VA",
+      "dep3y": 108.0,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 57,
+      "citizen_src": "WB_NETMIG"
+    },
+    "LB": {
+      "law": 38.3,
+      "law_src": "WB_WGI",
+      "demo": 43.3,
+      "demo_src": "WB_WGI_VA",
+      "dep3y": 5837.0,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 59,
+      "citizen_src": "WB_NETMIG"
+    },
+    "LK": {
+      "law": 52.5,
+      "law_src": "WB_WGI",
+      "demo": 54.6,
+      "demo_src": "WB_WGI_VA",
+      "dep3y": 76.5,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 57,
+      "citizen_src": "WB_NETMIG"
+    },
+    "MA": {
+      "law": 50.6,
+      "law_src": "WB_WGI",
+      "demo": 44.1,
+      "demo_src": "WB_WGI_VA",
+      "dep3y": 10.6,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 57,
+      "citizen_src": "WB_NETMIG"
+    },
+    "MX": {
+      "law": 37.1,
+      "law_src": "WB_WGI",
+      "demo": 50.9,
+      "demo_src": "WB_WGI_VA",
+      "hd": 17.2,
+      "hd_src": "BIS_WS_TC",
+      "cd": 21.5,
+      "cd_src": "BIS_WS_TC",
+      "dep3y": -9.7,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 54,
+      "citizen_src": "WB_NETMIG"
+    },
+    "MM": {
+      "law": 25.8,
+      "law_src": "WB_WGI",
+      "demo": 19.7,
+      "demo_src": "WB_WGI_VA",
+      "citizen": 54,
+      "citizen_src": "WB_NETMIG"
+    },
+    "MY": {
+      "law": 62.9,
+      "law_src": "WB_WGI",
+      "demo": 54.6,
+      "demo_src": "WB_WGI_VA",
+      "hd": 69.9,
+      "hd_src": "BIS_WS_TC",
+      "cd": 88.5,
+      "cd_src": "BIS_WS_TC",
+      "dep3y": 10.5,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 27,
+      "citizen_src": "WB_NETMIG"
+    },
+    "NG": {
+      "law": 39.6,
+      "law_src": "WB_WGI",
+      "demo": 44.1,
+      "demo_src": "WB_WGI_VA",
+      "dep3y": 268.7,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 50,
+      "citizen_src": "WB_NETMIG"
+    },
+    "NP": {
+      "law": 51.7,
+      "law_src": "WB_WGI",
+      "demo": 55.8,
+      "demo_src": "WB_WGI_VA",
+      "dep3y": 13.2,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 100,
+      "citizen_src": "WB_NETMIG"
+    },
+    "NZ": {
+      "law": 85.7,
+      "law_src": "WB_WGI",
+      "demo": 86.4,
+      "demo_src": "WB_WGI_VA",
+      "hd": 90.6,
+      "hd_src": "BIS_WS_TC",
+      "cd": 71.3,
+      "cd_src": "BIS_WS_TC",
+      "dep3y": 16.9,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 34,
+      "citizen_src": "WB_NETMIG"
+    },
+    "PK": {
+      "law": 39.5,
+      "law_src": "WB_WGI",
+      "demo": 36.4,
+      "demo_src": "WB_WGI_VA",
+      "dep3y": 71.0,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 75,
+      "citizen_src": "WB_NETMIG"
+    },
+    "PE": {
+      "law": 48.3,
+      "law_src": "WB_WGI",
+      "demo": 57.6,
+      "demo_src": "WB_WGI_VA",
+      "dep3y": -3.3,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 48,
+      "citizen_src": "WB_NETMIG"
+    },
+    "PL": {
+      "law": 66.9,
+      "law_src": "WB_WGI",
+      "demo": 70.0,
+      "demo_src": "WB_WGI_VA",
+      "hd": 22.3,
+      "hd_src": "BIS_WS_TC",
+      "cd": 35.1,
+      "cd_src": "BIS_WS_TC",
+      "dep3y": 3.1,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 95,
+      "citizen_src": "WB_NETMIG"
+    },
+    "RO": {
+      "law": 63.4,
+      "law_src": "WB_WGI",
+      "demo": 63.6,
+      "demo_src": "WB_WGI_VA",
+      "dep3y": 10.5,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 58,
+      "citizen_src": "WB_NETMIG"
+    },
+    "RU": {
+      "law": 37.1,
+      "law_src": "WB_WGI",
+      "demo": 32.0,
+      "demo_src": "WB_WGI_VA",
+      "hd": 21.2,
+      "hd_src": "BIS_WS_TC",
+      "cd": 82.0,
+      "cd_src": "BIS_WS_TC",
+      "dep3y": 25.7,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 59,
+      "citizen_src": "WB_NETMIG"
+    },
+    "SA": {
+      "law": 60.6,
+      "law_src": "WB_WGI",
+      "demo": 29.8,
+      "demo_src": "WB_WGI_VA",
+      "hd": 31.6,
+      "hd_src": "BIS_WS_TC",
+      "cd": 45.8,
+      "cd_src": "BIS_WS_TC",
+      "dep3y": 0.0,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 33,
+      "citizen_src": "WB_NETMIG"
+    },
+    "SD": {
+      "law": 26.4,
+      "law_src": "WB_WGI",
+      "demo": 23.9,
+      "demo_src": "WB_WGI_VA",
+      "citizen": 21,
+      "citizen_src": "WB_NETMIG"
+    },
+    "SG": {
+      "law": 81.6,
+      "law_src": "WB_WGI",
+      "demo": 57.5,
+      "demo_src": "WB_WGI_VA",
+      "hd": 43.5,
+      "hd_src": "BIS_WS_TC",
+      "cd": 122.2,
+      "cd_src": "BIS_WS_TC",
+      "dep3y": -0.5,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 36,
+      "citizen_src": "WB_NETMIG"
+    },
+    "SE": {
+      "law": 86.7,
+      "law_src": "WB_WGI",
+      "demo": 87.1,
+      "demo_src": "WB_WGI_VA",
+      "hd": 83.1,
+      "hd_src": "BIS_WS_TC",
+      "cd": 153.0,
+      "cd_src": "BIS_WS_TC",
+      "dep3y": 23.2,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 28,
+      "citizen_src": "WB_NETMIG"
+    },
+    "SY": {
+      "law": 25.8,
+      "law_src": "WB_WGI",
+      "demo": 24.5,
+      "demo_src": "WB_WGI_VA",
+      "citizen": 0,
+      "citizen_src": "WB_NETMIG"
+    },
+    "TH": {
+      "law": 53.3,
+      "law_src": "WB_WGI",
+      "demo": 47.1,
+      "demo_src": "WB_WGI_VA",
+      "hd": 87.2,
+      "hd_src": "BIS_WS_TC",
+      "cd": 78.8,
+      "cd_src": "BIS_WS_TC",
+      "dep3y": 10.4,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 48,
+      "citizen_src": "WB_NETMIG"
+    },
+    "TJ": {
+      "law": 36.6,
+      "law_src": "WB_WGI",
+      "demo": 28.1,
+      "demo_src": "WB_WGI_VA",
+      "dep3y": -4.5,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 60,
+      "citizen_src": "WB_NETMIG"
+    },
+    "TN": {
+      "law": 50.7,
+      "law_src": "WB_WGI",
+      "demo": 44.9,
+      "demo_src": "WB_WGI_VA",
+      "dep3y": 11.2,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 56,
+      "citizen_src": "WB_NETMIG"
+    },
+    "TR": {
+      "law": 42.4,
+      "law_src": "WB_WGI",
+      "demo": 37.7,
+      "demo_src": "WB_WGI_VA",
+      "hd": 9.8,
+      "hd_src": "BIS_WS_TC",
+      "cd": 38.8,
+      "cd_src": "BIS_WS_TC",
+      "dep3y": 270.7,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 65,
+      "citizen_src": "WB_NETMIG"
+    },
+    "UA": {
+      "law": 44.6,
+      "law_src": "WB_WGI",
+      "demo": 54.9,
+      "demo_src": "WB_WGI_VA",
+      "dep3y": 47.2,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 0,
+      "citizen_src": "WB_NETMIG"
+    },
+    "US": {
+      "law": 73.5,
+      "law_src": "WB_WGI",
+      "demo": 72.4,
+      "demo_src": "WB_WGI_VA",
+      "hd": 68.0,
+      "hd_src": "BIS_WS_TC",
+      "cd": 72.5,
+      "cd_src": "BIS_WS_TC",
+      "dep3y": 0.0,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 32,
+      "citizen_src": "WB_NETMIG"
+    },
+    "UZ": {
+      "law": 45.7,
+      "law_src": "WB_WGI",
+      "demo": 38.6,
+      "demo_src": "WB_WGI_VA",
+      "dep3y": 19.3,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 51,
+      "citizen_src": "WB_NETMIG"
+    },
+    "VE": {
+      "law": 19.0,
+      "law_src": "WB_WGI",
+      "demo": 25.0,
+      "demo_src": "WB_WGI_VA",
+      "dep3y": -100.0,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 68,
+      "citizen_src": "WB_NETMIG"
+    },
+    "VN": {
+      "law": 51.6,
+      "law_src": "WB_WGI",
+      "demo": 37.6,
+      "demo_src": "WB_WGI_VA",
+      "dep3y": 4.3,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 52,
+      "citizen_src": "WB_NETMIG"
+    },
+    "ZA": {
+      "law": 57.3,
+      "law_src": "WB_WGI",
+      "demo": 67.5,
+      "demo_src": "WB_WGI_VA",
+      "hd": 33.5,
+      "hd_src": "BIS_WS_TC",
+      "cd": 33.6,
+      "cd_src": "BIS_WS_TC",
+      "dep3y": 24.0,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 39,
+      "citizen_src": "WB_NETMIG"
+    },
+    "ZM": {
+      "law": 47.3,
+      "law_src": "WB_WGI",
+      "demo": 49.7,
+      "demo_src": "WB_WGI_VA",
+      "dep3y": 30.7,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 48,
+      "citizen_src": "WB_NETMIG"
+    },
+    "ZW": {
+      "law": 36.1,
+      "law_src": "WB_WGI",
+      "demo": 34.8,
+      "demo_src": "WB_WGI_VA",
+      "dep3y": 3588.6,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 66,
+      "citizen_src": "WB_NETMIG"
+    },
+    "ES": {
+      "law": 73.0,
+      "law_src": "WB_WGI",
+      "demo": 76.9,
+      "demo_src": "WB_WGI_VA",
+      "hd": 43.0,
+      "hd_src": "BIS_WS_TC",
+      "cd": 77.0,
+      "cd_src": "BIS_WS_TC",
+      "dep3y": 9.3,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 40,
+      "citizen_src": "WB_NETMIG"
+    },
+    "FR": {
+      "law": 73.8,
+      "law_src": "WB_WGI",
+      "demo": 77.0,
+      "demo_src": "WB_WGI_VA",
+      "hd": 59.9,
+      "hd_src": "BIS_WS_TC",
+      "cd": 155.2,
+      "cd_src": "BIS_WS_TC",
+      "dep3y": 9.3,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 43,
+      "citizen_src": "WB_NETMIG"
+    },
+    "GB": {
+      "law": 78.8,
+      "law_src": "WB_WGI",
+      "demo": 79.6,
+      "demo_src": "WB_WGI_VA",
+      "hd": 73.9,
+      "hd_src": "BIS_WS_TC",
+      "cd": 59.1,
+      "cd_src": "BIS_WS_TC",
+      "dep3y": 7.6,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 22,
+      "citizen_src": "WB_NETMIG"
+    },
+    "GR": {
+      "law": 62.1,
+      "law_src": "WB_WGI",
+      "demo": 70.5,
+      "demo_src": "WB_WGI_VA",
+      "hd": 38.2,
+      "hd_src": "BIS_WS_TC",
+      "cd": 57.5,
+      "cd_src": "BIS_WS_TC",
+      "dep3y": 9.3,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 42,
+      "citizen_src": "WB_NETMIG"
+    },
+    "IT": {
+      "law": 67.6,
+      "law_src": "WB_WGI",
+      "demo": 75.5,
+      "demo_src": "WB_WGI_VA",
+      "hd": 35.9,
+      "hd_src": "BIS_WS_TC",
+      "cd": 58.5,
+      "cd_src": "BIS_WS_TC",
+      "dep3y": 9.3,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 44,
+      "citizen_src": "WB_NETMIG"
+    },
+    "NL": {
+      "law": 86.3,
+      "law_src": "WB_WGI",
+      "demo": 85.8,
+      "demo_src": "WB_WGI_VA",
+      "hd": 93.8,
+      "hd_src": "BIS_WS_TC",
+      "cd": 166.9,
+      "cd_src": "BIS_WS_TC",
+      "dep3y": 9.3,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 21,
+      "citizen_src": "WB_NETMIG"
+    },
+    "PT": {
+      "law": 75.4,
+      "law_src": "WB_WGI",
+      "demo": 79.0,
+      "demo_src": "WB_WGI_VA",
+      "hd": 53.4,
+      "hd_src": "BIS_WS_TC",
+      "cd": 75.8,
+      "cd_src": "BIS_WS_TC",
+      "dep3y": 9.3,
+      "dep3y_src": "WB_FCRF",
+      "citizen": 42,
+      "citizen_src": "WB_NETMIG"
+    }
+  }
+}

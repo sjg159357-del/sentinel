@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="64개국 자산 몰수·동결 위험 조기경보. 암시장 괴리율, 절하율, 은행 취약도, 엘리트 이탈 지수 통합 분석.">
+<meta property="og:title" content="SENTINEL · 자산 몰수·동결 조기경보">
+<meta property="og:description" content="64개국 6단계 위험지수. 암시장 괴리율·절하율·은행취약도·시민탈출·엘리트이탈 종합 분석">
+<meta property="og:type" content="website">
+<title>SENTINEL · 글로벌 자산 몰수·동결 조기경보 시스템</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#06080e;--card:#0b0f1c;--surf:#090c18;--bdr:#131d30;
+  --t1:#c8d4e3;--t2:#5a7090;--t3:#243040;
+  --cr:#f43f5e;--cw:#f59e0b;--cwa:#facc15;--cm:#38bdf8;--cs:#4ade80;
+  --cr-bg:rgba(244,63,94,.07);--cw-bg:rgba(245,158,11,.07);
+  --cwa-bg:rgba(250,204,21,.06);--cm-bg:rgba(56,189,248,.05);--cs-bg:rgba(74,222,128,.05);
+  --cr-br:rgba(244,63,94,.30);--cw-br:rgba(245,158,11,.26);
+  --cwa-br:rgba(250,204,21,.22);--cm-br:rgba(56,189,248,.17);--cs-br:rgba(74,222,128,.15);
+}
+body{background:var(--bg);color:var(--t1);font-family:'Inter',sans-serif;min-height:100vh}
+a{color:var(--cm);text-decoration:none}a:hover{text-decoration:underline}
+button{cursor:pointer;font-family:inherit}
+
+/* ── Header ── */
+#hdr{background:var(--surf);border-bottom:1px solid var(--bdr);padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+#logo{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;letter-spacing:.15em;color:#e2ecf8}
+#logo em{color:var(--cr);font-style:normal}
+#tagline{font-size:9px;color:var(--t3);letter-spacing:.12em;margin-top:2px}
+#sr{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.sb2{text-align:center}
+.sn{font-family:'JetBrains Mono',monospace;font-size:17px;font-weight:700}
+.sl{font-size:9px;color:var(--t3);letter-spacing:.06em;margin-top:1px}
+#upd{font-size:10px;color:var(--t3);border-left:1px solid var(--bdr);padding-left:10px;white-space:nowrap}
+
+/* ── Global Panel ── */
+#gp{background:var(--surf);border-bottom:1px solid var(--bdr);padding:10px 22px;display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.gpi{display:flex;flex-direction:column;align-items:center;min-width:80px}
+.gpi-lbl{font-size:9px;color:var(--t3);letter-spacing:.08em;margin-bottom:3px}
+.gpi-val{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700}
+.gpi-sub{font-size:9px;margin-top:2px;opacity:.7}
+#fg-bar{flex:1;min-width:200px;max-width:400px}
+.fg-track{height:6px;border-radius:3px;background:linear-gradient(to right,var(--cr),var(--cw),var(--cwa),var(--cs));position:relative;margin:4px 0}
+.fg-needle{position:absolute;top:-3px;width:12px;height:12px;background:#fff;border-radius:50%;transform:translateX(-50%);transition:left .5s ease;border:2px solid var(--bg)}
+.fg-labels{display:flex;justify-content:space-between;font-size:9px;color:var(--t3)}
+
+/* ── Alert Bar ── */
+#alert-bar{display:none;padding:7px 22px;background:rgba(244,63,94,.08);border-bottom:1px solid rgba(244,63,94,.2);font-size:11px;color:#c84460;gap:8px;align-items:center}
+#alert-bar.show{display:flex}
+
+/* ── Controls ── */
+#ctrl{padding:11px 22px;border-bottom:1px solid var(--bdr);display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+#srch{background:var(--card);border:1px solid var(--bdr);color:var(--t1);padding:6px 11px;border-radius:6px;font-size:12px;outline:none;width:180px;font-family:inherit}
+#srch:focus{border-color:var(--t2)}
+#srch::placeholder{color:var(--t3)}
+.fg2{display:flex;gap:3px;flex-wrap:wrap}
+.fb{padding:4px 9px;border-radius:5px;border:1px solid var(--bdr);background:transparent;color:var(--t2);font-size:11px;font-family:'JetBrains Mono',monospace;transition:.12s}
+.fb:hover{color:var(--t1)}
+.fb.on[data-f="all"]{background:var(--card);border-color:var(--t2);color:var(--t1)}
+.fb.on[data-f="5"],.fb.on[data-f="4"]{background:var(--cr-bg);border-color:var(--cr);color:var(--cr)}
+.fb.on[data-f="3"]{background:var(--cw-bg);border-color:var(--cw);color:var(--cw)}
+.fb.on[data-f="2"]{background:var(--cwa-bg);border-color:var(--cwa);color:var(--cwa)}
+.fb.on[data-f="1"]{background:var(--cm-bg);border-color:var(--cm);color:var(--cm)}
+.fb.on[data-f="0"]{background:var(--cs-bg);border-color:var(--cs);color:var(--cs)}
+select{background:var(--card);border:1px solid var(--bdr);color:var(--t2);padding:5px 8px;border-radius:6px;font-size:11px;outline:none}
+.sg{margin-left:auto;display:flex;gap:4px;align-items:center}
+.sl2{font-size:10px;color:var(--t3);margin-right:2px}
+.sb3{padding:4px 8px;border-radius:5px;border:1px solid var(--bdr);background:transparent;color:var(--t2);font-size:11px;transition:.12s}
+.sb3:hover{color:var(--t1)}
+.sb3.on{background:var(--card);border-color:var(--t2);color:var(--t1)}
+
+/* ── Notice ── */
+#notice{padding:6px 22px;background:rgba(56,189,248,.03);border-bottom:1px solid rgba(56,189,248,.07);font-size:10px;color:#2a5060;display:flex;gap:6px;line-height:1.6}
+
+/* ── Grid ── */
+#wrap{padding:16px 22px}
+#grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(272px,1fr));gap:10px}
+#loading,#empty{text-align:center;padding:60px;color:var(--t3);font-family:'JetBrains Mono',monospace;font-size:13px}
+#empty{display:none}
+
+/* ── Card ── */
+.card{background:var(--card);border-radius:10px;padding:14px;cursor:pointer;transition:transform .15s;animation:fi .3s ease both}
+.card:hover{transform:translateY(-2px)}
+.card.s5,.card.s4{border:1px solid var(--cr-br);animation:fi .3s ease both,glow 3s ease-in-out infinite}
+.card.s3{border:1px solid var(--cw-br)}
+.card.s2{border:1px solid var(--cwa-br)}
+.card.s1{border:1px solid var(--cm-br)}
+.card.s0{border:1px solid var(--cs-br)}
+
+.ct{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px}
+.cf{font-size:19px;margin-right:6px}
+.cn{font-weight:600;font-size:13px;color:#dde8f4}
+.cr2{font-size:10px;color:var(--t3);margin-top:1px}
+.stage-badge{padding:2px 7px;border-radius:4px;font-size:9px;font-family:'JetBrains Mono',monospace;letter-spacing:.04em;border:1px solid;white-space:nowrap}
+
+/* Score display */
+.score-row{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.score-num{font-family:'JetBrains Mono',monospace;font-size:22px;font-weight:700;min-width:42px}
+.score-bar-wrap{flex:1}
+.score-bar-lbl{font-size:8px;color:var(--t3);margin-bottom:2px;display:flex;justify-content:space-between}
+.score-track{background:#080d17;border-radius:2px;height:5px}
+.score-fill{height:100%;border-radius:2px;transition:width .6s ease}
+
+/* Stage progress */
+.stage-prog{display:flex;align-items:center;gap:3px;margin-bottom:10px}
+.sp-dot{width:10px;height:10px;border-radius:50%;border:1px solid;flex-shrink:0}
+.sp-line{flex:1;height:1px}
+.sp-lbl{font-size:8px;white-space:nowrap}
+
+/* Exchange metrics */
+.mets{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:9px}
+.mb{background:#070b15;border-radius:5px;padding:7px 8px}
+.mb.hi{border:1px solid}
+.ml{font-size:8px;letter-spacing:.06em;margin-bottom:2px}
+.mv{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700}
+
+/* Anomaly alerts */
+.anom{display:flex;align-items:flex-start;gap:5px;font-size:9px;margin-bottom:3px;padding:4px 6px;border-radius:4px}
+.anom.crit{background:rgba(244,63,94,.08);color:#c84460}
+.anom.warn{background:rgba(245,158,11,.07);color:#b07020}
+
+.src{font-size:9px;color:var(--t3);display:flex;align-items:center;gap:4px;margin-top:8px}
+.src a{font-family:'JetBrains Mono',monospace;font-size:9px}
+
+/* ── Modal ── */
+#ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);backdrop-filter:blur(5px);z-index:200;align-items:center;justify-content:center;padding:16px}
+#ov.open{display:flex}
+#mb{background:var(--card);border-radius:14px;padding:24px;max-width:560px;width:100%;max-height:90vh;overflow-y:auto;position:relative}
+#mclose{position:absolute;top:14px;right:14px;background:var(--surf);border:1px solid var(--bdr);color:var(--t2);width:28px;height:28px;border-radius:6px;font-size:16px;display:flex;align-items:center;justify-content:center}
+#mclose:hover{color:var(--t1)}
+.mh{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.mfl{font-size:32px}
+.mt{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:#e2ecf8}
+.mst{font-size:10px;color:var(--t3);margin-top:2px}
+
+/* Modal stage progress */
+.m-stage{border-radius:8px;padding:14px 16px;margin-bottom:16px;border:1px solid}
+.m-stage-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.m-stage-prog{display:flex;align-items:center;gap:4px}
+.msp-dot{width:14px;height:14px;border-radius:50%;border:1px solid;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:7px;font-family:'JetBrains Mono',monospace}
+.msp-line{flex:1;height:1px}
+
+/* Modal score categories */
+.m-cats{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.m-cat{background:#070b15;border-radius:7px;padding:11px 13px}
+.m-cat-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.m-cat-name{font-size:11px;color:var(--t1);font-weight:500}
+.m-cat-score{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700}
+.m-cat-bar{background:#0a0f1a;border-radius:2px;height:3px;margin-bottom:5px}
+.m-cat-fill{height:100%;border-radius:2px}
+.m-cat-detail{font-size:10px;color:var(--t2)}
+.m-cat-rel{font-size:9px;color:var(--t3);margin-top:3px}
+
+/* Modal anomalies */
+.m-anoms{margin-bottom:16px}
+.m-anom{padding:8px 10px;border-radius:6px;font-size:11px;margin-bottom:5px;display:flex;gap:6px}
+.m-anom.crit{background:rgba(244,63,94,.08);border:1px solid rgba(244,63,94,.2);color:#d44060}
+.m-anom.warn{background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.15);color:#b07030}
+
+/* Modal sections */
+.m-sec{font-size:10px;color:var(--t2);letter-spacing:.08em;margin:14px 0 7px}
+.factor{display:flex;gap:6px;margin-bottom:4px}
+.fic{font-size:10px;margin-top:1px}
+.fit{font-size:12px;color:#8a9bb0}
+.m-links{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:14px}
+.m-link{background:#070b15;border:1px solid var(--bdr);border-radius:7px;padding:9px 11px;font-size:10px}
+.m-link .ll{color:var(--t3);margin-bottom:4px;font-size:9px}
+.m-link a{font-family:'JetBrains Mono',monospace;font-size:10px}
+.m-disc{padding:8px 11px;background:rgba(245,158,11,.04);border-radius:6px;font-size:9px;color:#5a4830;line-height:1.6;margin-top:10px}
+
+@keyframes fi{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+@keyframes glow{0%,100%{box-shadow:0 0 0 0 rgba(244,63,94,.15)}50%{box-shadow:0 0 14px 2px rgba(244,63,94,.3)}}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:#1e2d45;border-radius:2px}
+</style>
+</head>
+<body>
+
+<!-- 헤더 -->
+<div id="hdr">
+  <div>
+    <div id="logo"><em>◆</em> SENTINEL <span style="font-size:10px;opacity:.3;letter-spacing:.04em">v3</span></div>
+    <div id="tagline">ASSET CONFISCATION & FREEZE EARLY WARNING SYSTEM · 자산 몰수·동결 조기경보</div>
+  </div>
+  <div id="sr">
+    <div class="sb2"><div class="sn" id="s5" style="color:var(--cr)">—</div><div class="sl">진행·임박</div></div>
+    <div class="sb2"><div class="sn" id="s3" style="color:var(--cw)">—</div><div class="sl">경  보</div></div>
+    <div class="sb2"><div class="sn" id="s2" style="color:var(--cwa)">—</div><div class="sl">위험신호</div></div>
+    <div class="sb2"><div class="sn" id="s1" style="color:var(--cm)">—</div><div class="sl">잠재위험</div></div>
+    <div class="sb2"><div class="sn" id="s0" style="color:var(--cs)">—</div><div class="sl">정  상</div></div>
+    <div id="upd">로딩 중...</div>
+  </div>
+</div>
+
+<!-- 글로벌 패널 -->
+<div id="gp">
+  <div class="gpi">
+    <div class="gpi-lbl">FEAR &amp; GREED</div>
+    <div class="gpi-val" id="fg-val" style="color:var(--cw)">—</div>
+    <div class="gpi-sub" id="fg-lbl" style="color:var(--t3)">로딩 중</div>
+  </div>
+  <div id="fg-bar">
+    <div class="fg-track"><div class="fg-needle" id="fg-needle" style="left:50%"></div></div>
+    <div class="fg-labels"><span>극단 공포</span><span>중립</span><span>극단 탐욕</span></div>
+  </div>
+  <div style="width:1px;height:32px;background:var(--bdr)"></div>
+  <div class="gpi">
+    <div class="gpi-lbl">EZPW 전당포주</div>
+    <div class="gpi-val" id="ezpw-val" style="color:var(--t1)">—</div>
+    <div class="gpi-sub" id="ezpw-sub" style="color:var(--t3)">서민 경제 압박</div>
+  </div>
+  <div class="gpi">
+    <div class="gpi-lbl">모니터링 국가</div>
+    <div class="gpi-val" id="total-countries" style="color:var(--t1)">64</div>
+    <div class="gpi-sub" style="color:var(--t3)">전 세계</div>
+  </div>
+  <div style="width:1px;height:32px;background:var(--bdr)"></div>
+  <div class="gpi" style="min-width:200px">
+    <div class="gpi-lbl">📡 데이터 소스 (3단계)</div>
+    <div style="font-size:9px;color:var(--t3);line-height:1.7;margin-top:2px">
+      <span style="color:var(--cs)">①</span> open.er-api (현재환율 150개+)<br>
+      <span style="color:var(--cs)">②</span> fawazahmed0 (1년전환율 150개+)<br>
+      <span style="color:var(--t2)">③</span> dep3y÷3 추정 (API 불가 통화)
+    </div>
+  </div>
+  <div style="width:1px;height:32px;background:var(--bdr)"></div>
+  <!-- 달러 대안 모니터 -->
+  <div style="font-size:9px;color:var(--t3)">
+    <div style="margin-bottom:4px;color:var(--t2);font-weight:600">💵 달러 대안 모니터</div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <a href="https://finance.yahoo.com/quote/DX-Y.NYB" target="_blank"
+         style="color:var(--cm);font-family:'JetBrains Mono',monospace;font-size:9px">DXY →</a>
+      <a href="https://finance.yahoo.com/quote/GC=F" target="_blank"
+         style="color:var(--cwa);font-family:'JetBrains Mono',monospace;font-size:9px">GOLD →</a>
+      <a href="https://finance.yahoo.com/quote/EURUSD=X" target="_blank"
+         style="color:var(--cm);font-family:'JetBrains Mono',monospace;font-size:9px">EUR/USD →</a>
+      <a href="https://www.swift.com/our-solutions/compliance-and-shared-services/business-intelligence/renminbi/rmb-tracker" target="_blank"
+         style="color:var(--cm);font-family:'JetBrains Mono',monospace;font-size:9px">CNY% →</a>
+      <a href="https://finance.yahoo.com/quote/BTC-USD" target="_blank"
+         style="color:var(--cwa);font-family:'JetBrains Mono',monospace;font-size:9px">BTC →</a>
+    </div>
+  </div>
+</div>
+
+<!-- 경보 바 -->
+<div id="alert-bar">🚨 <span id="alert-msg"></span></div>
+
+<!-- 컨트롤 -->
+<div id="ctrl">
+  <input id="srch" type="text" placeholder="국가 · 통화 검색..." oninput="render()">
+  <div class="fg2">
+    <button class="fb on" data-f="all"   onclick="setF('all')">전체</button>
+    <button class="fb" data-f="5"        onclick="setF('5')">STAGE 5·4 🔴</button>
+    <button class="fb" data-f="3"        onclick="setF('3')">STAGE 3 🟠</button>
+    <button class="fb" data-f="2"        onclick="setF('2')">STAGE 2 🟡</button>
+    <button class="fb" data-f="1"        onclick="setF('1')">STAGE 1 🔵</button>
+    <button class="fb" data-f="0"        onclick="setF('0')">STAGE 0 🟢</button>
+  </div>
+  <select id="reg" onchange="render()">
+    <option value="all">전체 지역</option>
+    <option value="선진국">선진국</option>
+    <option value="중동">중동</option>
+    <option value="아프리카">아프리카</option>
+    <option value="아시아">아시아</option>
+    <option value="유럽">유럽</option>
+    <option value="아메리카">아메리카</option>
+  </select>
+  <div class="sg">
+    <span class="sl2">정렬:</span>
+    <button class="sb3 on" data-s="score"  onclick="setS('score')">위험점수</button>
+    <button class="sb3"    data-s="dep"    onclick="setS('dep')">절하율</button>
+    <button class="sb3"    data-s="name"   onclick="setS('name')">이름</button>
+  </div>
+</div>
+
+<!-- 공지 -->
+<div id="notice">
+  ℹ &nbsp;
+  <span>
+    <b style="color:#4a7090">6단계 위험지수</b> = 환율신호(30%) + 정부절박도(15%) + 은행취약도(10%·3경로:가계/개도국/기업) + 시민탈출(20%) + 엘리트이탈(15%) + 통제능력(10%) &nbsp;|&nbsp;
+    <b style="color:#4a7090">조작 불가 지표</b>(환율·시장)에 높은 가중치 부여 &nbsp;|&nbsp;
+    카드 클릭 → 전체 분석 + 구글 트렌드 모니터링 링크 &nbsp;|&nbsp;
+    <b style="color:var(--cwa)">⚠ 투자·이민 결정의 단독 근거로 사용 금지</b>
+  </span>
+</div>
+
+<!-- 데이터 업데이트 현황 패널 -->
+<div id="data-status" style="background:var(--surf);border-bottom:1px solid var(--bdr);padding:0">
+  <button onclick="toggleStatus()" style="width:100%;padding:7px 22px;background:transparent;border:none;color:var(--t3);font-size:10px;text-align:left;cursor:pointer;display:flex;align-items:center;gap:6px;font-family:inherit">
+    <span id="status-arrow">▶</span>
+    <span>데이터 업데이트 현황 — 항목별 자동화 범위 확인</span>
+  </button>
+  <div id="status-body" style="display:none;padding:12px 22px 14px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px">
+
+      <!-- 실시간 -->
+      <div style="background:#070c14;border:1px solid rgba(74,222,128,.2);border-radius:8px;padding:10px 12px">
+        <div style="font-size:9px;color:var(--cs);font-weight:600;letter-spacing:.08em;margin-bottom:8px">
+          🟢 실시간 — 페이지 열 때마다 자동
+        </div>
+        <div style="display:flex;flex-direction:column;gap:4px;font-size:10px;color:var(--t2)">
+          <div>💱 공식환율 150개+ <span style="color:var(--t3);float:right">open.er-api</span></div>
+          <div>📉 1년전 환율 150개+ <span style="color:var(--t3);float:right">fawazahmed0</span></div>
+          <div>😱 Fear &amp; Greed <span style="color:var(--t3);float:right">alternative.me</span></div>
+          <div>🥇 금선물·GLD ETF <span style="color:var(--t3);float:right">Yahoo Finance</span></div>
+          <div>🏚️ EZPW 전당포주 <span style="color:var(--t3);float:right">Yahoo Finance</span></div>
+        </div>
+      </div>
+
+      <!-- 매일 자동 -->
+      <div style="background:#070c14;border:1px solid rgba(56,189,248,.2);border-radius:8px;padding:10px 12px">
+        <div style="font-size:9px;color:var(--cm);font-weight:600;letter-spacing:.08em;margin-bottom:8px">
+          🔵 매일 자동 — GitHub Actions
+        </div>
+        <div style="display:flex;flex-direction:column;gap:4px;font-size:10px;color:var(--t2)">
+          <div>📉 환율 급변 ±5%+ 감지 <span style="color:var(--t3);float:right">detect_events.py</span></div>
+          <div>🏛️ IMF 구제금융 RSS <span style="color:var(--t3);float:right">detect_events.py</span></div>
+          <div>📰 GDELT 뉴스 이벤트 <span style="color:var(--t3);float:right">detect_events.py</span></div>
+          <div>🚨 긴급 경보 텔레그램 <span style="color:var(--t3);float:right">선택사항</span></div>
+        </div>
+      </div>
+
+      <!-- 주 1회 자동 -->
+      <div style="background:#070c14;border:1px solid rgba(250,204,21,.2);border-radius:8px;padding:10px 12px">
+        <div style="font-size:9px;color:var(--cwa);font-weight:600;letter-spacing:.08em;margin-bottom:8px">
+          🟡 주 1회 자동 — GitHub Actions
+        </div>
+        <div style="display:flex;flex-direction:column;gap:4px;font-size:10px;color:var(--t2)">
+          <div>📡 암시장 괴리율 pp 8개국 <span style="color:var(--t3);float:right">update_data.py</span></div>
+          <div>🌍 정부부채·경상수지 38개국 <span style="color:var(--t3);float:right">World Bank API</span></div>
+          <div>📊 위기 키워드 트렌드 25개국 <span style="color:var(--t3);float:right">update_trends.py</span></div>
+          <div>🥇 포르투갈 황금비자 통계 <span style="color:var(--t3);float:right">update_data.py</span></div>
+        </div>
+      </div>
+
+      <!-- 주 1회 자동 (신규 추가) -->
+      <div style="background:#070c14;border:1px solid rgba(250,204,21,.2);border-radius:8px;padding:10px 12px">
+        <div style="font-size:9px;color:var(--cwa);font-weight:600;letter-spacing:.08em;margin-bottom:8px">
+          🟡 주 1회 자동 — GitHub Actions
+        </div>
+        <div style="display:flex;flex-direction:column;gap:4px;font-size:10px;color:var(--t2)">
+          <div>⚖️ 법치지수 66개국 <span style="color:var(--t3);float:right">World Bank WGI</span></div>
+          <div>🗳️ 민주주의지수 66개국 <span style="color:var(--t3);float:right">World Bank WGI</span></div>
+          <div>🏠 가계부채/GDP 34개국 <span style="color:var(--t3);float:right">BIS SDMX API</span></div>
+          <div>🏢 기업부채/GDP 34개국 <span style="color:var(--t3);float:right">BIS SDMX API</span></div>
+          <div>📊 3년 절하율 61개국 <span style="color:var(--t3);float:right">World Bank FCRF</span></div>
+          <div>✈️ 시민탈출 지수 66개국 <span style="color:var(--t3);float:right">World Bank 순이민</span></div>
+          <div id="annual-upd" style="color:var(--t3);font-size:9px;margin-top:2px">연간지표: —</div>
+        </div>
+      </div>
+
+      <!-- 수동 연 1회 -->
+      <div style="background:#070c14;border:1px solid rgba(244,63,94,.2);border-radius:8px;padding:10px 12px">
+        <div style="font-size:9px;color:var(--cr);font-weight:600;letter-spacing:.08em;margin-bottom:8px">
+          🔴 수동 — 자동화 불가
+        </div>
+        <div style="display:flex;flex-direction:column;gap:4px;font-size:10px;color:var(--t2)">
+          <div>✈️ 엘리트이탈 지수 <span style="color:var(--t3);float:right">Henley 연간보고서</span></div>
+          <div>📍 hist·note 추정치 <span style="color:var(--t3);float:right">전문가 판단</span></div>
+          <div>🚫 ADS-B 프라이빗 제트 <span style="color:var(--t3);float:right">집계 API 없음</span></div>
+          <div>🚫 하왈라·암호화폐 환율 <span style="color:var(--t3);float:right">추적 불가</span></div>
+        </div>
+      </div>
+
+    </div>
+    <div style="font-size:9px;color:var(--t3);margin-top:8px;padding-top:8px;border-top:1px solid var(--bdr)">
+      💡 GitHub Actions 무료 설정 방법은 README.md 참조 | 수동 항목은 sentinel-data.json 직접 수정
+    </div>
+  </div>
+</div>
+
+<!-- 그리드 -->
+<div id="wrap">
+  <div id="loading">■ 데이터 로딩 중... (환율 + 1년 전 환율 + Fear &amp; Greed)</div>
+  <div id="grid" style="display:none"></div>
+  <div id="empty">검색 결과가 없습니다.</div>
+</div>
+
+<!-- 모달 -->
+<div id="ov" onclick="closeMd(event)">
+  <div id="mb">
+    <button id="mclose" onclick="closeMd()">✕</button>
+    <div id="mc"></div>
+  </div>
+</div>
+
+<script>
+// ══════════════════════════════════════════════════════════════════
+// 국가 데이터 (64개국)
+// ══════════════════════════════════════════════════════════════════
+const RAW = [
+  ["US","미국","USA","🇺🇸","USD","선진국",0,null,null,["기축통화 (달러)","연준 금리 정책","재정적자 증가"]],
+  ["GB","영국","UK","🇬🇧","GBP","선진국",0,null,null,["브렉시트 여파","경상수지 적자","인플레이션 대응"]],
+  ["CA","캐나다","Canada","🇨🇦","CAD","선진국",0,null,null,["원자재 연동","미국 동조화","주택시장 거품"]],
+  ["JP","일본","Japan","🇯🇵","JPY","선진국",0,null,null,["엔화 급락 (150엔대)","YCC 정책 한계","초저금리 지속"]],
+  ["KR","한국","Korea","🇰🇷","KRW","선진국",0,null,null,["반도체 수출 의존","지정학 리스크","고금리 장기화"]],
+  ["CN","중국","China","🇨🇳","CNY","선진국",0,null,null,["자본 통제","부동산 위기","미중 무역 갈등"]],
+  ["TW","대만","Taiwan","🇹🇼","TWD","선진국",0,null,null,["양안 지정학 리스크","반도체 의존","외환보유고 풍부"]],
+  ["DE","독일","Germany","🇩🇪","EUR","선진국",0,null,null,["유로존 핵심국","에너지 위기 후유증","제조업 약화"]],
+  ["AU","호주","Australia","🇦🇺","AUD","선진국",0,null,null,["원자재 연동","중국 경기 의존","금리 변동성"]],
+  ["SG","싱가포르","Singapore","🇸🇬","SGD","선진국",0,null,null,["아시아 금융 허브","MAS 환율 관리","안정적 금융"]],
+  ["CH","스위스","Switzerland","🇨🇭","CHF","선진국",0,null,null,["전통 안전자산","SNB 개입 역사","안정적 경제"]],
+  ["SE","스웨덴","Sweden","🇸🇪","SEK","선진국",0,null,null,["크로나 약세","고인플레이션 대응","비유로존 EU"]],
+  ["NZ","뉴질랜드","New Zealand","🇳🇿","NZD","선진국",0,null,null,["원자재 소규모 통화","호주 동조화","농업 의존"]],
+  ["IR","이란","Iran","🇮🇷","IRR","중동",1700,"bonbast.com","https://bonbast.com",["극도의 국제 제재","공식·자유시장 이중환율","외화 통제 강화"]],
+  ["SY","시리아","Syria","🇸🇾","SYP","중동",300,"karamshaar.com","https://karamshaar.com",["내전 후유증","국제 제재","경제 인프라 붕괴"]],
+  ["YE","예멘","Yemen","🇾🇪","YER","중동",60,null,null,["무력 분쟁 진행","인도주의 위기","경제 붕괴"]],
+  ["LB","레바논","Lebanon","🇱🇧","LBP","중동",5,"lirarate.org","https://lirarate.org",["예금 사실상 동결","정치 교착","IMF 협상 지연"]],
+  ["EG","이집트","Egypt","🇪🇬","EGP","중동",8,null,null,["IMF 구제금융","환율 위기 잔존","달러 부족"]],
+  ["IQ","이라크","Iraq","🇮🇶","IQD","중동",3,null,null,["정치 불안","석유 의존","달러 접근 제한"]],
+  ["ZW","짐바브웨","Zimbabwe","🇿🇼","ZWL","아프리카",100,"zimpricecheck.com","https://zimpricecheck.com",["반복 통화 붕괴","고인플레이션","외화 부족"]],
+  ["SD","수단","Sudan","🇸🇩","SDG","아프리카",80,null,null,["내전 진행","정치 불안","국제 제재"]],
+  ["ET","에티오피아","Ethiopia","🇪🇹","ETB","아프리카",25,"ethioblackmarket.com","https://ethioblackmarket.com",["분쟁 후유증","외화 부족","통화 통제"]],
+  ["LY","리비아","Libya","🇱🇾","LYD","아프리카",25,null,null,["이중 정부","석유 수입 불안정","정치 분열"]],
+  ["AO","앙골라","Angola","🇦🇴","AOA","아프리카",22,null,null,["석유 의존","외화 부족","통화 약세"]],
+  ["NG","나이지리아","Nigeria","🇳🇬","NGN","아프리카",12,"abokiforex.app","https://abokiforex.app",["달러 수요 초과","CBN 외환 통제","석유 의존"]],
+  ["GH","가나","Ghana","🇬🇭","GHS","아프리카",15,null,null,["채무위기","IMF 구제금융","통화 급락"]],
+  ["MZ","모잠비크","Mozambique","🇲🇿","MZN","아프리카",15,null,null,["부채 스캔들","천연자원 의존","내부 갈등"]],
+  ["ZM","잠비아","Zambia","🇿🇲","ZMW","아프리카",15,null,null,["채무 불이행","구리 의존","IMF 구조조정"]],
+  ["TN","튀니지","Tunisia","🇹🇳","TND","아프리카",12,null,null,["IMF 협상 교착","외화 부족","정치 위기"]],
+  ["DZ","알제리","Algeria","🇩🇿","DZD","아프리카",10,null,null,["석유 의존","암시장 환전","통화 통제"]],
+  ["UG","우간다","Uganda","🇺🇬","UGX","아프리카",10,null,null,["달러 압력","통화 변동성","외채 증가"]],
+  ["TZ","탄자니아","Tanzania","🇹🇿","TZS","아프리카",10,null,null,["달러 부족","외화 통제","통화 변동성"]],
+  ["KE","케냐","Kenya","🇰🇪","KES","아프리카",5,null,null,["외채 부담","달러 압력","통화 약세"]],
+  ["ZA","남아프리카","S.Africa","🇿🇦","ZAR","아프리카",0,null,null,["경기 침체","전력 부족","정치 리스크"]],
+  ["MA","모로코","Morocco","🇲🇦","MAD","아프리카",2,null,null,["비교적 안정","관광 의존","환율 관리"]],
+  ["MM","미얀마","Myanmar","🇲🇲","MMK","아시아",100,null,null,["쿠데타 후 경제 붕괴","통화 통제","외화 불가"]],
+  ["AF","아프가니스탄","Afghanistan","🇦🇫","AFN","아시아",40,null,null,["탈레반 정권","해외 자산 동결","원조 급감"]],
+  ["LA","라오스","Laos","🇱🇦","LAK","아시아",35,null,null,["외채 위기","외화 부족","통화 급락"]],
+  ["PK","파키스탄","Pakistan","🇵🇰","PKR","아시아",8,null,null,["IMF 구제금융","경상적자","외화 부족"]],
+  ["BD","방글라데시","Bangladesh","🇧🇩","BDT","아시아",8,null,null,["외화 감소","달러 부족","수입 의존"]],
+  ["UZ","우즈베키스탄","Uzbekistan","🇺🇿","UZS","아시아",8,null,null,["신흥시장 취약","외화 통제 역사","러시아 의존"]],
+  ["TJ","타지키스탄","Tajikistan","🇹🇯","TJS","아시아",10,null,null,["러시아 의존","송금 의존","외채 부담"]],
+  ["LK","스리랑카","Sri Lanka","🇱🇰","LKR","아시아",5,null,null,["2022 경제 붕괴 후 회복","IMF 프로그램","채무 조정"]],
+  ["KZ","카자흐스탄","Kazakhstan","🇰🇿","KZT","아시아",5,null,null,["러시아 제재 파급","원자재 의존","통화 변동"]],
+  ["ID","인도네시아","Indonesia","🇮🇩","IDR","아시아",2,null,null,["대외 취약성","원자재 의존","자본 유출"]],
+  ["IN","인도","India","🇮🇳","INR","아시아",2,null,null,["자본 계정 통제","경상적자","달러 의존"]],
+  ["VN","베트남","Vietnam","🇻🇳","VND","아시아",3,null,null,["환율 통제","달러화 경제","외화 제한"]],
+  ["KH","캄보디아","Cambodia","🇰🇭","KHR","아시아",2,null,null,["이중통화 경제","외부 충격","관광 의존"]],
+  ["NP","네팔","Nepal","🇳🇵","NPR","아시아",3,null,null,["인도 루피 페그","송금 의존","외화 압박"]],
+  ["BY","벨라루스","Belarus","🇧🇾","BYN","유럽",20,null,null,["서방 제재","러시아 종속","정치 탄압"]],
+  ["UA","우크라이나","Ukraine","🇺🇦","UAH","유럽",8,null,null,["전쟁 진행","자본 통제","전시 경제"]],
+  ["TR","터키","Turkey","🇹🇷","TRY","유럽",0,null,null,["고인플레이션 60%+","리라 급락 역사","정치 리스크"]],
+  ["RU","러시아","Russia","🇷🇺","RUB","유럽",0,null,null,["서방 제재","자본 통제","인위적 환율 지지"]],
+  ["HU","헝가리","Hungary","🇭🇺","HUF","유럽",0,null,null,["EU 자금 분쟁","인플레이션","포린트 약세"]],
+  ["RO","루마니아","Romania","🇷🇴","RON","유럽",0,null,null,["재정 적자","경상적자","통화 압박"]],
+  ["PL","폴란드","Poland","🇵🇱","PLN","유럽",0,null,null,["비교적 안정","지정학 리스크","인플레이션"]],
+  ["GE","조지아","Georgia","🇬🇪","GEL","유럽",2,null,null,["러시아 의존","지정학 리스크","외화 변동"]],
+  ["CU","쿠바","Cuba","🇨🇺","CUP","아메리카",150,null,null,["미국 장기 제재","이중통화 후유증","달러 심각 부족"]],
+  ["VE","베네수엘라","Venezuela","🇻🇪","VES","아메리카",45,"monitordolarve.com","https://monitordolarve.com",["수십 년 경제 위기","부분 달러화","초인플레이션 역사"]],
+  ["BO","볼리비아","Bolivia","🇧🇴","BOB","아메리카",20,null,null,["외화보유고 고갈","달러 부족","연료 의존"]],
+  ["AR","아르헨티나","Argentina","🇦🇷","ARS","아메리카",15,"dolarito.ar","https://dolarito.ar",["반복 채무 불이행","블루달러 암시장","고인플레이션"]],
+  ["BR","브라질","Brazil","🇧🇷","BRL","아메리카",0,null,null,["재정 적자","정치 불안","통화 변동성"]],
+  ["CO","콜롬비아","Colombia","🇨🇴","COP","아메리카",0,null,null,["경제 불안","달러 의존","재정 압박"]],
+  ["PE","페루","Peru","🇵🇪","PEN","아메리카",0,null,null,["정치 불안정","광업 의존","사회 갈등"]],
+];
+
+const COUNTRIES = RAW.map(([id,ko,en,flag,cur,reg,pp,srcN,srcU,factors])=>
+  ({id,ko,en,flag,cur,reg,pp,srcN:srcN||null,srcU:srcU||null,hasSrc:!!srcN,factors})
+);
+
+// ── 국가별 위험 메타데이터 ──────────────────────────────────────────────────
+// hist: 몰수 전례(0-3), law: 법치(0-100↑), demo: 민주(0-100↑)
+// debt: 정부부채/GDP%, ca: 경상수지/GDP%, inf: 공식물가%
+// elite: 엘리트이탈점수(0-100), citizen: 시민탈출점수(0-100)
+// note: 역사적 전례 요약
+const META = {
+  "US":{hist:1,law:75,demo:80,debt:130,ca:-3,inf:3,elite:5,citizen:5,note:"1933년 루스벨트 금 강제 매각령 역사적 선례",hd:75,dep3y:8,cd:80},
+  "GB":{hist:0,law:80,demo:85,debt:105,ca:-3,inf:4,elite:7,citizen:5,note:"2차대전 외환 통제 역사, 현재 안정",hd:85,dep3y:18,cd:85},
+  "CA":{hist:0,law:78,demo:85,debt:110,ca:-2,inf:3,elite:3,citizen:3,note:"2022년 트럭시위 계좌 동결 논란 (법적 절차 후 해제)",hd:105,dep3y:15,cd:78},
+  "JP":{hist:1,law:78,demo:82,debt:265,ca:3,inf:3,elite:3,citizen:5,note:"전후 재산세 자산 75% 과세 역사, 현재 안정",hd:65,dep3y:38,cd:115},
+  "KR":{hist:0,law:75,demo:80,debt:55,ca:3,inf:3,elite:8,citizen:8,note:"1997년 IMF 금 모으기 운동, 현재 안정",hd:105,dep3y:22,cd:115},
+  "CN":{hist:2,law:40,demo:20,debt:140,ca:2,inf:2,elite:55,citizen:60,note:"반부패 명목 자산 몰수, 홍콩 민주화 탄압·자산 동결",hd:65,dep3y:5,cd:160},
+  "TW":{hist:0,law:72,demo:78,debt:27,ca:14,inf:2,elite:5,citizen:8,note:"양안 군사 위협 최대, 내부 금융 시스템은 안정",hd:90,dep3y:8,cd:90},
+  "DE":{hist:0,law:85,demo:90,debt:65,ca:6,inf:3,elite:2,citizen:2,note:"EU 법치 보호, 2차대전 후 재산권 강하게 보장",hd:55,dep3y:12,cd:65},
+  "AU":{hist:0,law:78,demo:88,debt:45,ca:-1,inf:4,elite:2,citizen:2,note:"안정적 금융 시스템, 재산권 강하게 보호",hd:120,dep3y:15,cd:80},
+  "SG":{hist:0,law:82,demo:65,debt:170,ca:17,inf:1,elite:3,citizen:3,note:"아시아 금융 허브, 자금 유입 국가 (오히려 피난처)",hd:55,dep3y:5,cd:55},
+  "CH":{hist:0,law:85,demo:90,debt:40,ca:9,inf:2,elite:2,citizen:2,note:"중립국·금융비밀 전통, 안전자산의 상징",hd:130,dep3y:5,cd:90},
+  "SE":{hist:0,law:85,demo:92,debt:35,ca:5,inf:5,elite:2,citizen:2,note:"북유럽 복지국가, 강한 재산권 보호",hd:90,dep3y:25,cd:100},
+  "NZ":{hist:0,law:82,demo:92,debt:50,ca:-7,inf:4,elite:2,citizen:2,note:"안정적, 경상수지 적자 일부 취약점",hd:95,dep3y:20,cd:75},
+  "IR":{hist:3,law:18,demo:14,debt:45,ca:5,inf:42,elite:90,citizen:85,note:"구조적 이중환율, 반정부 자산 몰수 일상화",hd:10,dep3y:99,cd:30},
+  "SY":{hist:3,law:12,demo:8,debt:180,ca:-10,inf:80,elite:85,citizen:90,note:"내전 중 국가자원 무기화, 반정부 자산 전면 몰수",hd:5,dep3y:99,cd:15},
+  "YE":{hist:2,law:10,demo:8,debt:85,ca:-14,inf:40,elite:70,citizen:80,note:"후티vs국제정부 이중통화, 전시 자산 통제",hd:5,dep3y:80,cd:10},
+  "LB":{hist:2,law:38,demo:48,debt:175,ca:-15,inf:25,elite:75,citizen:80,note:"2019년 예금 사실상 동결, 은행 자의적 인출 거부",hd:12,dep3y:99,cd:80},
+  "EG":{hist:2,law:38,demo:20,debt:96,ca:-3,inf:33,elite:55,citizen:60,note:"IMF 조건 외화 통제, 강제 파운드화 사용",hd:18,dep3y:55,cd:40},
+  "IQ":{hist:1,law:28,demo:32,debt:48,ca:-3,inf:5,elite:40,citizen:45,note:"쿠르드 자산 동결 사례, 정치 불안",hd:8,dep3y:10,cd:20},
+  "ZW":{hist:3,law:25,demo:22,debt:105,ca:-3,inf:500,elite:70,citizen:75,note:"2008년 초인플레이션, 2019년 RTGS 강제 전환, 반복 몰수",hd:5,dep3y:99,cd:20},
+  "SD":{hist:3,law:15,demo:10,debt:260,ca:-6,inf:200,elite:80,citizen:85,note:"반복 경제 위기, 외채 불이행, 내전 자산 강탈",hd:5,dep3y:99,cd:10},
+  "ET":{hist:2,law:30,demo:22,debt:58,ca:-4,inf:33,elite:60,citizen:65,note:"분쟁 후 자산 동결, 외화 배급제",hd:10,dep3y:40,cd:25},
+  "LY":{hist:2,law:18,demo:20,debt:155,ca:4,inf:5,elite:65,citizen:60,note:"이중 정부 자산 무기화, 석유 수입 정치적 배분",hd:5,dep3y:20,cd:15},
+  "AO":{hist:2,law:28,demo:25,debt:82,ca:3,inf:18,elite:60,citizen:55,note:"내전기 자산 전면 몰수, 현재 부패 통한 강탈",hd:12,dep3y:40,cd:30},
+  "NG":{hist:1,law:33,demo:40,debt:47,ca:1,inf:28,elite:55,citizen:60,note:"나이라 강제 리디노미네이션, 외화 이중환율",hd:12,dep3y:55,cd:20},
+  "GH":{hist:1,law:48,demo:68,debt:92,ca:-3,inf:23,elite:45,citizen:50,note:"2022년 채권 강제 재편, 연금 손실 발생",hd:15,dep3y:50,cd:25},
+  "MZ":{hist:1,law:28,demo:35,debt:110,ca:-8,inf:8,elite:50,citizen:55,note:"부채 스캔들, IMF 관리 하 제한",hd:12,dep3y:30,cd:20},
+  "ZM":{hist:1,law:38,demo:48,debt:140,ca:-2,inf:16,elite:45,citizen:50,note:"2020년 디폴트, 채무 재조정 손실",hd:15,dep3y:35,cd:20},
+  "TN":{hist:1,law:42,demo:45,debt:82,ca:-8,inf:10,elite:50,citizen:55,note:"IMF 협상 결렬, 대통령 권한 강화 재산권 위협",hd:18,dep3y:25,cd:70},
+  "DZ":{hist:2,law:35,demo:30,debt:65,ca:7,inf:7,elite:55,citizen:50,note:"과거 사회주의 국유화, 현재 외환 엄격 통제",hd:12,dep3y:25,cd:30},
+  "UG":{hist:1,law:38,demo:35,debt:55,ca:-8,inf:10,elite:40,citizen:45,note:"외채 급증, 달러 압박",hd:8,dep3y:20,cd:15},
+  "TZ":{hist:1,law:40,demo:38,debt:38,ca:-5,inf:8,elite:35,citizen:40,note:"외화 통제, 달러 배급",hd:8,dep3y:15,cd:15},
+  "KE":{hist:1,law:45,demo:55,debt:75,ca:-5,inf:7,elite:40,citizen:45,note:"외채 위기 임박, 달러 부족",hd:15,dep3y:35,cd:35},
+  "ZA":{hist:0,law:55,demo:60,debt:75,ca:-2,inf:6,elite:25,citizen:30,note:"비교적 안정, 일부 통화 압박",hd:35,dep3y:30,cd:60},
+  "MA":{hist:0,law:52,demo:45,debt:70,ca:-1,inf:6,elite:20,citizen:25,note:"안정적, 외환 통제 존재",hd:30,dep3y:15,cd:65},
+  "MM":{hist:3,law:20,demo:12,debt:65,ca:-2,inf:26,elite:75,citizen:80,note:"2021년 쿠데타 후 반정부 기업·개인 자산 전면 동결",hd:8,dep3y:60,cd:15},
+  "AF":{hist:3,law:10,demo:5,debt:8,ca:-22,inf:12,elite:85,citizen:90,note:"탈레반 집권, 여성 재산권 박탈, 해외 70억달러 동결",hd:5,dep3y:40,cd:5},
+  "LA":{hist:2,law:25,demo:15,debt:125,ca:-12,inf:26,elite:65,citizen:70,note:"2022년 채무위기, 외화 배급 심화",hd:15,dep3y:50,cd:50},
+  "PK":{hist:1,law:42,demo:45,debt:77,ca:-1,inf:24,elite:50,citizen:55,note:"달러 배급, IMF 조건부 외화 통제",hd:15,dep3y:60,cd:20},
+  "BD":{hist:1,law:40,demo:38,debt:43,ca:-1,inf:9,elite:40,citizen:45,note:"달러 부족, 수입 통제, 환율 압박",hd:12,dep3y:25,cd:30},
+  "UZ":{hist:2,law:38,demo:22,debt:38,ca:-4,inf:10,elite:45,citizen:50,note:"과거 완전 통제 경제, 외화 통제 잔존",hd:12,dep3y:20,cd:30},
+  "TJ":{hist:2,law:28,demo:18,debt:115,ca:-5,inf:8,elite:50,citizen:55,note:"러시아 의존, 송금 차단 시 즉각 위기",hd:12,dep3y:25,cd:20},
+  "LK":{hist:1,law:48,demo:60,debt:130,ca:-2,inf:20,elite:45,citizen:55,note:"2022년 경제 붕괴, IMF 구제금융",hd:15,dep3y:50,cd:40},
+  "KZ":{hist:1,law:38,demo:30,debt:22,ca:3,inf:8,elite:50,citizen:45,note:"러시아 제재 파급, 자산 이전 제한 가능성",hd:20,dep3y:25,cd:55},
+  "ID":{hist:0,law:52,demo:58,debt:40,ca:-1,inf:3,elite:20,citizen:25,note:"1998년 위기 이후 개선, 비교적 안정",hd:35,dep3y:15,cd:50},
+  "IN":{hist:0,law:55,demo:65,debt:85,ca:-1,inf:5,elite:35,citizen:35,note:"자본 계정 통제, 비교적 안정",hd:37,dep3y:12,cd:55},
+  "VN":{hist:1,law:38,demo:25,debt:38,ca:-2,inf:4,elite:25,citizen:30,note:"공산당 통치, 외화 통제, 부패 관리 자산 몰수",hd:25,dep3y:10,cd:100},
+  "KH":{hist:1,law:28,demo:20,debt:35,ca:-15,inf:3,elite:35,citizen:40,note:"권위주의 통치, 반정부 인사 자산 동결",hd:30,dep3y:5,cd:30},
+  "NP":{hist:0,law:45,demo:60,debt:45,ca:-8,inf:7,elite:25,citizen:30,note:"인도 루피 페그, 비교적 안정",hd:20,dep3y:10,cd:20},
+  "BY":{hist:2,law:22,demo:15,debt:47,ca:-2,inf:7,elite:75,citizen:70,note:"2020년 시위 후 반정부 기업인·언론인 자산 대규모 동결",hd:22,dep3y:25,cd:45},
+  "UA":{hist:1,law:52,demo:60,debt:90,ca:-5,inf:12,elite:45,citizen:55,note:"전시 자본통제, 러시아계 자산 몰수",hd:18,dep3y:60,cd:60},
+  "TR":{hist:1,law:42,demo:35,debt:35,ca:-4,inf:65,elite:45,citizen:50,note:"쿠르드 기업인·언론인 자산 동결, 외화통제 강화",hd:15,dep3y:80,cd:70},
+  "RU":{hist:3,law:25,demo:20,debt:19,ca:3,inf:9,elite:95,citizen:90,note:"반전 인사 자산 동결, 서방 기업 몰수, 올리가르히 숙청",hd:25,dep3y:40,cd:80},
+  "HU":{hist:1,law:52,demo:48,debt:75,ca:0,inf:18,elite:25,citizen:30,note:"언론·NGO 자산 압박, 오르반 재산권 약화",hd:28,dep3y:30,cd:55},
+  "RO":{hist:0,law:55,demo:65,debt:52,ca:-7,inf:11,elite:10,citizen:15,note:"EU 감시 하 비교적 안정",hd:20,dep3y:20,cd:40},
+  "PL":{hist:0,law:65,demo:78,debt:55,ca:-2,inf:12,elite:8,citizen:10,note:"안정적, EU 법치 복원 중",hd:40,dep3y:15,cd:50},
+  "GE":{hist:1,law:45,demo:55,debt:42,ca:-5,inf:6,elite:35,citizen:40,note:"러시아 영향력, 과거 갈등",hd:35,dep3y:15,cd:55},
+  "CU":{hist:3,law:15,demo:10,debt:80,ca:-5,inf:35,elite:80,citizen:85,note:"혁명 후 전면 자산 국유화, 현재도 달러 완전 통제",hd:5,dep3y:50,cd:20},
+  "VE":{hist:3,law:15,demo:14,debt:350,ca:3,inf:190,elite:90,citizen:85,note:"차베스~마두로: 기업·토지 국유화, 금·석유 자산 몰수",hd:5,dep3y:99,cd:30},
+  "BO":{hist:2,law:32,demo:40,debt:87,ca:-4,inf:5,elite:65,citizen:60,note:"모랄레스 기업 국유화, 외화보유고 고갈로 달러 통제",hd:18,dep3y:25,cd:30},
+  "AR":{hist:3,law:45,demo:65,debt:92,ca:-2,inf:150,elite:65,citizen:70,note:"2001 코랄리토, 2008 연금 국유화, 반복적 채무 위기",hd:8,dep3y:95,cd:25},
+  "BR":{hist:0,law:52,demo:65,debt:90,ca:-2,inf:5,elite:15,citizen:20,note:"과거 채무 불이행, 현재 비교적 안정",hd:35,dep3y:30,cd:50},
+  "CO":{hist:0,law:50,demo:65,debt:58,ca:-3,inf:10,elite:15,citizen:18,note:"비교적 안정, 정치 불안 일부",hd:28,dep3y:25,cd:35},
+  "PE":{hist:0,law:50,demo:65,debt:35,ca:-1,inf:3,elite:12,citizen:15,note:"정치 불안, 비교적 안정",hd:20,dep3y:12,cd:30},
+};
+
+// ── 단계 정의 ────────────────────────────────────────────────────────────────
+const STAGES = {
+  5:{lbl:"진행 중", sub:"동결·몰수 실행",  color:"var(--cr)",  bg:"var(--cr-bg)",  br:"var(--cr-br)",  cls:"s5"},
+  4:{lbl:"임  박",  sub:"동결 직전 신호",   color:"var(--cr)",  bg:"var(--cr-bg)",  br:"var(--cr-br)",  cls:"s4"},
+  3:{lbl:"경  보",  sub:"복수 위험 신호",   color:"var(--cw)",  bg:"var(--cw-bg)",  br:"var(--cw-br)",  cls:"s3"},
+  2:{lbl:"위험신호",sub:"잠재 위험 발현",   color:"var(--cwa)", bg:"var(--cwa-bg)", br:"var(--cwa-br)", cls:"s2"},
+  1:{lbl:"잠재위험",sub:"모니터링 필요",    color:"var(--cm)",  bg:"var(--cm-bg)",  br:"var(--cm-br)",  cls:"s1"},
+  0:{lbl:"정  상",  sub:"위험 낮음",        color:"var(--cs)",  bg:"var(--cs-bg)",  br:"var(--cs-br)",  cls:"s0"},
+};
+
+// ── 앱 상태 ──────────────────────────────────────────────────────────────────
+let nowRates={SYP:13000,ZWL:350,CUP:24,MMK:2100,SDG:600,YER:530,AFN:72,LAK:21000,VES:36,IQD:1308};
+let prevRates={};
+let fearGreed=null;
+let filter="all", sort="score", ready=false;
+
+// ── 점수 계산 ────────────────────────────────────────────────────────────────
+function calcScore(c, dep) {
+  const m = META[c.id] || {};
+  let s = 0;
+
+  // ① 환율 신호 (30점) — 시장 결정, 조작 불가, 최우선
+  // dep 없으면 dep3y/3 연환산 프록시 사용
+  const depAnnual = dep != null ? dep : ((m.dep3y || 0) / 3);
+  if (c.pp > 0) {
+    // 제곱근 스케일: pp=225%→30점, pp=100%→20점, pp=45%→13점, pp=15%→8점
+    // 이전 pp/57은 이란(1700%)에만 최적화되어 나머지 41개국이 0~2점이었음
+    s += Math.min(30, Math.sqrt(c.pp) * 2);
+  } else if (depAnnual > 0) {
+    s += Math.min(30, depAnnual * 1.2);     // 절하율: 25%→30점
+  }
+
+  // ② 정부 절박도 (15점) — 재정·외화·인플레이션
+  //    조작 가능하나 극단값은 숨기기 어려움
+  let gd = 0;
+  const debt = m.debt || 0;
+  if (debt > 250) gd += 6; else if (debt > 150) gd += 4; else if (debt > 100) gd += 2;
+  const ca = m.ca || 0;
+  if (ca < -12) gd += 5; else if (ca < -6) gd += 3; else if (ca < -2) gd += 1;
+  const inf = m.inf || 0;
+  if (inf > 100) gd += 4; else if (inf > 30) gd += 2; else if (inf > 10) gd += 1;
+  // 주: 외환통제 패널티는 임의적 수치이므로 점수 반영 없이
+  //     anomaly 경보로만 표시 (detectAnomalies에서 처리)
+  s += Math.min(15, gd);
+
+  // ③ 은행 취약도 (10점) — 세 가지 독립 경로
+  const hd = m.hd || 0;
+  const cd = m.cd || 0;  // 기업부채 / GDP %
+  let bv = 0;
+
+  // ─ 경로 A: 선진국형 (키프로스·아이슬란드 유형) ─────────────────
+  //   高가계부채 → 금리상승 → 대출부실 → 은행위기 → 예금동결
+  let bvA = 0;
+  if (hd > 120) bvA += 4; else if (hd > 100) bvA += 3;
+  else if (hd > 80) bvA += 2; else if (hd > 60) bvA += 1;
+  if (hd > 100 && inf > 5) bvA += 1;
+  bvA = Math.min(5, bvA);
+
+  // ─ 경로 B: 개도국형 (레바논·아르헨티나 유형) ────────────────────
+  //   정부채권 노출 + 국가통제 은행 + 외화 불일치
+  const govBankRisk   = Math.min(3.0, debt / 60);
+  const stateCtrlRisk = Math.max(0, (58-(m.law||50)) / 18);
+  const fxMismatch    = inf > 20 ? 2 : inf > 10 ? 1 : 0;
+  let bvB = Math.min(4, govBankRisk * 0.6 + stateCtrlRisk + fxMismatch);
+  bvB = Math.round(bvB);
+
+  // ─ 경로 C: 기업부채형 (중국·러시아 유형) ───────────────────────
+  //   高기업부채 → 대기업 파산 → 은행 연쇄 부실
+  //   국유기업 부채 → 정부가 부채 빌미로 민간 자산 국유화
+  let bvC = 0;
+  if (cd > 150) bvC += 3;
+  else if (cd > 100) bvC += 2;
+  else if (cd > 70) bvC += 1;
+  if ((m.law||50) < 45) bvC += 1;  // 법치 낮은 나라: 부채 빌미 자산 몰수 가능성
+  bvC = Math.min(3, bvC);
+
+  bv = Math.min(10, bvA + bvB + bvC);
+  s += bv;
+
+  // ④ 시민 탈출 신호 (20점) — 실물·검색, 조작 불가
+  s += (m.citizen || 0) * 0.2;
+
+  // ⑤ 엘리트 이탈 (15점) — 공개 통계, 조작 어려움
+  s += (m.elite || 0) * 0.15;
+
+  // ⑥ 통제 실행 능력 (10점) — 독립기관 평가
+  // hist 전례: [0→0, 1→2, 2→4, 3→6점]
+  // law 결여:  law<60일 때 (60-law)/10 → max 3점
+  // demo 결여: demo<65일 때 (65-demo)/15 → max 3점
+  // 이론 max = 6+3+3=12 → min(10) 명시 제한
+  const histPts = [0,2,4,6][m.hist||0];
+  const lawPts  = Math.max(0, Math.min(3, (60  - (m.law ||50)) / 10));
+  const demoPts = Math.max(0, Math.min(3, (65  - (m.demo||50)) / 15));
+  s += Math.min(10, histPts + lawPts + demoPts);
+
+  return Math.min(100, Math.round(s));  // 최종 캡: 100점 초과 불가
+}
+
+function getStage(score, c) {
+  const m = META[c.id] || {};
+  if (c.pp > 500 || score >= 88) return 5;
+  if (score >= 68) return 4;
+  if (score >= 48) return 3;
+  if (score >= 28) return 2;
+  if (score >= 12) return 1;
+  return 0;
+}
+
+function detectAnomalies(c, dep, score) {
+  const m = META[c.id] || {};
+  const a = [];
+  if (dep != null && dep > 15 && (m.inf || 0) < 5)
+    a.push({sev:"crit", msg:`환율 ▼${dep.toFixed(1)}% 절하 ↔ 공식물가 ${m.inf}% — 통계 조작 의심`});
+  if ((m.hist || 0) >= 3)
+    a.push({sev:"crit", msg:`자산 동결·몰수 다수 전례 보유 (최고 위험)`});
+  else if ((m.hist || 0) === 2)
+    a.push({sev:"warn", msg:`자산 동결·몰수 전례 있음 — 반복 가능성 주의`});
+  if ((m.elite || 0) >= 80 && c.pp > 20)
+    a.push({sev:"crit", msg:`엘리트 이탈 강도 높음 — 내부 정보 기반 선제 행동`});
+  if ((m.ca || 0) < -10)
+    a.push({sev:"warn", msg:`경상수지 적자 GDP ${Math.abs(m.ca || 0)}% — 외화 고갈 진행`});
+  if ((m.debt || 0) > 200 && c.pp > 0)
+    a.push({sev:"warn", msg:`정부부채 GDP ${m.debt}% + 암시장 활성 — 재정 절박`});
+  return a.slice(0, 3);
+}
+
+function enrich(c) {
+  const now  = nowRates[c.cur] || null;
+  const prev = prevRates[c.cur] || null;
+  const dep  = (now && prev) ? +((now - prev) / prev * 100).toFixed(1) : null;
+  const m2   = META[c.id] || {};
+  // 1년 데이터 없으면 dep3y/3 연환산으로 표시
+  const depDisplay = dep != null ? dep
+    : (m2.dep3y ? +(m2.dep3y / 3).toFixed(1) : null);
+  const depIsEstimated = dep == null && m2.dep3y != null;
+  const parallel = (now && c.pp > 0) ? now * (1 + c.pp / 100) : null;
+  const score = calcScore(c, dep != null ? dep : (m2.dep3y ? m2.dep3y/3 : null));
+  const stage = getStage(score, c);
+  const anomalies = detectAnomalies(c, dep, score);
+  const mainScore = c.pp > 0 ? c.pp : (dep && dep > 0 ? dep : 0);
+  return {...c, now, prev, dep, depDisplay, depIsEstimated, parallel, score, stage, anomalies, mainScore};
+}
+
+// ── 데이터 로드 ──────────────────────────────────────────────────────────────
+async function loadData() {
+  const d1y = new Date(); d1y.setFullYear(d1y.getFullYear()-1);
+  const dateStr = d1y.toISOString().split("T")[0];
+
+  const [r1, r2, r3] = await Promise.allSettled([
+    fetch("https://open.er-api.com/v6/latest/USD").then(r=>r.json()),
+    fetch(`https://api.frankfurter.app/${dateStr}?from=USD`).then(r=>r.json()),
+    fetch("https://api.alternative.me/fng/?limit=1").then(r=>r.json()),
+  ]);
+
+  if (r1.status==="fulfilled" && r1.value.rates) {
+    nowRates = {...nowRates, ...r1.value.rates};
+  }
+  if (r2.status==="fulfilled" && r2.value.rates) {
+    prevRates = r2.value.rates;
+  }
+  if (r3.status==="fulfilled" && r3.value.data) {
+    fearGreed = r3.value.data[0];
+    renderFearGreed(fearGreed);
+  }
+
+  // EZPW 주가 시도 (CORS 실패 시 무시)
+  try {
+    const yr = await fetch("https://query1.finance.yahoo.com/v8/finance/chart/EZPW?interval=1d&range=5d");
+    const yd = await yr.json();
+    const closes = yd.chart.result[0].indicators.quote[0].close.filter(v=>v!=null);
+    if (closes.length >= 2) {
+      const chg = ((closes[closes.length-1] - closes[0]) / closes[0] * 100).toFixed(1);
+      const col = chg > 0 ? "var(--cr)" : "var(--cs)";
+      document.getElementById("ezpw-val").textContent = `${chg > 0 ? "+" : ""}${chg}%`;
+      document.getElementById("ezpw-val").style.color = col;
+      document.getElementById("ezpw-sub").textContent = `$${closes[closes.length-1].toFixed(1)} · 5일 변화`;
+    }
+  } catch { /* CORS 차단 무시 */ }
+
+  const t = new Date();
+  document.getElementById("upd").textContent =
+    `${t.toLocaleTimeString("ko-KR",{hour:"2-digit",minute:"2-digit"})} · 기준 ${dateStr}`;
+
+  ready = true;
+  document.getElementById("loading").style.display = "none";
+  document.getElementById("grid").style.display = "grid";
+
+  // Claude.ai 샌드박스 감지 — API 차단 시 안내
+  const apiWorked = Object.keys(nowRates).length > 15;
+  if (!apiWorked) {
+    document.getElementById("upd").textContent = "⚠ 미리보기 모드 — 파일 다운로드 후 브라우저에서 열면 실시간 데이터";
+    document.getElementById("upd").style.color = "var(--cw)";
+    // 주요 폴백 환율 (2025년 5월 기준 근사값)
+    const FALLBACK_RATES = {
+      USD:1, EUR:0.92, GBP:0.79, JPY:155.8, KRW:1385, CNY:7.25,
+      TWD:32.5, AUD:1.55, SGD:1.36, CHF:0.9, SEK:10.5, NZD:1.7,
+      TRY:38.5, RUB:89, HUF:385, RON:4.7, PLN:4.05, BYN:3.3,
+      UAH:41.5, GEL:2.72, BRL:5.15, ARS:1050, COP:4350, PEN:3.75,
+      BOB:6.9, NGN:1610, GHS:16.5, ZAR:18.8, KES:130, EGP:49,
+      IQD:1308, LBP:89500, PKR:278, BDT:110, INR:84, IDR:16400,
+      VND:25350, LKR:295, KZT:455, UZS:12800, MYR:4.75, THB:36,
+      IRR:42000, AFN:72, LAK:21800, MMK:2100, ZWL:350, SDG:600,
+      YER:530, CUP:24, VES:36, ETB:58, TND:3.15, DZD:135,
+      DZD:135, UGX:3750, TZS:2650, MAD:10.2, MZN:64, ZMW:26,
+      AOA:915, LYD:4.9, KHR:4100, NPR:134, GEL:2.72,
+    };
+    Object.assign(nowRates, FALLBACK_RATES);
+    // 1년 전 근사값 (최근 1년 변화 반영)
+    const FALLBACK_PREV = {
+      KRW:1330, JPY:150, TRY:29, RUB:92, HUF:360, SEK:10.8,
+      BRL:5.0, ARS:500, TND:3.1, EGP:31, PKR:285, ZAR:19.2,
+      GHS:12.5, NGN:1480, KES:135, LKR:315, IDR:15900,
+    };
+    Object.assign(prevRates, FALLBACK_PREV);
+  }
+
+  updateStats();
+  render();
+}
+
+function renderFearGreed(fg) {
+  if (!fg) return;
+  const v = parseInt(fg.value);
+  const c = v < 25 ? "var(--cr)" : v < 45 ? "var(--cw)" : v < 55 ? "var(--cwa)" : v < 75 ? "var(--cm)" : "var(--cs)";
+  document.getElementById("fg-val").textContent = v;
+  document.getElementById("fg-val").style.color = c;
+  document.getElementById("fg-lbl").textContent = fg.value_classification;
+  document.getElementById("fg-needle").style.left = v + "%";
+  document.getElementById("fg-needle").style.borderColor = c;
+}
+
+function updateStats() {
+  const enriched = COUNTRIES.map(enrich);
+  const cnt = {5:0,4:0,3:0,2:0,1:0,0:0};
+  enriched.forEach(c=>cnt[c.stage]++);
+  document.getElementById("s5").textContent = (cnt[5]+cnt[4]);
+  document.getElementById("s3").textContent = cnt[3];
+  document.getElementById("s2").textContent = cnt[2];
+  document.getElementById("s1").textContent = cnt[1];
+  document.getElementById("s0").textContent = cnt[0];
+  document.getElementById("f-5") && (document.getElementById("f-5").textContent = cnt[5]+cnt[4]);
+
+  // 경보 바
+  const critCount = cnt[5] + cnt[4];
+  if (critCount > 0) {
+    document.getElementById("alert-bar").classList.add("show");
+    document.getElementById("alert-msg").textContent =
+      `${critCount}개국이 STAGE 4 이상 — 자산 동결·몰수 임박 또는 진행 중`;
+  }
+}
+
+function setF(f) {
+  filter = f;
+  document.querySelectorAll(".fb").forEach(b=>b.classList.toggle("on", b.dataset.f===f));
+  render();
+}
+function setS(s) {
+  sort = s;
+  document.querySelectorAll(".sb3").forEach(b=>b.classList.toggle("on", b.dataset.s===s));
+  render();
+}
+
+// ── 포맷 함수 ────────────────────────────────────────────────────────────────
+function fmtR(v) {
+  if (v==null) return "—";
+  if (v>=1000000) return (v/1000000).toFixed(2)+"M";
+  if (v>=100000)  return Math.round(v/1000)+"K";
+  if (v>=1000)    return v.toLocaleString("en",{maximumFractionDigits:0});
+  if (v>=100)     return v.toFixed(0);
+  if (v>=10)      return v.toFixed(1);
+  if (v>=1)       return v.toFixed(2);
+  return v.toFixed(4);
+}
+function fmtFX(pp, dep) {
+  if (pp > 0) return pp >= 1000 ? `+${Math.round(pp/100)}×` : `+${pp}%`;
+  if (dep != null) return dep >= 0 ? `▼${dep.toFixed(1)}%` : `▲${Math.abs(dep).toFixed(1)}%`;
+  return "—";
+}
+function stars(n) { return "★".repeat(n) + "☆".repeat(5-n); }
+
+// ── 렌더링 ───────────────────────────────────────────────────────────────────
+function render() {
+  if (!ready) return;
+  const q   = document.getElementById("srch").value.toLowerCase();
+  const reg = document.getElementById("reg").value;
+
+  let list = COUNTRIES.map(enrich)
+    .filter(c => {
+      if (filter === "all") return true;
+      if (filter === "5") return c.stage >= 4;
+      return c.stage === parseInt(filter);
+    })
+    .filter(c => reg === "all" || c.reg === reg)
+    .filter(c => !q || c.ko.includes(q) || c.en.toLowerCase().includes(q) || c.cur.toLowerCase().includes(q));
+
+  if (sort === "score") list.sort((a,b) => b.score - a.score);
+  else if (sort === "dep") list.sort((a,b) => (b.dep||0) - (a.dep||0));
+  else if (sort === "name") list.sort((a,b) => a.ko.localeCompare(b.ko));
+
+  const grid  = document.getElementById("grid");
+  const empty = document.getElementById("empty");
+  if (!list.length) { grid.innerHTML = ""; empty.style.display = "block"; return; }
+  empty.style.display = "none";
+  grid.innerHTML = list.map((c,i) => cardHTML(c,i)).join("");
+}
+
+function stageProgress(cur, color, compact=true) {
+  const steps = [0,1,2,3,4,5];
+  const labels = ["정상","잠재","위험","경보","임박","진행"];
+  return steps.map((s,i) => {
+    const active = s <= cur;
+    const dot = `<div class="sp-dot" style="background:${active?color:"transparent"};border-color:${active?color:"var(--t3)"}"></div>`;
+    const line = i < 5 ? `<div class="sp-line" style="background:${active && s<cur?color:"var(--t3)"}"></div>` : "";
+    return dot + line;
+  }).join("") + (compact ? "" : `<div style="display:flex;justify-content:space-between;margin-top:3px">${labels.map(l=>`<span style="font-size:7px;color:var(--t3)">${l}</span>`).join("")}</div>`);
+}
+
+function cardHTML(c, i) {
+  const S = STAGES[c.stage];
+  const scoreColor = S.color;
+  const anomsHTML = c.anomalies.slice(0,2).map(a=>
+    `<div class="anom ${a.sev}"><span>${a.sev==="crit"?"🔴":"🟠"}</span><span>${a.msg}</span></div>`
+  ).join("");
+
+  // 환율 박스
+  const b1 = `<div class="mb"><div class="ml" style="color:var(--t3)">공식환율 (1 USD)</div>
+    <div class="mv" style="color:#7a9bb0">${c.now ? fmtR(c.now)+" "+c.cur : "—"}</div></div>`;
+  let b2;
+  if (c.pp > 0) {
+    b2 = `<div class="mb hi" style="border-color:${S.br}"><div class="ml" style="color:${scoreColor}">추정 시장환율</div>
+      <div class="mv" style="color:${scoreColor}">${c.parallel?"≈"+fmtR(c.parallel)+" "+c.cur:"—"}</div></div>`;
+  } else {
+    const dc = c.dep==null?"var(--t3)":c.dep>=10?scoreColor:c.dep>=3?"var(--cwa)":"var(--cs)";
+    const dep3y = (META[c.id]||{}).dep3y;
+  const ds = c.depDisplay == null ? "데이터 없음"
+    : c.depDisplay >= 0
+      ? `▼${c.depDisplay.toFixed(1)}%${c.depIsEstimated ? " ⁽³⁾" : ""}`
+      : `▲${Math.abs(c.depDisplay).toFixed(1)}%${c.depIsEstimated ? " ⁽³⁾" : ""}`;
+  const depSubLabel = c.depIsEstimated ? "3년÷3 연환산 추정 ⁽³⁾" : "fawazahmed0 / Frankfurter";
+    b2 = `<div class="mb hi" style="border-color:${c.dep!=null&&c.dep>=3?S.br:"var(--cs-br)"}">
+      <div class="ml" style="color:${dc}">1년 절하율 (vs $)</div>
+      <div class="mv" style="color:${dc}">${ds}</div></div>`;
+  }
+
+  return `<div class="card ${S.cls}" style="animation-delay:${i*18}ms" onclick="openMd('${c.id}')">
+  <div class="ct">
+    <div style="display:flex;align-items:center"><span class="cf">${c.flag}</span>
+      <div><div class="cn">${c.ko}</div><div class="cr2">${c.reg} · ${c.cur}</div></div></div>
+    <span class="stage-badge" style="background:${S.bg};border-color:${S.br};color:${S.color}">STAGE ${c.stage}</span>
+  </div>
+  <div class="score-row">
+    <div class="score-num" style="color:${scoreColor}">${c.score}</div>
+    <div class="score-bar-wrap">
+      <div class="score-bar-lbl"><span>몰수·동결 위험지수</span><span style="color:${scoreColor}">${S.lbl}</span></div>
+      <div class="score-track"><div class="score-fill" style="width:${c.score}%;background:${scoreColor};opacity:.8"></div></div>
+    </div>
+  </div>
+  <div class="stage-prog">${stageProgress(c.stage, S.color)}</div>
+  <div class="mets">${b1}${b2}</div>
+  ${anomsHTML}
+  <div class="src">
+    ${c.hasSrc?`📡 <a href="${c.srcU}" target="_blank" onclick="event.stopPropagation()">${c.srcN}</a><span style="margin-left:auto">실시간 →</span>`
+    :`<span style="font-size:8px">▸ 클릭 → 상세 분석 + 모니터링 링크</span>`}
+  </div>
+</div>`;
+}
+
+// ── 모달 ────────────────────────────────────────────────────────────────────
+function openMd(id) {
+  const c = enrich(COUNTRIES.find(x=>x.id===id));
+  const m = META[c.id] || {};
+  const S = STAGES[c.stage];
+
+  // 5개 카테고리 점수 계산
+  let s1 = c.pp > 0 ? Math.min(30, c.pp/57) : (c.dep!=null&&c.dep>0 ? Math.min(30,c.dep*1.2) : 0);
+  let gd=0; const debt=m.debt||0,ca=m.ca||0,inf=m.inf||0;
+  if(debt>250)gd+=9;else if(debt>150)gd+=6;else if(debt>100)gd+=3;
+  if(ca<-12)gd+=6;else if(ca<-6)gd+=3;else if(ca<-2)gd+=1;
+  if(inf>100)gd+=5;else if(inf>30)gd+=3;else if(inf>10)gd+=1;
+  let s2=Math.min(20,gd);
+  let s3=(m.citizen||0)*0.2;
+  let s4=(m.elite||0)*0.15;
+  // calcScore와 완전히 동일한 공식 (이전 코드 잔재 제거)
+  const s5histPts = [0,2,4,6][m.hist||0];
+  const s5lawPts  = Math.max(0, Math.min(3, (60  - (m.law ||50)) / 10));
+  const s5demoPts = Math.max(0, Math.min(3, (65  - (m.demo||50)) / 15));
+  let s5v = Math.min(10, s5histPts + s5lawPts + s5demoPts);
+  [s1,s2,s3,s4,s5v]=[s1,s2,s3,s4,s5v].map(x=>Math.round(x));
+
+  // 은행 취약도 점수 계산 (③) — 2경로 동일 로직
+  const hd = m.hd || 0;
+  const cd2 = m.cd || 0;
+  let bvA2=0;
+  if(hd>120)bvA2+=4; else if(hd>100)bvA2+=3; else if(hd>80)bvA2+=2; else if(hd>60)bvA2+=1;
+  if(hd>100&&inf>5)bvA2+=1; bvA2=Math.min(5,bvA2);
+  const govR=Math.min(3.0,debt/60);
+  const ctrlR=Math.max(0,(58-(m.law||50))/18);
+  const fxR=inf>20?2:inf>10?1:0;
+  let bvB2=Math.min(4,Math.round(govR*0.6+ctrlR+fxR));
+  let bvC2=cd2>150?3:cd2>100?2:cd2>70?1:0;
+  if((m.law||50)<45)bvC2+=1; bvC2=Math.min(3,bvC2);
+  const s2b=Math.min(10,bvA2+bvB2+bvC2);
+
+  // 6개 카테고리 — 총 100점
+  const cats = [
+    {name:"💱 ① 환율 신호", score:s1, max:30, rel:"★★★★★ 시장 결정 — 조작 불가 (최우선)",
+     detail: c.pp>0
+       ? `암시장 괴리율 ${c.pp}% | 추정시장환율 ≈${c.parallel?fmtR(c.parallel):"-"} ${c.cur}`
+       : `1년 절하율 ${c.dep!=null?(c.dep>=0?`▼${c.dep.toFixed(1)}%`:`▲${Math.abs(c.dep).toFixed(1)}%`):"데이터 없음"} | 3년 누적 ▼${m.dep3y||"-"}%`},
+    {name:"🏛️ ② 정부 절박도", score:s2, max:15, rel:"★★★☆☆ 공식 통계 — 일부 조작 가능",
+     detail:`정부부채 GDP ${debt}% | 경상수지 ${ca>0?"+":""}${ca}% | 공식물가 ${inf}%`},
+    {name:"🏦 ③ 은행 취약도", score:s2b, max:10, rel:"★★★☆☆ 간접 몰수 경로 — 3가지 경로",
+     detail:`경로A 가계부채${hd}%(${Math.min(5,[hd>120?4:hd>100?3:hd>80?2:hd>60?1:0][0]+(hd>100&&inf>5?1:0))}점) | 경로B 개도국형(${bvB2}점) | 경로C 기업부채${cd2}%(${bvC2}점) → 합산→cap10`},
+    {name:"🏃 ④ 시민 탈출 신호", score:s3, max:20, rel:"★★★★☆ 검색·실물 — 조작 어려움",
+     detail:`전당포·금매도 급증 | 달러 현금 수요 | 실물금 프리미엄 | 뱅크런 검색량`},
+    {name:"✈️ ⑤ 엘리트 이탈 지수", score:s4, max:15, rel:"★★★★☆ 공개 통계 — 조작 어려움",
+     detail:`프라이빗 제트 출국 | 황금비자 신청 | 안전국 부동산 | 자녀 해외 전학`},
+    {name:"⚖️ ⑥ 통제 실행 능력", score:s5v, max:10, rel:"★★★★☆ 독립기관 평가 — 신뢰 높음",
+     detail:`법치 ${m.law||"-"}/100 | 민주 ${m.demo||"-"}/100 | 몰수 전례: ${["없음","약함","있음","다수"][m.hist||0]}`},
+  ];
+
+  // ③ 은행취약도 전용: 경로 A/B/C 점수 분해 표시
+  const bankingBreakdown = `
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;margin-top:6px">
+      <div style="background:#0a0f1c;border-radius:4px;padding:5px 7px;border:1px solid rgba(255,255,255,.05)">
+        <div style="font-size:8px;color:var(--t3);margin-bottom:2px">A 가계부채 (max5)</div>
+        <div style="font-size:13px;font-weight:700;color:${S.color};font-family:'JetBrains Mono',monospace">${bvA2}점</div>
+        <div style="font-size:8px;color:var(--t3)">${hd}% GDP</div>
+      </div>
+      <div style="background:#0a0f1c;border-radius:4px;padding:5px 7px;border:1px solid rgba(255,255,255,.05)">
+        <div style="font-size:8px;color:var(--t3);margin-bottom:2px">B 개도국형 (max4)</div>
+        <div style="font-size:13px;font-weight:700;color:${S.color};font-family:'JetBrains Mono',monospace">${bvB2}점</div>
+        <div style="font-size:8px;color:var(--t3)">채권·통제·FX</div>
+      </div>
+      <div style="background:#0a0f1c;border-radius:4px;padding:5px 7px;border:1px solid rgba(255,255,255,.05)">
+        <div style="font-size:8px;color:var(--t3);margin-bottom:2px">C 기업부채 (max3)</div>
+        <div style="font-size:13px;font-weight:700;color:${S.color};font-family:'JetBrains Mono',monospace">${bvC2}점</div>
+        <div style="font-size:8px;color:var(--t3)">${cd2}% GDP</div>
+      </div>
+    </div>
+    <div style="font-size:8px;color:var(--t3);margin-top:4px">합산 ${bvA2+bvB2+bvC2}점 → min(10) 적용 → ${s2b}점</div>`;
+
+  const catsHTML = cats.map((cat,ci) => `<div class="m-cat">
+    <div class="m-cat-top">
+      <span class="m-cat-name">${cat.name}</span>
+      <span class="m-cat-score" style="color:${S.color}">${cat.score}/${cat.max}점</span>
+    </div>
+    <div class="m-cat-bar"><div class="m-cat-fill" style="width:${(cat.score/cat.max*100).toFixed(0)}%;background:${S.color};opacity:.7"></div></div>
+    <div class="m-cat-detail">${cat.detail}</div>
+    ${ci===2 ? bankingBreakdown : ""}
+    <div class="m-cat-rel" style="color:var(--t3)">신뢰도: ${cat.rel}</div>
+  </div>`).join("");
+
+  const anomsHTML = c.anomalies.length > 0
+    ? `<div class="m-sec">🚨 이상 감지 (Anomaly Detection)</div>
+       ${c.anomalies.map(a=>`<div class="m-anom ${a.sev}"><span>${a.sev==="crit"?"🔴":"🟠"}</span><span>${a.msg}</span></div>`).join("")}`
+    : "";
+
+  // 스테이지 진행
+  const stageLbls = ["정상","잠재위험","위험신호","경  보","임  박","진행 중"];
+  const stagesHTML = [0,1,2,3,4,5].map(s => {
+    const act = s <= c.stage;
+    const cur = s === c.stage;
+    return `<div class="msp-dot" style="background:${act?S.color:"transparent"};border-color:${act?S.color:"var(--t3)"};${cur?"outline:2px solid "+S.color+";outline-offset:2px":""}">
+      ${cur?"▶":""}</div>${s<5?`<div class="msp-line" style="flex:1;height:1px;background:${act&&s<c.stage?S.color:"var(--t3)"}"></div>`:""}`;
+  }).join("");
+
+  // ══════════════════════════════════════════════════════════════════════════
+  // 검색엔진 이중 교차검증 시스템 (전 64개국)
+  // ══════════════════════════════════════════════════════════════════════════
+
+  // 국가별 1위+2위 검색엔진 설정
+  // [1위엔진, 1위점유율%, 2위엔진, 2위점유율%]
+  // 트렌드 도구 유무: google✅ naver✅ yandex✅ baidu⚠️(로그인) yahoo_jp⚠️ bing❌
+  // ══════════════════════════════════════════════════════════════════
+  // 전 64개국 검색엔진 1위+2위 완전 매핑 [엔진1, 점유율%, 엔진2, 점유율%]
+  // ✅교차검증: 2위 점유율 10%+ (실질적 대안)
+  // 📌보완: 2위 점유율 10% 미만 (Google 지배, Bing은 뉴스 보완용)
+  // 트렌드도구: google✅ naver✅ yandex✅ baidu⚠️ yahoo_jp⚠️ bing❌ coccoc❌
+  // ══════════════════════════════════════════════════════════════════
+  const ENG_CONFIG = {
+    // 선진국
+    US: ["google", 88, "bing",      6],
+    GB: ["google", 93, "bing",      4],
+    CA: ["google", 90, "bing",      6],
+    JP: ["google", 76, "yahoo_jp", 20],  // ✅ 구글76%+야후재팬20%
+    KR: ["naver",  62, "google",   33],  // ✅ 네이버62%+구글33%
+    CN: ["baidu",  75, "bing",     10],  // ✅ 바이두75%+빙10%
+    TW: ["google", 90, "bing",      6],
+    DE: ["google", 92, "bing",      4],
+    AU: ["google", 94, "bing",      4],
+    SG: ["google", 96, "bing",      2],
+    CH: ["google", 93, "bing",      4],
+    SE: ["google", 95, "bing",      3],
+    NZ: ["google", 94, "bing",      3],
+    // 중동
+    IR: ["google", 75, "bing",     15],  // ✅ 구글(VPN)75%+빙15%
+    SY: ["google", 85, "bing",     10],  // ✅ 구글85%+빙10%
+    YE: ["google", 90, "bing",      6],
+    LB: ["google", 93, "bing",      4],
+    EG: ["google", 95, "bing",      3],
+    IQ: ["google", 90, "bing",      7],
+    // 아프리카
+    ZW: ["google", 93, "bing",      4],
+    SD: ["google", 91, "bing",      5],
+    ET: ["google", 95, "bing",      3],
+    LY: ["google", 88, "bing",      8],
+    AO: ["google", 95, "bing",      3],
+    NG: ["google", 96, "bing",      2],
+    GH: ["google", 97, "bing",      1],
+    MZ: ["google", 95, "bing",      3],
+    ZM: ["google", 95, "bing",      3],
+    TN: ["google", 94, "bing",      4],
+    DZ: ["google", 94, "bing",      4],
+    UG: ["google", 96, "bing",      2],
+    TZ: ["google", 96, "bing",      2],
+    KE: ["google", 96, "bing",      2],
+    ZA: ["google", 94, "bing",      4],
+    MA: ["google", 96, "bing",      3],
+    // 아시아
+    MM: ["google", 91, "bing",      5],
+    AF: ["google", 82, "bing",     12],  // ✅ 구글82%+빙12%
+    LA: ["google", 93, "bing",      4],
+    PK: ["google", 92, "bing",      5],
+    BD: ["google", 96, "bing",      2],
+    UZ: ["google", 53, "yandex",   43],  // ✅ 구글53%+얀덱스43%
+    TJ: ["yandex", 52, "google",   43],  // ✅ 얀덱스52%+구글43%
+    LK: ["google", 97, "bing",      1],
+    KZ: ["yandex", 52, "google",   44],  // ✅ 얀덱스52%+구글44%
+    ID: ["google", 96, "bing",      2],
+    IN: ["google", 97, "bing",      1],
+    VN: ["google", 90, "coccoc",    8],  // ✅ 구글90%+CocCoc8%
+    KH: ["google", 95, "bing",      3],
+    NP: ["google", 98, "bing",      1],
+    // 유럽
+    BY: ["yandex", 55, "google",   42],  // ✅ 얀덱스55%+구글42%
+    UA: ["google", 68, "yandex",   28],  // ✅ 구글68%+얀덱스28%
+    TR: ["google", 92, "bing",      4],
+    RU: ["yandex", 60, "google",   38],  // ✅ 얀덱스60%+구글38%
+    HU: ["google", 94, "bing",      3],
+    RO: ["google", 95, "bing",      3],
+    PL: ["google", 96, "bing",      2],
+    GE: ["google", 70, "yandex",   25],  // ✅ 구글70%+얀덱스25%
+    // 아메리카
+    CU: ["google", 72, "bing",     18],  // ✅ 구글(제한)72%+빙18%
+    VE: ["google", 93, "bing",      4],
+    BO: ["google", 95, "bing",      3],
+    AR: ["google", 95, "bing",      3],
+    BR: ["google", 97, "bing",      1],
+    CO: ["google", 96, "bing",      2],
+    PE: ["google", 96, "bing",      2],
+  };
+
+  const cfg = ENG_CONFIG[c.id] || ["google", 92, null, 0];
+  const [eng1, share1, eng2, share2] = cfg;
+  const hasDual = eng2 && ["google","naver","yandex","baidu"].includes(eng2);
+
+  // 국가·언어별 키워드 세트
+  const KW = {
+    KR: {sell:"전당포,금 팔기,귀금속 팔기,명품 팔기,중고 금",
+         buy:"금 사는법,금 시세 오늘,금 실물,금 현물,금 자택보관",
+         flee:"계좌 동결,해외 이민,제2여권,영주권,금 ETF 안전",
+         dollar:"달러 환전,달러 보관,달러 통장,외화 통장",
+         goldReg:"금 신고의무,금 몰수,정부 금 규제,금 소유 신고,금 수출 금지"},
+    JP: {sell:"質屋,金売る,金買取,ブランド品売る,貴金属買取",
+         buy:"金投資,金の価格,金購入,銀投資",
+         flee:"口座凍結,海外移住,二重国籍,海外口座",
+         dollar:"ドル両替,ドル保有,外貨預金"},
+    CN: {sell:"典当行,卖黄金,典当黄金,卖名牌,变卖黄金",
+         buy:"买黄金,黄金价格,买白银,黄金投资",
+         flee:"账户冻结,移民海外,第二护照,资产转移",
+         dollar:"换美元,美元兑换,购买美元,外汇"},
+    RU: {sell:"ломбард,сдать золото,продать золото,сдать украшения,золото скупка",
+         buy:"купить золото,цена на золото,купить серебро,золотые монеты",
+         flee:"заморозка счетов,эмиграция,второй паспорт,вывод активов",
+         dollar:"купить доллар,обмен валюты,купить евро"},
+    BY: {sell:"ломбард,сдать золото,продать золото,сдать ювелирные",
+         buy:"купить золото,цена на золото,золото беларусь",
+         flee:"заморозка счетов,эмиграция,вывод денег",
+         dollar:"купить доллар,обмен валюты"},
+    UA: {sell:"ломбард,продати золото,здати золото,скупка золота",
+         buy:"купити золото,ціна на золото,купити срібло",
+         flee:"заморожування рахунків,еміграція,другий паспорт",
+         dollar:"купити долар,обмін валюти,долар курс"},
+    TR: {sell:"rehinci,altın sat,altın bozdur,mücevher sat,hızlı nakit",
+         buy:"altın al,altın fiyatı,gümüş al,altın yatırım",
+         flee:"hesap dondurma,yurt dışına çıkış,ikinci pasaport",
+         dollar:"dolar al,dolar bozdur,döviz bozdurma"},
+    KZ: {sell:"ломбард,сдать золото,продать золото,скупка золота",
+         buy:"купить золото,цена на золото,золото казахстан",
+         flee:"заморозка счетов,эмиграция,вид на жительство",
+         dollar:"купить доллар,обмен валюты"},
+    UZ: {sell:"lombard,oltin sotish,tillo sotish",
+         buy:"oltin sotib olish,oltin narxi",
+         flee:"hisobni muzlatish,emigratsiya",
+         dollar:"dollar sotib olish,valyuta almashtirish"},
+    AR_ARABIC: {sell:"محل رهن,بيع الذهب,رهن الذهب,بيع المجوهرات,تحويل الذهب",
+         buy:"شراء الذهب,سعر الذهب,استثمار الذهب",
+         flee:"تجميد الحسابات,الهجرة,جواز ثاني,تحويل أموال",
+         dollar:"شراء الدولار,صرف العملة,دولار"},
+    IR: {sell:"گرو گذاشتن طلا,فروش طلا,فروش جواهرات,طلا فروشی",
+         buy:"خرید طلا,قیمت طلا,سرمایه گذاری طلا",
+         flee:"بلوکه شدن حساب,مهاجرت,پاسپورت دوم",
+         dollar:"خرید دلار,صرافی,نرخ دلار"},
+    VE: {sell:"casa de empeño,vender oro,empeñar oro,liquidar joyas",
+         buy:"comprar oro,precio del oro,onza de oro",
+         flee:"congelamiento cuentas,emigrar Venezuela,visa",
+         dollar:"comprar dólares,casa de cambio,dólar paralelo"},
+    AR_SPANISH: {sell:"casa de empeño,vender oro,empeñar joyas,liquidar oro",
+         buy:"comprar oro,precio del oro,dolar blue",
+         flee:"congelamiento cuentas,emigrar,segunda ciudadanía",
+         dollar:"comprar dólares,dolar blue,blue dollar"},
+    BO: {sell:"casa de empeño,vender oro,empeñar",
+         buy:"comprar oro,precio del oro",
+         flee:"congelamiento cuentas,emigrar Bolivia",
+         dollar:"comprar dólares,tipo de cambio"},
+    NG: {sell:"pawn shop,sell gold,gold buyers,sell jewelry nigeria",
+         buy:"buy gold nigeria,gold price,invest gold",
+         flee:"account freeze nigeria,emigrate,UK visa",
+         dollar:"buy dollar nigeria,BDC dollar,forex"},
+    ZA: {sell:"pawn shop,sell gold,gold buyers,cash for gold",
+         buy:"buy gold,gold price rand,krugerrand",
+         flee:"account freeze,emigrate South Africa,second passport",
+         dollar:"buy dollar,forex rand,dollar rand"},
+  };
+
+  // ── 뱅크런 키워드 (은행 취약도 시민 행동 신호) ────────────────────────
+  // 이 검색 급증 = 예금 인출 러시 임박 또는 진행 중
+  // arabicIds는 kwSet, brKw 둘 다 사용 → 최상단에 선언
+  const arabicIds = ["LB","EG","IQ","SY","YE","SD","AR_ARABIC"];
+  const spanishIds = ["BO","CO","PE"];
+
+  const BANKRUN_KW = {
+    KR: "예금 인출,계좌 해지,은행 파산,뱅크런,현금 인출 한도",
+    JP: "預金引き出し,口座解約,銀行破綻,取り付け騒ぎ",
+    CN: "取款,提款,银行挤兑,存款安全,银行破产",
+    RU: "снять деньги,закрыть счет,банкротство банка,изъятие вкладов",
+    BY: "снять деньги с банка,закрыть счет,банкротство",
+    UA: "зняти гроші,закрити рахунок,банкрутство банку",
+    TR: "para çekme,hesap kapatma,banka iflası,mevduat güvenli",
+    KZ: "снять деньги,закрыть счет,банкротство банка",
+    UZ: "pul yechish,hisobni yopish,bank bankrotligi",
+    AR_ARABIC: "سحب الودائع,إغلاق الحساب,إفلاس البنك,أمان الودائع",
+    IR: "برداشت پول,بستن حساب,ورشکستگی بانک",
+    VE: "retirar dinero,cerrar cuenta,quiebra banco,corralito",
+    AR_SPANISH: "retirar depósitos,cerrar cuenta,quiebra banco,corralito",
+    DEFAULT: "withdraw deposit,close bank account,bank run,bank failure,ATM limit"
+  };
+  const brKw = BANKRUN_KW[
+    arabicIds.includes(c.id) ? "AR_ARABIC" :
+    c.id === "AR" ? "AR_SPANISH" :
+    c.id === "VE" ? "VE" :
+    (c.id || "DEFAULT")
+  ] || BANKRUN_KW.DEFAULT;
+
+  // 국가 → 키워드 세트 매핑
+  let kwSet;
+  if      (c.id === "AR")                   kwSet = KW.AR_SPANISH;
+  else if (c.id === "VE")                   kwSet = KW.VE;
+  else if (arabicIds.includes(c.id))        kwSet = KW.AR_ARABIC;
+  else if (spanishIds.includes(c.id))       kwSet = KW.BO;
+  else                                       kwSet = KW[c.id] || {
+    sell:"pawn shop near me,sell gold,gold buyers,sell jewelry",
+    buy:"buy gold,gold price today,buy silver,gold investment",
+    flee:"account freeze,emigrate,second passport,transfer assets",
+    dollar:"buy dollar,currency exchange,dollar cash,forex"
+  };
+
+  // ── 엔진별 URL 생성 함수 ──────────────────────────────────────────────────
+  const gtLang = {KR:"ko",JP:"ja",CN:"zh-CN",DE:"de",TR:"tr",
+                  RU:"ru",BY:"ru",UA:"uk",KZ:"ru",IR:"fa",
+                  AR_ARABIC:"ar",LB:"ar",EG:"ar",IQ:"ar",SY:"ar",YE:"ar",
+                  VE:"es",AR:"es",BO:"es",CO:"es",PE:"es"};
+  const hl = gtLang[c.id] || "en";
+  const geo = c.id;
+
+  function makeUrl(eng, kw) {
+    const k0 = encodeURIComponent(kw.split(",")[0]);
+    const k3 = encodeURIComponent(kw.split(",").slice(0,3).join(","));
+    switch(eng) {
+      case "naver":    return `https://datalab.naver.com/keyword/trendResult.naver?keywords=${k3}`;
+      case "yandex":   return `https://wordstat.yandex.com/#!/?words=${k0}`;
+      case "baidu":    return `https://index.baidu.com/v2/main/index.html#/trend/${k0}`;
+      case "yahoo_jp": return `https://search.yahoo.co.jp/realtime?p=${k0}`;
+      case "coccoc":   return `https://coccoc.com/search?query=${k0}`;
+      case "bing":     return `https://www.bing.com/news/search?q=${k0}&mkt=${hl}-${geo}`;
+      case "google":
+      default:         return `https://trends.google.com/trends/explore?geo=${geo}&hl=${hl}&q=${k0}`;
+    }
+  }
+
+  // 트렌드 도구 보유 여부 (Bing·CocCoc은 뉴스/검색만, 트렌드 차트 없음)
+  function hasTrend(eng) {
+    return ["google","naver","yandex","baidu"].includes(eng);
+  }
+  function engDisplay(eng, share) {
+    const NAMES = {google:"Google Trends",naver:"Naver DataLab",yandex:"Yandex Wordstat",
+                   baidu:"Baidu Index",yahoo_jp:"Yahoo! Japan",bing:"Bing News",coccoc:"Coc Coc"};
+    const ICONS = {google:"🌐",naver:"🟢",yandex:"🔴",baidu:"🔵",yahoo_jp:"🟣",bing:"⬜",coccoc:"🟤"};
+    return {name:NAMES[eng]||eng, icon:ICONS[eng]||"🔍", share, trend:hasTrend(eng)};
+  }
+
+  function engDisplay(eng, share) {
+    const names = {
+      google:"Google Trends", naver:"Naver DataLab",
+      yandex:"Yandex Wordstat", baidu:"Baidu Index",
+      yahoo_jp:"Yahoo! Japan", bing:"Bing"
+    };
+    const icons = {google:"🌐",naver:"🟢",yandex:"🔴",baidu:"🔵",yahoo_jp:"🟣",bing:"⬜"};
+    const hasTrend = {google:true,naver:true,yandex:true,baidu:true,yahoo_jp:false,bing:false};
+    return {
+      name: names[eng] || eng,
+      icon: icons[eng] || "🔍",
+      trend: hasTrend[eng] !== false,
+      share,
+      tag: hasTrend[eng] !== false ? `✅ 트렌드 데이터` : `❌ 트렌드 없음`
+    };
+  }
+
+  // ── 키워드별 링크 생성 (1위+2위 이중) ────────────────────────────────────
+  function dualLink(label, icon, kw, colorVar, signalType) {
+    const url1 = makeUrl(eng1, kw);
+    const url2 = makeUrl(eng2, kw);  // 항상 생성
+    const e1 = engDisplay(eng1, share1);
+    const e2 = engDisplay(eng2, share2);
+    const kw0 = kw.split(",")[0];
+    const meaningful = share2 >= 10;  // 2위 점유율 10% 이상일 때만 실질 교차검증
+    const coverNote = meaningful
+      ? `${e1.icon} ${e1.name} ${share1}% + ${e2.icon} ${e2.name} ${share2}% = 교차검증 ${share1+share2}%`
+      : `${e1.icon} ${e1.name} ${share1}% 지배 (${e2.icon}${e2.name} 보완)`;
+
+    return `<div style="background:#070b15;border:1px solid ${meaningful?"rgba(74,222,128,.15)":  "var(--bdr)"};border-radius:7px;padding:10px 12px;margin-bottom:8px">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
+        <span style="font-size:10px;color:${colorVar};font-weight:600">${icon} ${label}</span>
+        <span style="font-size:8px;color:${meaningful?"var(--cs)":"var(--t3)"}">${signalType} ${meaningful?"✅교차검증":"📌단일"}</span>
+      </div>
+      <div style="font-size:8px;color:var(--t3);margin-bottom:7px">${coverNote}</div>
+      <div style="font-size:9px;color:var(--t2);margin-bottom:6px">키워드: <span style="color:var(--t1)">${kw0}</span> 외</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap">
+        <a href="${url1}" target="_blank"
+           style="padding:3px 9px;background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.2);border-radius:4px;font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--cm)">
+          ${e1.icon} ${e1.name} →</a>
+        <a href="${url2}" target="_blank"
+           style="padding:3px 9px;background:${meaningful?"rgba(74,222,128,.06)":"rgba(255,255,255,.03)"};border:1px solid ${meaningful?"rgba(74,222,128,.2)":"var(--bdr)"};border-radius:4px;font-size:10px;font-family:'JetBrains Mono',monospace;color:${meaningful?"var(--cs)":"var(--t2)"}">
+          ${e2.icon} ${e2.name}${e2.trend?"":" (뉴스)"} →</a>
+      </div>
+    </div>`;
+  }
+
+  const coverageTotal = hasDual ? share1 + share2 : share1;
+  const coverageColor = coverageTotal >= 85 ? "var(--cs)" : coverageTotal >= 70 ? "var(--cwa)" : "var(--cr)";
+
+  const linksHTML = `
+  <div style="background:#070b15;border:1px solid var(--bdr);border-radius:8px;padding:12px 14px;margin-bottom:10px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+      <span style="font-size:10px;color:var(--t1);font-weight:600">🔍 검색 트렌드 이중 교차검증</span>
+      <span style="font-size:9px;padding:2px 8px;border-radius:4px;background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.2);color:${coverageColor}">
+        교차검증 커버리지 ${coverageTotal}%
+      </span>
+    </div>
+
+    <div style="padding:8px 10px;background:#0a0f1c;border-radius:6px;border-left:2px solid var(--cr);margin-bottom:12px">
+      <div style="font-size:9px;color:#c84060;font-weight:600;margin-bottom:3px">🔴 긴급 현금화 신호 (임박 경보)</div>
+      <div style="font-size:8px;color:var(--t3)">지금 당장 현금이 필요한 사람 — 전당포·귀금속 매도 급증</div>
+    </div>
+    ${dualLink("전당포·금매도 검색량", "🏚️", kwSet.sell, "var(--cr)", "임박신호")}
+    ${dualLink("달러 현금 수요", "💵", kwSet.dollar, "var(--cr)", "임박신호")}
+
+    <div style="padding:8px 10px;background:#0a0f1c;border-radius:6px;border-left:2px solid var(--cw);margin-bottom:12px;margin-top:4px">
+      <div style="font-size:9px;color:#c07030;font-weight:600;margin-bottom:3px">🟠 안전자산 도피 신호 (조기 경보)</div>
+      <div style="font-size:8px;color:var(--t3)">자산 보호 목적으로 금·은 매수 — 위기 2~6개월 전 나타남</div>
+    </div>
+    ${dualLink("금·은 매수 검색량", "🥇", kwSet.buy, "var(--cw)", "조기경보")}
+
+    <div style="padding:8px 10px;background:#0a0f1c;border-radius:6px;border-left:2px solid var(--cm);margin-bottom:12px;margin-top:4px">
+      <div style="font-size:9px;color:#3080a0;font-weight:600;margin-bottom:3px">🔵 시스템 이탈 신호 (구조적 불신)</div>
+      <div style="font-size:8px;color:var(--t3)">금융 시스템 자체를 포기하는 단계 — 이민·제2여권 수요</div>
+    </div>
+    ${dualLink("해외 이민·제2여권 검색량", "✈️", kwSet.flee, "var(--cm)", "구조적불신")}
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:4px">
+      <div class="m-link"><div class="ll">🛫 프라이빗 제트 추적</div>
+        <a href="https://globe.adsbexchange.com/" target="_blank">ADS-B Exchange →</a></div>
+      <div class="m-link"><div class="ll">🪙 황금비자 통계</div>
+        <a href="https://www.henleyglobal.com/passport-index" target="_blank">Henley &amp; Partners →</a></div>
+      <div class="m-link"><div class="ll">😱 Fear &amp; Greed</div>
+        <a href="https://alternative.me/crypto/fear-and-greed-index/" target="_blank">alternative.me →</a></div>
+      ${c.hasSrc ? `<div class="m-link"><div class="ll">📡 암시장 실시간</div>
+        <a href="${c.srcU}" target="_blank">${c.srcN} →</a></div>` : ""}
+    </div>
+
+    <div style="padding:8px 10px;background:#0a0f1c;border-radius:6px;border-left:2px solid var(--cwa);margin-bottom:10px;margin-top:6px">
+      <div style="font-size:9px;color:#c0a030;font-weight:600;margin-bottom:3px">🏡 안전국 부동산 유입 데이터</div>
+      <div style="font-size:8px;color:var(--t3)">
+        ※ 안전국 자체가 불안정해지면 부동산 유입 데이터의 신뢰도 하락 → 아래 안전국 상태 먼저 확인
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px">
+      <div class="m-link"><div class="ll">🇦🇪 두바이 부동산 통계</div>
+        <a href="https://www.dubailand.gov.ae/en/open-data" target="_blank">Dubai Land Dept →</a>
+        <div style="font-size:8px;color:var(--t3);margin-top:2px">안전국 상태: STAGE ${[0,0,0,0,0,0,0,0,0,0,0,0,0].indexOf('AE') >= 0 ? "정상" : "확인 필요"}</div></div>
+      <div class="m-link"><div class="ll">🇵🇹 포르투갈 골든비자</div>
+        <a href="https://www.sef.pt/en" target="_blank">Portugal SEF →</a>
+        <div style="font-size:8px;color:var(--t3);margin-top:2px">EU 법치 감시 下</div></div>
+      <div class="m-link"><div class="ll">🇨🇦 캐나다 외국인 매입</div>
+        <a href="https://www.cmhc-schl.gc.ca/en/housing-observer-online" target="_blank">CMHC →</a></div>
+      <div class="m-link"><div class="ll">🇦🇺 호주 외국인 투자</div>
+        <a href="https://firb.gov.au/statistics" target="_blank">FIRB →</a></div>
+    </div>
+
+    <div style="padding:8px 10px;background:#0a0f1c;border-radius:6px;border-left:2px solid var(--cs);margin-bottom:10px">
+      <div style="font-size:9px;color:var(--cs);font-weight:600;margin-bottom:3px">💵 달러 위기 시 대안 통화 모니터</div>
+      <div style="font-size:8px;color:var(--t3);margin-bottom:6px">달러 자체가 불안할 때: DXY하락 + 금상승 + EUR·CHF·JPY강세 동시 발생 시 구조적 변화</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;margin-bottom:8px">
+      <div class="m-link"><div class="ll">📊 달러지수(DXY)</div>
+        <a href="https://finance.yahoo.com/quote/DX-Y.NYB" target="_blank">Yahoo Finance →</a>
+        <div style="font-size:8px;color:var(--t3)">하락=달러 약세</div></div>
+      <div class="m-link"><div class="ll">🥇 금 선물(GC=F)</div>
+        <a href="https://finance.yahoo.com/quote/GC=F" target="_blank">Yahoo Finance →</a>
+        <div style="font-size:8px;color:var(--t3)">상승=화폐 불신</div></div>
+      <div class="m-link"><div class="ll">🇪🇺 EUR/USD</div>
+        <a href="https://finance.yahoo.com/quote/EURUSD=X" target="_blank">Yahoo Finance →</a>
+        <div style="font-size:8px;color:var(--t3)">2위 기축통화</div></div>
+      <div class="m-link"><div class="ll">🇨🇳 CNY 결제비율</div>
+        <a href="https://www.swift.com/our-solutions/compliance-and-shared-services/business-intelligence/renminbi/rmb-tracker" target="_blank">SWIFT RMB →</a>
+        <div style="font-size:8px;color:var(--t3)">월간 위안화 점유율</div></div>
+      <div class="m-link"><div class="ll">🇨🇭 CHF/USD</div>
+        <a href="https://finance.yahoo.com/quote/CHFUSD=X" target="_blank">Yahoo Finance →</a>
+        <div style="font-size:8px;color:var(--t3)">전통 안전자산</div></div>
+      <div class="m-link"><div class="ll">₿ BTC/USD</div>
+        <a href="https://finance.yahoo.com/quote/BTC-USD" target="_blank">Yahoo Finance →</a>
+        <div style="font-size:8px;color:var(--t3)">탈중앙화 대안</div></div>
+    </div>
+    <div style="font-size:8px;color:var(--t3);padding:6px 8px;background:#0a0f1c;border-radius:5px;line-height:1.7">
+      💡 <b style="color:var(--t1)">결제비율 실시간 대안</b>: SWIFT 데이터는 월 1회 발표 (실시간 불가).
+      대신 DXY + EUR/USD + Gold 3종 동시 모니터링이 현실적 프록시.
+      USD 점유율 88%→80% 하락하면 구조적 전환 신호.
+    </div>
+
+    ${dualLink("뱅크런·예금인출 검색량", "🏦", brKw, "var(--cr)", "은행취약신호")}
+    ${c.stage >= 3 ? dualLink("금 몰수·규제 검색량", "🥇", 
+      ({"KR":"금 신고의무,금 몰수,금 소유 제한","RU":"изъятие золота,запрет на золото","CN":"黄金没收,黄金禁止","IR":"مصادره طلا,ممنوعیت طلا","AR":"confiscación oro,prohibición oro","VE":"confiscación oro,Maduro oro"}[c.id] || "gold confiscation,gold seizure,gold ban,gold reporting law"),
+      c.stage >= 4 ? "var(--cr)" : "var(--cw)", "금규제감시") : ""}
+
+    <div style="padding:8px 10px;background:#0a0f1c;border-radius:6px;border-left:2px solid var(--cwa);margin-bottom:12px;margin-top:4px">
+      <div style="font-size:9px;color:#c0a030;font-weight:600;margin-bottom:3px">🟡 교차검증 데이터 소스 (조작 어려움)</div>
+      <div style="font-size:8px;color:var(--t3)">상대국이 존재하는 데이터 — 한쪽이 조작해도 상대국이 다른 수치를 발표하면 발각됨</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px">
+      <div class="m-link">
+        <div class="ll">📦 수출입 교차검증 (UN)</div>
+        <a href="https://comtradeapi.un.org/data/v1/get/C/A/HS?reporterCode=${c.id === "KR" ? 410 : c.id === "JP" ? 392 : c.id === "CN" ? 156 : c.id === "US" ? 842 : c.id === "DE" ? 276 : 0}&partnerCode=0&cmdCode=TOTAL&flowCode=M" target="_blank">UN Comtrade →</a>
+        <div style="font-size:8px;color:var(--t3);margin-top:3px">수입국 통계와 수출국 통계 교차</div>
+      </div>
+      <div class="m-link">
+        <div class="ll">💰 경상수지·외환보유고</div>
+        <a href="https://data.worldbank.org/indicator/BN.CAB.XOKA.GD.ZS?locations=${c.id}" target="_blank">World Bank →</a>
+        <div style="font-size:8px;color:var(--t3);margin-top:3px">공식 ±조작가능, IMF와 비교 권장</div>
+      </div>
+      <div class="m-link">
+        <div class="ll">🏦 가계부채·은행 데이터</div>
+        <a href="https://data.worldbank.org/indicator/FS.AST.PRVT.GD.ZS?locations=${c.id}" target="_blank">WB 민간신용 →</a>
+        <div style="font-size:8px;color:var(--t3);margin-top:3px">가계+기업 민간신용/GDP</div>
+      </div>
+      <div class="m-link">
+        <div class="ll">📰 은행 뉴스 모니터링</div>
+        <a href="https://news.google.com/search?q=${encodeURIComponent(c.en + ' bank run OR bank queue OR deposit freeze')}&hl=en" target="_blank">Google News →</a>
+        <div style="font-size:8px;color:var(--t3);margin-top:3px">은행 줄서기·동결 뉴스</div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:4px">
+      <div class="m-link"><div class="ll">🛫 프라이빗 제트 추적</div>
+        <a href="https://globe.adsbexchange.com/" target="_blank">ADS-B Exchange →</a></div>
+      <div class="m-link"><div class="ll">🪙 황금비자 통계</div>
+        <a href="https://www.henleyglobal.com/passport-index" target="_blank">Henley &amp; Partners →</a></div>
+      <div class="m-link"><div class="ll">😱 Fear &amp; Greed</div>
+        <a href="https://alternative.me/crypto/fear-and-greed-index/" target="_blank">alternative.me →</a></div>
+      ${c.hasSrc ? `<div class="m-link"><div class="ll">📡 암시장 실시간</div>
+        <a href="${c.srcU}" target="_blank">${c.srcN} →</a></div>` : ""}
+    </div>
+
+    <div style="padding:8px 10px;background:#0a0f1c;border-radius:6px;border-left:2px solid var(--cwa);margin-bottom:10px;margin-top:6px">
+      <div style="font-size:9px;color:#c0a030;font-weight:600;margin-bottom:3px">🏡 안전국 부동산 유입 데이터</div>
+      <div style="font-size:8px;color:var(--t3)">
+        ※ 안전국 자체가 불안정해지면 부동산 유입 데이터의 신뢰도 하락 → 아래 안전국 상태 먼저 확인
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px">
+      <div class="m-link"><div class="ll">🇦🇪 두바이 부동산 통계</div>
+        <a href="https://www.dubailand.gov.ae/en/open-data" target="_blank">Dubai Land Dept →</a>
+        <div style="font-size:8px;color:var(--t3);margin-top:2px">안전국 상태: STAGE ${[0,0,0,0,0,0,0,0,0,0,0,0,0].indexOf('AE') >= 0 ? "정상" : "확인 필요"}</div></div>
+      <div class="m-link"><div class="ll">🇵🇹 포르투갈 골든비자</div>
+        <a href="https://www.sef.pt/en" target="_blank">Portugal SEF →</a>
+        <div style="font-size:8px;color:var(--t3);margin-top:2px">EU 법치 감시 下</div></div>
+      <div class="m-link"><div class="ll">🇨🇦 캐나다 외국인 매입</div>
+        <a href="https://www.cmhc-schl.gc.ca/en/housing-observer-online" target="_blank">CMHC →</a></div>
+      <div class="m-link"><div class="ll">🇦🇺 호주 외국인 투자</div>
+        <a href="https://firb.gov.au/statistics" target="_blank">FIRB →</a></div>
+    </div>
+
+    <div style="padding:8px 10px;background:#0a0f1c;border-radius:6px;border-left:2px solid var(--cs);margin-bottom:10px">
+      <div style="font-size:9px;color:var(--cs);font-weight:600;margin-bottom:3px">💵 달러 위기 시 대안 통화 모니터</div>
+      <div style="font-size:8px;color:var(--t3);margin-bottom:6px">달러 자체가 불안할 때: DXY하락 + 금상승 + EUR·CHF·JPY강세 동시 발생 시 구조적 변화</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;margin-bottom:8px">
+      <div class="m-link"><div class="ll">📊 달러지수(DXY)</div>
+        <a href="https://finance.yahoo.com/quote/DX-Y.NYB" target="_blank">Yahoo Finance →</a>
+        <div style="font-size:8px;color:var(--t3)">하락=달러 약세</div></div>
+      <div class="m-link"><div class="ll">🥇 금 선물(GC=F)</div>
+        <a href="https://finance.yahoo.com/quote/GC=F" target="_blank">Yahoo Finance →</a>
+        <div style="font-size:8px;color:var(--t3)">상승=화폐 불신</div></div>
+      <div class="m-link"><div class="ll">🇪🇺 EUR/USD</div>
+        <a href="https://finance.yahoo.com/quote/EURUSD=X" target="_blank">Yahoo Finance →</a>
+        <div style="font-size:8px;color:var(--t3)">2위 기축통화</div></div>
+      <div class="m-link"><div class="ll">🇨🇳 CNY 결제비율</div>
+        <a href="https://www.swift.com/our-solutions/compliance-and-shared-services/business-intelligence/renminbi/rmb-tracker" target="_blank">SWIFT RMB →</a>
+        <div style="font-size:8px;color:var(--t3)">월간 위안화 점유율</div></div>
+      <div class="m-link"><div class="ll">🇨🇭 CHF/USD</div>
+        <a href="https://finance.yahoo.com/quote/CHFUSD=X" target="_blank">Yahoo Finance →</a>
+        <div style="font-size:8px;color:var(--t3)">전통 안전자산</div></div>
+      <div class="m-link"><div class="ll">₿ BTC/USD</div>
+        <a href="https://finance.yahoo.com/quote/BTC-USD" target="_blank">Yahoo Finance →</a>
+        <div style="font-size:8px;color:var(--t3)">탈중앙화 대안</div></div>
+    </div>
+    <div style="font-size:8px;color:var(--t3);padding:6px 8px;background:#0a0f1c;border-radius:5px;line-height:1.7">
+      💡 <b style="color:var(--t1)">결제비율 실시간 대안</b>: SWIFT 데이터는 월 1회 발표 (실시간 불가).
+      대신 DXY + EUR/USD + Gold 3종 동시 모니터링이 현실적 프록시.
+      USD 점유율 88%→80% 하락하면 구조적 전환 신호.
+    </div>
+
+    <div style="font-size:9px;color:var(--t3);margin-top:10px;padding-top:8px;border-top:1px solid var(--bdr);line-height:1.7">
+      💡 <b style="color:var(--t1)">해석 핵심:</b>
+      두 검색엔진에서 동일 트렌드 확인 → 신뢰도 대폭 상승 |
+      "금 팔기"+"금 사기" 동시 급증 → 최고 위험 |
+      "예금 인출" 급증 + 뱅크런 뉴스 → 동결 임박 |
+      UN 수출입 교차검증에서 수치 불일치 → 통계 조작 의심 |
+      외환통제 감지(⚠) → ① 환율신호 실제보다 낮을 수 있음 — 전체 점수 과소평가 주의
+    </div>
+  </div>`;
+
+
+  document.getElementById("mc").innerHTML = `
+    <div class="mh">
+      <span class="mfl">${c.flag}</span>
+      <div><div class="mt">${c.ko}</div>
+           <div class="mst">${c.en} · ${c.cur} · ${c.reg}</div></div>
+    </div>
+    <div class="m-stage" style="background:${S.bg};border-color:${S.br}">
+      <div class="m-stage-top">
+        <div>
+          <div style="font-size:9px;color:${S.color};opacity:.7;letter-spacing:.1em;margin-bottom:3px">몰수·동결 위험 단계</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:700;color:${S.color}">STAGE ${c.stage} — ${S.lbl}</div>
+          <div style="font-size:10px;color:${S.color};opacity:.6;margin-top:2px">${S.sub}</div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-size:9px;color:var(--t3);margin-bottom:3px">종합 위험지수</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:30px;font-weight:700;color:${S.color}">${c.score}</div>
+          <div style="font-size:9px;color:var(--t3)">/100점</div>
+        </div>
+      </div>
+      <div class="m-stage-prog">${stageLbls.map((l,i)=>`
+        <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+          <div style="width:12px;height:12px;border-radius:50%;background:${i<=c.stage?S.color:"transparent"};border:1px solid ${i<=c.stage?S.color:"var(--t3)"};${i===c.stage?"outline:2px solid "+S.color+";outline-offset:2px":""}"></div>
+          ${i<5?`<div style="flex:1;height:1px;background:${i<c.stage?S.color:"var(--t3)"}"></div>`:""}
+        </div>
+        <div style="font-size:7px;color:${i<=c.stage?S.color:"var(--t3)"};white-space:nowrap;margin-top:3px;flex:0">${l}</div>
+      `).join("")}
+      </div>
+    </div>
+    <div class="m-sec">카테고리별 점수 분석</div>
+    <div class="m-cats">${catsHTML}</div>
+    ${anomsHTML}
+    <div class="m-sec">📌 역사적 전례</div>
+    <div style="background:#070b15;border-radius:7px;padding:11px 13px;font-size:12px;color:#8a9bb0;margin-bottom:4px">${m.note||"기록 없음"}</div>
+    <div class="m-sec">📋 위험 요인</div>
+    ${c.factors.map(f=>`<div class="factor"><span class="fic" style="color:${S.color}">◆</span><span class="fit">${f}</span></div>`).join("")}
+    <div class="m-sec">🔍 실시간 모니터링 링크</div>
+    ${linksHTML}
+    <div style="background:#070b15;border:1px solid var(--bdr);border-radius:8px;padding:13px 15px;margin-bottom:10px">
+      <div style="font-size:10px;color:var(--t1);font-weight:600;margin-bottom:10px">
+        🥇 금 자산 형태별 몰수·동결 위험도
+        <span style="font-size:8px;color:var(--t3);margin-left:6px">STAGE ${c.stage} 기준</span>
+      </div>
+      ${(()=>{
+        const S = c.stage;
+        // STAGE별 각 형태의 위험도
+        const risk = (form, baseRisk) => {
+          // law가 낮을수록 위험 가중
+          const lawPenalty = (META[c.id]||{}).law < 40 ? 1 : 0;
+          const total = Math.min(5, baseRisk + Math.floor(S/2) + lawPenalty);
+          const labels = ["🟢 안전","🟢 낮음","🟡 주의","🟠 경고","🔴 위험","🔴 매우위험"];
+          const colors = ["var(--cs)","var(--cs)","var(--cwa)","var(--cw)","var(--cr)","var(--cr)"];
+          return `<div style="display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid var(--bdr)">
+            <span style="font-size:10px;color:var(--t1)">${form}</span>
+            <span style="font-size:10px;color:${colors[total]};font-weight:600">${labels[total]}</span>
+          </div>`;
+        };
+        return `
+          ${risk("금 ETF (GLD·IAU)", 2)}
+          <div style="font-size:8px;color:var(--t3);padding:2px 0 6px;border-bottom:1px solid var(--bdr)">
+            ↳ 증권계좌 자산 → 금융시스템 안 → 예금과 동일 위험 노출</div>
+          ${risk("금 선물 (COMEX·GC=F)", 2)}
+          <div style="font-size:8px;color:var(--t3);padding:2px 0 6px;border-bottom:1px solid var(--bdr)">
+            ↳ 거래소 명령으로 즉각 동결·청산 가능. 1933년 미국 EO6102 선례</div>
+          ${risk("실물금 (은행 금고·계좌)", 3)}
+          <div style="font-size:8px;color:var(--t3);padding:2px 0 6px;border-bottom:1px solid var(--bdr)">
+            ↳ 영장 발부 시 수일 내 접근. 키프로스 2013 Bail-in 사례</div>
+          ${risk("실물금 (자택 보관)", S >= 4 ? 1 : 0)}
+          <div style="font-size:8px;color:var(--t3);padding:2px 0 6px;border-bottom:1px solid var(--bdr)">
+            ↳ 수색 필요 → 상대적 안전. 단, 고액신고의무 법제화 국가 주의</div>
+          ${risk("실물금 (해외 보관)", 0)}
+          <div style="font-size:8px;color:var(--t3);padding:2px 0 6px">
+            ↳ 국제협력 필요 → 가장 안전. 단, 자본통제 시 반출 자체 불가</div>
+        `;
+      })()}
+      <div style="margin-top:10px;padding:7px 9px;background:rgba(244,63,94,.06);border-radius:5px;font-size:9px;color:var(--t2);line-height:1.8">
+        <b style="color:var(--cwa)">⚠ 핵심 역설:</b>
+        STAGE ${c.stage} 국가에서는 <b style="color:var(--cr)">금 ETF 매수 급증이 오히려 위험 신호</b> —
+        ETF는 예금과 동일하게 동결될 수 있으므로, 실물금 프리미엄 급등이 진짜 공포 지표.<br>
+        <b style="color:var(--cs)">실물금 프리미엄 기준:</b> 0~2% 정상 | 2~5% 경계 | 5~10% 주의 | 10%+ 위험 (시스템 불신 극대)
+      </div>
+    </div>
+    <div class="m-disc">
+      ⚠ <b>면책:</b> 암시장 괴리율·시민탈출·엘리트이탈 점수는 추정치입니다. 환율 지표만 실시간 시장 데이터이며, 나머지는 공개 자료 기반 추정입니다.
+      투자·이민·금융 결정의 단독 근거로 사용하지 마세요. 점수가 낮아도 갑작스러운 정책 변화로 위기가 발생할 수 있습니다.
+    </div>`;
+
+  document.getElementById("ov").classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+
+function showAllAlerts(alerts) {
+  const S = STAGES[5];
+  document.getElementById("mc").innerHTML = `
+    <div style="margin-bottom:16px">
+      <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:#e2ecf8;margin-bottom:4px">
+        🚨 긴급 경보 현황
+      </div>
+      <div style="font-size:10px;color:var(--t3)">자동 감지된 이벤트 — 사람의 검토 후 pp/META 업데이트 권장</div>
+    </div>
+    ${alerts.map(a => `
+      <div style="background:#070b15;border:1px solid ${a.type==="환율급변"?"var(--cr-br)":a.type==="IMF발표"?"var(--cw-br)":"var(--cm-br)"};border-radius:8px;padding:12px 14px;margin-bottom:8px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+          <span style="font-size:10px;color:${a.type==="환율급변"?"var(--cr)":a.type==="IMF발표"?"var(--cw)":"var(--cm)"};font-weight:600">
+            ${a.type==="환율급변"?"📉 환율급변":a.type==="IMF발표"?"🏛️ IMF발표":"📰 뉴스이벤트"}
+          </span>
+          <span style="font-size:9px;color:var(--t3)">${a.date} · ${a.country||""}</span>
+        </div>
+        <div style="font-size:12px;color:var(--t1)">${a.message||a.title||""}</div>
+        ${a.link||a.url?`<a href="${a.link||a.url}" target="_blank" style="font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--cm);margin-top:5px;display:block">원문 보기 →</a>`:""}
+        ${a.requires_review?`<div style="font-size:9px;color:var(--cwa);margin-top:5px">⚠ pp/META 수동 검토 권장</div>`:""}
+      </div>
+    `).join("")}
+    <div style="padding:8px 10px;background:#0a0f1c;border-radius:6px;font-size:9px;color:var(--t3);margin-top:8px">
+      💡 환율급변은 자동 반영됩니다. IMF발표·뉴스이벤트는 사람이 검토 후 sentinel-data.json 업데이트 필요.
+    </div>`;
+  document.getElementById("ov").classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+
+function closeMd(e) {
+  if (e && e.target !== document.getElementById("ov")) return;
+  document.getElementById("ov").classList.remove("open");
+  document.body.style.overflow = "";
+}
+document.getElementById("mb").onclick = e => e.stopPropagation();
+document.addEventListener("keydown", e => {
+  if (e.key==="Escape") { document.getElementById("ov").classList.remove("open"); document.body.style.overflow=""; }
+});
+
+function toggleStatus() {
+  const body = document.getElementById("status-body");
+  const arrow = document.getElementById("status-arrow");
+  const isOpen = body.style.display !== "none";
+  body.style.display = isOpen ? "none" : "block";
+  arrow.textContent = isOpen ? "▶" : "▼";
+}
+
+// ── sentinel-data.json 로드 후 META 자동 오버라이드 ─────────────────────────
+async function loadSentinelData() {
+  try {
+    const r = await fetch("sentinel-data.json");
+    if (!r.ok) return;
+    const d = await r.json();
+
+    // annual 섹션으로 META 필드 오버라이드
+    const annual = d.annual || {};
+    for (const [iso2, vals] of Object.entries(annual)) {
+      if (!META[iso2]) META[iso2] = {};
+      // 각 필드: 값이 있을 때만 오버라이드 (null/undefined 제외)
+      if (vals.law   != null) META[iso2].law   = vals.law;
+      if (vals.demo  != null) META[iso2].demo  = vals.demo;
+      if (vals.hd    != null) META[iso2].hd    = vals.hd;
+      if (vals.cd    != null) META[iso2].cd    = vals.cd;
+      if (vals.dep3y != null) META[iso2].dep3y = vals.dep3y;
+      if (vals.citizen != null) META[iso2].citizen = vals.citizen;
+    }
+
+    // pp_rates 오버라이드 (암시장 괴리율)
+    if (d.pp_rates) {
+      const ppMap = {};
+      d.pp_rates.forEach(item => { ppMap[item.id] = item.pp; });
+      COUNTRIES.forEach(c => {
+        if (ppMap[c.id] != null) c.pp = ppMap[c.id];
+      });
+    }
+
+    // macro 섹션 오버라이드 (정부부채·경상수지·인플레이션)
+    const macro = d.macro || {};
+    for (const [iso2, vals] of Object.entries(macro)) {
+      if (!META[iso2]) META[iso2] = {};
+      if (vals.debt != null) META[iso2].debt = vals.debt;
+      if (vals.ca   != null) META[iso2].ca   = vals.ca;
+      if (vals.inf  != null) META[iso2].inf  = vals.inf;
+    }
+
+    // 업데이트 날짜 표시
+    if (d._meta && d._meta.last_annual_update) {
+      const annualUpdEl = document.getElementById("annual-upd");
+      if (annualUpdEl) annualUpdEl.textContent = `연간지표: ${d._meta.last_annual_update}`;
+    }
+
+  } catch(e) {
+    // sentinel-data.json 없으면 하드코딩 META 그대로 사용
+    console.log("sentinel-data.json 로드 실패 (로컬 파일 모드):", e.message);
+  }
+}
+
+// sentinel-data.json 먼저 로드 후 loadData 실행
+loadSentinelData().then(() => loadData());
+</script>
+</body>
+</html>
