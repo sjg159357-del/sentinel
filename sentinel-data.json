@@ -2,7 +2,7 @@
   "_meta": {
     "updated": "2025-05-16",
     "source": "GitHub Actions Auto-Update",
-    "note": "pp는 실시간 스크래핑, macro는 World Bank API",
+    "note": "annual.citizen 제거 — WB 순이민 데이터 오해석 버그 수정",
     "last_annual_update": "2026-05-16",
     "annual_sources": {
       "law": "World Bank WGI: Rule of Law (GOV_WGI_RL.SC, 0-100)",
@@ -110,9 +110,7 @@
       "law": 23.7,
       "law_src": "WB_WGI",
       "demo": 19.2,
-      "demo_src": "WB_WGI_VA",
-      "citizen": 59,
-      "citizen_src": "WB_NETMIG"
+      "demo_src": "WB_WGI_VA"
     },
     "AR": {
       "law": 52.6,
@@ -124,9 +122,7 @@
       "cd": 21.2,
       "cd_src": "BIS_WS_TC",
       "dep3y": 862.9,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 50,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "AU": {
       "law": 82.3,
@@ -138,9 +134,7 @@
       "cd": 62.0,
       "cd_src": "BIS_WS_TC",
       "dep3y": 13.8,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 25,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "BE": {
       "law": 79.0,
@@ -152,9 +146,7 @@
       "cd": 117.8,
       "cd_src": "BIS_WS_TC",
       "dep3y": 9.3,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 37,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "BD": {
       "law": 40.4,
@@ -162,9 +154,7 @@
       "demo": 36.5,
       "demo_src": "WB_WGI_VA",
       "dep3y": 35.9,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 62,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "BY": {
       "law": 35.8,
@@ -172,9 +162,7 @@
       "demo": 27.3,
       "demo_src": "WB_WGI_VA",
       "dep3y": 27.9,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 52,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "BO": {
       "law": 35.1,
@@ -182,9 +170,7 @@
       "demo": 49.2,
       "demo_src": "WB_WGI_VA",
       "dep3y": 0.0,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 51,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "BR": {
       "law": 49.3,
@@ -196,9 +182,7 @@
       "cd": 53.9,
       "cd_src": "BIS_WS_TC",
       "dep3y": -0.1,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 55,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "CA": {
       "law": 82.1,
@@ -210,9 +194,7 @@
       "cd": 118.0,
       "cd_src": "BIS_WS_TC",
       "dep3y": 9.2,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 10,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "CH": {
       "law": 87.3,
@@ -224,9 +206,7 @@
       "cd": 128.3,
       "cd_src": "BIS_WS_TC",
       "dep3y": -3.7,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 29,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "CN": {
       "law": 47.0,
@@ -238,9 +218,7 @@
       "cd": 142.4,
       "cd_src": "BIS_WS_TC",
       "dep3y": 11.6,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 51,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "CO": {
       "law": 47.3,
@@ -252,17 +230,13 @@
       "cd": 28.5,
       "cd_src": "BIS_WS_TC",
       "dep3y": 8.8,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 38,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "CU": {
       "law": 46.2,
       "law_src": "WB_WGI",
       "demo": 34.6,
-      "demo_src": "WB_WGI_VA",
-      "citizen": 60,
-      "citizen_src": "WB_NETMIG"
+      "demo_src": "WB_WGI_VA"
     },
     "DE": {
       "law": 84.9,
@@ -274,9 +248,7 @@
       "cd": 89.5,
       "cd_src": "BIS_WS_TC",
       "dep3y": 9.3,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 70,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "EG": {
       "law": 44.0,
@@ -284,9 +256,7 @@
       "demo": 28.8,
       "demo_src": "WB_WGI_VA",
       "dep3y": 189.6,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 52,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "ET": {
       "law": 38.9,
@@ -294,9 +264,7 @@
       "demo": 35.1,
       "demo_src": "WB_WGI_VA",
       "dep3y": 88.9,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 49,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "GE": {
       "law": 59.5,
@@ -304,9 +272,7 @@
       "demo": 52.4,
       "demo_src": "WB_WGI_VA",
       "dep3y": -15.5,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 48,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "GH": {
       "law": 57.9,
@@ -314,9 +280,7 @@
       "demo": 60.4,
       "demo_src": "WB_WGI_VA",
       "dep3y": 144.3,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 52,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "HU": {
       "law": 60.3,
@@ -328,9 +292,7 @@
       "cd": 67.8,
       "cd_src": "BIS_WS_TC",
       "dep3y": 20.6,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 59,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "ID": {
       "law": 53.4,
@@ -342,9 +304,7 @@
       "cd": 24.1,
       "cd_src": "BIS_WS_TC",
       "dep3y": 10.8,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 51,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "IN": {
       "law": 56.3,
@@ -356,9 +316,7 @@
       "cd": 51.9,
       "cd_src": "BIS_WS_TC",
       "dep3y": 13.2,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 52,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "IR": {
       "law": 35.7,
@@ -366,9 +324,7 @@
       "demo": 29.7,
       "demo_src": "WB_WGI_VA",
       "dep3y": 0.0,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 44,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "JP": {
       "law": 83.0,
@@ -380,9 +336,7 @@
       "cd": 111.7,
       "cd_src": "BIS_WS_TC",
       "dep3y": 37.9,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 44,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "KZ": {
       "law": 50.4,
@@ -390,9 +344,7 @@
       "demo": 42.6,
       "demo_src": "WB_WGI_VA",
       "dep3y": 10.1,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 52,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "KE": {
       "law": 49.0,
@@ -400,9 +352,7 @@
       "demo": 50.6,
       "demo_src": "WB_WGI_VA",
       "dep3y": 23.0,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 52,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "KH": {
       "law": 38.8,
@@ -410,9 +360,7 @@
       "demo": 27.6,
       "demo_src": "WB_WGI_VA",
       "dep3y": -0.6,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 59,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "KR": {
       "law": 76.2,
@@ -424,9 +372,7 @@
       "cd": 110.9,
       "cd_src": "BIS_WS_TC",
       "dep3y": 19.2,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 44,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "LA": {
       "law": 44.2,
@@ -434,9 +380,7 @@
       "demo": 31.1,
       "demo_src": "WB_WGI_VA",
       "dep3y": 108.0,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 57,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "LB": {
       "law": 38.3,
@@ -444,9 +388,7 @@
       "demo": 43.3,
       "demo_src": "WB_WGI_VA",
       "dep3y": 5837.0,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 59,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "LK": {
       "law": 52.5,
@@ -454,9 +396,7 @@
       "demo": 54.6,
       "demo_src": "WB_WGI_VA",
       "dep3y": 76.5,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 57,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "MA": {
       "law": 50.6,
@@ -464,9 +404,7 @@
       "demo": 44.1,
       "demo_src": "WB_WGI_VA",
       "dep3y": 10.6,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 57,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "MX": {
       "law": 37.1,
@@ -478,17 +416,13 @@
       "cd": 21.5,
       "cd_src": "BIS_WS_TC",
       "dep3y": -9.7,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 54,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "MM": {
       "law": 25.8,
       "law_src": "WB_WGI",
       "demo": 19.7,
-      "demo_src": "WB_WGI_VA",
-      "citizen": 54,
-      "citizen_src": "WB_NETMIG"
+      "demo_src": "WB_WGI_VA"
     },
     "MY": {
       "law": 62.9,
@@ -500,9 +434,7 @@
       "cd": 88.5,
       "cd_src": "BIS_WS_TC",
       "dep3y": 10.5,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 27,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "NG": {
       "law": 39.6,
@@ -510,9 +442,7 @@
       "demo": 44.1,
       "demo_src": "WB_WGI_VA",
       "dep3y": 268.7,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 50,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "NP": {
       "law": 51.7,
@@ -520,9 +450,7 @@
       "demo": 55.8,
       "demo_src": "WB_WGI_VA",
       "dep3y": 13.2,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 100,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "NZ": {
       "law": 85.7,
@@ -534,9 +462,7 @@
       "cd": 71.3,
       "cd_src": "BIS_WS_TC",
       "dep3y": 16.9,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 34,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "PK": {
       "law": 39.5,
@@ -544,9 +470,7 @@
       "demo": 36.4,
       "demo_src": "WB_WGI_VA",
       "dep3y": 71.0,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 75,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "PE": {
       "law": 48.3,
@@ -554,9 +478,7 @@
       "demo": 57.6,
       "demo_src": "WB_WGI_VA",
       "dep3y": -3.3,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 48,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "PL": {
       "law": 66.9,
@@ -568,9 +490,7 @@
       "cd": 35.1,
       "cd_src": "BIS_WS_TC",
       "dep3y": 3.1,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 95,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "RO": {
       "law": 63.4,
@@ -578,9 +498,7 @@
       "demo": 63.6,
       "demo_src": "WB_WGI_VA",
       "dep3y": 10.5,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 58,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "RU": {
       "law": 37.1,
@@ -592,9 +510,7 @@
       "cd": 82.0,
       "cd_src": "BIS_WS_TC",
       "dep3y": 25.7,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 59,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "SA": {
       "law": 60.6,
@@ -606,17 +522,13 @@
       "cd": 45.8,
       "cd_src": "BIS_WS_TC",
       "dep3y": 0.0,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 33,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "SD": {
       "law": 26.4,
       "law_src": "WB_WGI",
       "demo": 23.9,
-      "demo_src": "WB_WGI_VA",
-      "citizen": 21,
-      "citizen_src": "WB_NETMIG"
+      "demo_src": "WB_WGI_VA"
     },
     "SG": {
       "law": 81.6,
@@ -628,9 +540,7 @@
       "cd": 122.2,
       "cd_src": "BIS_WS_TC",
       "dep3y": -0.5,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 36,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "SE": {
       "law": 86.7,
@@ -642,17 +552,13 @@
       "cd": 153.0,
       "cd_src": "BIS_WS_TC",
       "dep3y": 23.2,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 28,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "SY": {
       "law": 25.8,
       "law_src": "WB_WGI",
       "demo": 24.5,
-      "demo_src": "WB_WGI_VA",
-      "citizen": 0,
-      "citizen_src": "WB_NETMIG"
+      "demo_src": "WB_WGI_VA"
     },
     "TH": {
       "law": 53.3,
@@ -664,9 +570,7 @@
       "cd": 78.8,
       "cd_src": "BIS_WS_TC",
       "dep3y": 10.4,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 48,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "TJ": {
       "law": 36.6,
@@ -674,9 +578,7 @@
       "demo": 28.1,
       "demo_src": "WB_WGI_VA",
       "dep3y": -4.5,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 60,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "TN": {
       "law": 50.7,
@@ -684,9 +586,7 @@
       "demo": 44.9,
       "demo_src": "WB_WGI_VA",
       "dep3y": 11.2,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 56,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "TR": {
       "law": 42.4,
@@ -698,9 +598,7 @@
       "cd": 38.8,
       "cd_src": "BIS_WS_TC",
       "dep3y": 270.7,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 65,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "UA": {
       "law": 44.6,
@@ -708,9 +606,7 @@
       "demo": 54.9,
       "demo_src": "WB_WGI_VA",
       "dep3y": 47.2,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 0,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "US": {
       "law": 73.5,
@@ -722,9 +618,7 @@
       "cd": 72.5,
       "cd_src": "BIS_WS_TC",
       "dep3y": 0.0,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 32,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "UZ": {
       "law": 45.7,
@@ -732,9 +626,7 @@
       "demo": 38.6,
       "demo_src": "WB_WGI_VA",
       "dep3y": 19.3,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 51,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "VE": {
       "law": 19.0,
@@ -742,9 +634,7 @@
       "demo": 25.0,
       "demo_src": "WB_WGI_VA",
       "dep3y": -100.0,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 68,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "VN": {
       "law": 51.6,
@@ -752,9 +642,7 @@
       "demo": 37.6,
       "demo_src": "WB_WGI_VA",
       "dep3y": 4.3,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 52,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "ZA": {
       "law": 57.3,
@@ -766,9 +654,7 @@
       "cd": 33.6,
       "cd_src": "BIS_WS_TC",
       "dep3y": 24.0,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 39,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "ZM": {
       "law": 47.3,
@@ -776,9 +662,7 @@
       "demo": 49.7,
       "demo_src": "WB_WGI_VA",
       "dep3y": 30.7,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 48,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "ZW": {
       "law": 36.1,
@@ -786,9 +670,7 @@
       "demo": 34.8,
       "demo_src": "WB_WGI_VA",
       "dep3y": 3588.6,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 66,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "ES": {
       "law": 73.0,
@@ -800,9 +682,7 @@
       "cd": 77.0,
       "cd_src": "BIS_WS_TC",
       "dep3y": 9.3,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 40,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "FR": {
       "law": 73.8,
@@ -814,9 +694,7 @@
       "cd": 155.2,
       "cd_src": "BIS_WS_TC",
       "dep3y": 9.3,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 43,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "GB": {
       "law": 78.8,
@@ -828,9 +706,7 @@
       "cd": 59.1,
       "cd_src": "BIS_WS_TC",
       "dep3y": 7.6,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 22,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "GR": {
       "law": 62.1,
@@ -842,9 +718,7 @@
       "cd": 57.5,
       "cd_src": "BIS_WS_TC",
       "dep3y": 9.3,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 42,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "IT": {
       "law": 67.6,
@@ -856,9 +730,7 @@
       "cd": 58.5,
       "cd_src": "BIS_WS_TC",
       "dep3y": 9.3,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 44,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "NL": {
       "law": 86.3,
@@ -870,9 +742,7 @@
       "cd": 166.9,
       "cd_src": "BIS_WS_TC",
       "dep3y": 9.3,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 21,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     },
     "PT": {
       "law": 75.4,
@@ -884,9 +754,7 @@
       "cd": 75.8,
       "cd_src": "BIS_WS_TC",
       "dep3y": 9.3,
-      "dep3y_src": "WB_FCRF",
-      "citizen": 42,
-      "citizen_src": "WB_NETMIG"
+      "dep3y_src": "WB_FCRF"
     }
   }
 }
