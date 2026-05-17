@@ -555,13 +555,15 @@ function calcScore(c, dep) {
 
   // ① 환율 신호 (30점) — 시장 결정, 조작 불가, 최우선
   // dep 없으면 dep3y/3 연환산 프록시 사용
-  const depAnnual = dep != null ? dep : ((m.dep3y || 0) / 3);
+  // 1년 절하율과 3년 연환산 중 더 큰 값 사용
+  // 단기 반등(예: 엔화 강세)이 구조적 약세를 가릴 수 있기 때문
+  const dep1y    = dep != null ? dep : 0;
+  const dep3yAnn = (m.dep3y || 0) / 3;
+  const depAnnual = Math.max(dep1y, dep3yAnn);
   if (c.pp > 0) {
-    // 제곱근 스케일: pp=225%→30점, pp=100%→20점, pp=45%→13점, pp=15%→8점
-    // 이전 pp/57은 이란(1700%)에만 최적화되어 나머지 41개국이 0~2점이었음
     s += Math.min(30, Math.sqrt(c.pp) * 2);
   } else if (depAnnual > 0) {
-    s += Math.min(30, depAnnual * 1.2);     // 절하율: 25%→30점
+    s += Math.min(30, depAnnual * 1.2);
   }
 
   // ② 정부 절박도 (15점) — 재정·외화·인플레이션
@@ -651,7 +653,14 @@ function detectAnomalies(c, dep, score) {
     a.push({sev:"warn", msg:`자산 동결·몰수 전례 있음 — 반복 가능성 주의`});
   if ((m.elite || 0) >= 80 && c.pp > 20)
     a.push({sev:"crit", msg:`엘리트 이탈 강도 높음 — 내부 정보 기반 선제 행동`});
-  if ((m.ca || 0) < -10)
+
+  if ((m.law||50) < 45 && c.pp < 5 && (m.dep3y||0) < 15 && (m.demo||50) < 35) {
+    a.push({sev:"warn", msg:`외환통제 의심 — 자본통제로 환율신호 억압. ① 점수 과소평가 가능`});
+  }
+  const lowTrustIds = ["LB","SY","YE","SD","AF","MM","CU","IR"];
+  if (lowTrustIds.includes(c.id)) {
+    a.push({sev:"warn", msg:`검색 트렌드 신뢰 낮음 — 전기부족·이주로 실제 위기 과소평가 가능`});
+  }  if ((m.ca || 0) < -10)
     a.push({sev:"warn", msg:`경상수지 적자 GDP ${Math.abs(m.ca || 0)}% — 외화 고갈 진행`});
   if ((m.debt || 0) > 200 && c.pp > 0)
     a.push({sev:"warn", msg:`정부부채 GDP ${m.debt}% + 암시장 활성 — 재정 절박`});
@@ -664,9 +673,12 @@ function enrich(c) {
   const dep  = (now && prev) ? +((now - prev) / prev * 100).toFixed(1) : null;
   const m2   = META[c.id] || {};
   // 1년 데이터 없으면 dep3y/3 연환산으로 표시
-  const depDisplay = dep != null ? dep
-    : (m2.dep3y ? +(m2.dep3y / 3).toFixed(1) : null);
-  const depIsEstimated = dep == null && m2.dep3y != null;
+  const dep3yAnn2 = (m2.dep3y || 0) / 3;
+  const depDisplay = dep != null
+    ? (dep < dep3yAnn2 ? +(dep3yAnn2.toFixed(1)) : dep)
+    : (m2.dep3y ? +(dep3yAnn2.toFixed(1)) : null);
+  const depIsEstimated = (dep == null && m2.dep3y != null)
+    || (dep != null && dep < dep3yAnn2);
   const parallel = (now && c.pp > 0) ? now * (1 + c.pp / 100) : null;
   const score = calcScore(c, dep != null ? dep : (m2.dep3y ? m2.dep3y/3 : null));
   const stage = getStage(score, c);
@@ -1212,7 +1224,7 @@ function openMd(id) {
     const k0 = encodeURIComponent(kw.split(",")[0]);
     const k3 = encodeURIComponent(kw.split(",").slice(0,3).join(","));
     switch(eng) {
-      case "naver":    return `https://datalab.naver.com/keyword/trendResult.naver?keywords=${k3}`;
+      case "naver":    return `https://search.naver.com/search.naver?where=nexearch&query=${k0}`;
       case "yandex":   return `https://wordstat.yandex.com/#!/?words=${k0}`;
       case "baidu":    return `https://index.baidu.com/v2/main/index.html#/trend/${k0}`;
       case "yahoo_jp": return `https://search.yahoo.co.jp/realtime?p=${k0}`;
