@@ -7,6 +7,9 @@ on:
     - cron: '0 4 * * 0'      # 매주 연간 업데이트
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   hourly-real-time:
     runs-on: ubuntu-latest
@@ -26,9 +29,11 @@ jobs:
           git config user.name "Sentinel Bot"
           git config user.email "sentinel-bot@github.com"
           git add sentinel-data.json
-          git diff --staged --quiet || git commit -m "🚨 Hourly Real-time" && git push
+          git diff --staged --quiet || git commit -m "🚨 Hourly Real-time"
+          git push
 
   daily-update:
+    needs: hourly-real-time
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -45,5 +50,7 @@ jobs:
         run: |
           git config user.name "Sentinel Bot"
           git config user.email "sentinel-bot@github.com"
+          git pull origin main
           git add sentinel-data.json
-          git diff --staged --quiet || git commit -m "📅 Daily Update" && git push
+          git diff --staged --quiet || git commit -m "📅 Daily Update"
+          git push
