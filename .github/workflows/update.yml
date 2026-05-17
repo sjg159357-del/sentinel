@@ -6,7 +6,8 @@ on:
     - cron: '30 2 * * *'     # 매일 Daily 업데이트
     - cron: '0 4 * * 0'      # 매주 연간 업데이트
   workflow_dispatch:
-
+permissions:
+  contents: write
 jobs:
   hourly-real-time:
     runs-on: ubuntu-latest
