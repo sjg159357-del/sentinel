@@ -28,6 +28,7 @@ jobs:
           git config user.email "sentinel-bot@github.com"
           git add sentinel-data.json
           git diff --staged --quiet || git commit -m "🚨 Hourly Real-time" && git push
+          git pull --rebase origin main 
 
   daily-update:
     runs-on: ubuntu-latest
@@ -48,3 +49,4 @@ jobs:
           git config user.email "sentinel-bot@github.com"
           git add sentinel-data.json
           git diff --staged --quiet || git commit -m "📅 Daily Update" && git push
+          git pull --rebase origin main 
