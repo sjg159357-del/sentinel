@@ -1,0 +1,39 @@
+name: SENTINEL Elite Exit Index (주 2회)
+
+on:
+  schedule:
+    - cron: '0 17 * * 6'    # 토요일 17:00 UTC = 일요일 02:00 KST
+    - cron: '0 5 * * 0'     # 일요일 05:00 UTC = 일요일 14:00 KST
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  elite-exit-update:
+    if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: 의존성 설치
+        run: pip install requests pytrends pandas pycountry
+
+      - name: Elite Exit Index 업데이트
+        run: python3 scripts/update_elite.py
+
+      - name: 커밋 & 푸시
+        run: |
+          git config user.name "Sentinel Bot"
+          git config user.email "sentinel-bot@github.com"
+          git add sentinel-data.json
+          git diff --staged --quiet || git commit -m "🏃 Elite Exit Update [${{ github.run_id }}]"
+          git push
