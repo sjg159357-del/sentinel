@@ -2,9 +2,9 @@ name: SENTINEL v3.1 실시간 자동 업데이트
 
 on:
   schedule:
-    - cron: '0 * * * *'      # 매시간 실시간 감지
-    - cron: '30 2 * * *'     # 매일 Daily 업데이트
-    - cron: '0 4 * * 0'      # 매주 연간 업데이트
+    - cron: '0 * * * *'
+    - cron: '30 2 * * *'
+    - cron: '0 4 * * 0'
   workflow_dispatch:
 
 permissions:
@@ -15,22 +15,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v4
         with:
           python-version: '3.11'
+
       - run: pip install requests
+
       - name: 실시간 이벤트 감지
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python3 scripts/detect_events.py
+
       - name: 커밋
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           git config user.name "Sentinel Bot"
           git config user.email "sentinel-bot@github.com"
           git add sentinel-data.json
           git diff --staged --quiet || git commit -m "🚨 Hourly Real-time"
-          git push
+          git push https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git HEAD:main
 
   daily-update:
     needs: hourly-real-time
@@ -40,19 +46,25 @@ jobs:
         with:
           ref: main
           fetch-depth: 0
+
       - uses: actions/setup-python@v4
         with:
           python-version: '3.11'
+
       - run: pip install requests beautifulsoup4 lxml pytrends
+
       - name: Daily 업데이트
         run: |
           python3 scripts/update_data.py
           python3 scripts/update_trends.py
           python3 scripts/update_bizjet.py
+
       - name: 커밋
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           git config user.name "Sentinel Bot"
           git config user.email "sentinel-bot@github.com"
           git add sentinel-data.json
           git diff --staged --quiet || git commit -m "📅 Daily Update"
-          git push
+          git push https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git HEAD:main
