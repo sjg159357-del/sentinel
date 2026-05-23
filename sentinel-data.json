@@ -17,7 +17,7 @@
     "last_bizjet_update": "2026-05-23",
     "bizjet_total_flying": 277,
     "bizjet_cache_size": 24500,
-    "last_elite_update": "2026-05-20"
+    "last_elite_update": "2026-05-23"
   },
   "pp_rates": [
     {
@@ -25943,61 +25943,43 @@
       "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-05-20",
+      "updated": "2026-05-23",
       "alert": false
     },
     "AT": {
-      "score": 30,
+      "score": 27,
       "trend_flee": 38,
-      "bizjet": 10,
+      "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-05-20",
-      "alert": false
-    },
-    "AU": {
-      "score": 28,
-      "trend_flee": 38,
-      "bizjet": 5,
-      "media": 32,
-      "spike": false,
-      "updated": "2026-05-20",
+      "updated": "2026-05-23",
       "alert": false
     },
     "BR": {
-      "score": 34,
+      "score": 27,
       "trend_flee": 38,
-      "bizjet": 0,
+      "bizjet": 1,
       "media": 32,
       "spike": false,
-      "updated": "2026-05-20",
+      "updated": "2026-05-23",
       "alert": false
     },
-    "CH": {
+    "CA": {
       "score": 28,
       "trend_flee": 38,
-      "bizjet": 5,
+      "bizjet": 3,
       "media": 32,
       "spike": false,
-      "updated": "2026-05-20",
+      "updated": "2026-05-23",
       "alert": false
     },
     "CO": {
-      "score": 34,
+      "score": 27,
       "trend_flee": 38,
       "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-05-20",
-      "alert": false
-    },
-    "DE": {
-      "score": 33,
-      "trend_flee": 38,
-      "bizjet": 25,
-      "media": 32,
-      "spike": false,
-      "updated": "2026-05-20",
+      "updated": "2026-05-23",
       "alert": false
     },
     "EG": {
@@ -26006,16 +25988,7 @@
       "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-05-20",
-      "alert": false
-    },
-    "FR": {
-      "score": 31,
-      "trend_flee": 38,
-      "bizjet": 15,
-      "media": 32,
-      "spike": false,
-      "updated": "2026-05-20",
+      "updated": "2026-05-23",
       "alert": false
     },
     "GH": {
@@ -26024,16 +25997,7 @@
       "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-05-20",
-      "alert": false
-    },
-    "HU": {
-      "score": 28,
-      "trend_flee": 38,
-      "bizjet": 5,
-      "media": 32,
-      "spike": false,
-      "updated": "2026-05-20",
+      "updated": "2026-05-23",
       "alert": false
     },
     "ID": {
@@ -26042,7 +26006,7 @@
       "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-05-20",
+      "updated": "2026-05-23",
       "alert": false
     },
     "IN": {
@@ -26051,7 +26015,7 @@
       "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-05-20",
+      "updated": "2026-05-23",
       "alert": false
     },
     "IR": {
@@ -26060,16 +26024,16 @@
       "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-05-20",
+      "updated": "2026-05-23",
       "alert": false
     },
     "JP": {
-      "score": 28,
+      "score": 34,
       "trend_flee": 38,
-      "bizjet": 5,
+      "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-05-20",
+      "updated": "2026-05-23",
       "alert": false
     },
     "KE": {
@@ -26078,16 +26042,16 @@
       "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-05-20",
+      "updated": "2026-05-23",
       "alert": false
     },
     "KR": {
-      "score": 28,
+      "score": 34,
       "trend_flee": 38,
-      "bizjet": 5,
+      "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-05-20",
+      "updated": "2026-05-23",
       "alert": false
     },
     "LB": {
@@ -26096,16 +26060,25 @@
       "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-05-20",
+      "updated": "2026-05-23",
       "alert": false
     },
-    "LU": {
-      "score": 28,
+    "MA": {
+      "score": 27,
       "trend_flee": 38,
-      "bizjet": 5,
+      "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-05-20",
+      "updated": "2026-05-23",
+      "alert": false
+    },
+    "MX": {
+      "score": 28,
+      "trend_flee": 38,
+      "bizjet": 2,
+      "media": 32,
+      "spike": false,
+      "updated": "2026-05-23",
       "alert": false
     },
     "NG": {
@@ -26114,7 +26087,7 @@
       "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-05-20",
+      "updated": "2026-05-23",
       "alert": false
     },
     "PK": {
@@ -26123,16 +26096,7 @@
       "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-05-20",
-      "alert": false
-    },
-    "PT": {
-      "score": 28,
-      "trend_flee": 38,
-      "bizjet": 5,
-      "media": 32,
-      "spike": false,
-      "updated": "2026-05-20",
+      "updated": "2026-05-23",
       "alert": false
     },
     "RU": {
@@ -26141,7 +26105,7 @@
       "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-05-20",
+      "updated": "2026-05-23",
       "alert": false
     },
     "TR": {
@@ -26150,7 +26114,7 @@
       "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-05-20",
+      "updated": "2026-05-23",
       "alert": false
     },
     "UA": {
@@ -26159,7 +26123,7 @@
       "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-05-20",
+      "updated": "2026-05-23",
       "alert": false
     },
     "US": {
@@ -26168,7 +26132,7 @@
       "bizjet": 100,
       "media": 32,
       "spike": false,
-      "updated": "2026-05-20",
+      "updated": "2026-05-23",
       "alert": false
     },
     "VE": {
@@ -26177,7 +26141,7 @@
       "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-05-20",
+      "updated": "2026-05-23",
       "alert": false
     },
     "VN": {
@@ -26186,16 +26150,16 @@
       "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-05-20",
+      "updated": "2026-05-23",
       "alert": false
     },
     "ZA": {
-      "score": 28,
+      "score": 34,
       "trend_flee": 38,
-      "bizjet": 5,
+      "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-05-20",
+      "updated": "2026-05-23",
       "alert": false
     }
   }
