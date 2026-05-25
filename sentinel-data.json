@@ -14,8 +14,8 @@
     },
     "last_real_time": "2026-05-24T23:57:12.828950",
     "last_trends_update": "2026-05-24",
-    "last_bizjet_update": "2026-05-24",
-    "bizjet_total_flying": 263,
+    "last_bizjet_update": "2026-05-25",
+    "bizjet_total_flying": 0,
     "bizjet_cache_size": 27649,
     "last_elite_update": "2026-05-24"
   },
@@ -1266,13 +1266,13 @@
   "trends": {
     "KR": {
       "sell": 1.6,
-      "buy": 27.8,
+      "buy": 27.9,
       "flee": 4.1,
       "bank": 3.2,
       "updated": "2026-05-24"
     },
     "JP": {
-      "sell": 25.7,
+      "sell": 25.8,
       "buy": 39.7,
       "flee": 39.1,
       "bank": 22.0,
@@ -1287,14 +1287,15 @@
     },
     "VN": {
       "sell": 22.8,
-      "flee": 29.5,
+      "buy": 15.4,
+      "flee": 29.6,
       "bank": 67.2,
       "updated": "2026-05-24"
     },
     "ID": {
       "sell": 40.0,
       "buy": 27.2,
-      "flee": 9.4,
+      "flee": 9.5,
       "bank": 36.4,
       "updated": "2026-05-24"
     },
@@ -1306,9 +1307,9 @@
     },
     "TR": {
       "sell": 3.6,
-      "buy": 12.1,
+      "buy": 12.2,
       "flee": 25.7,
-      "bank": 9.8,
+      "bank": 10.1,
       "updated": "2026-05-24"
     },
     "IR": {
@@ -1319,81 +1320,69 @@
       "updated": "2026-05-24"
     },
     "EG": {
-      "sell": 25.5,
-      "buy": 21.6,
-      "flee": 25.2,
+      "sell": 25.4,
+      "buy": 21.5,
+      "flee": 25.7,
       "updated": "2026-05-24"
     },
     "LB": {
-      "sell": 1.7,
-      "buy": 1.1,
-      "flee": 1.5,
-      "bank": 10.4,
+      "sell": 1.6,
+      "buy": 3.0,
+      "flee": 1.4,
+      "bank": 10.3,
       "updated": "2026-05-24"
     },
     "NG": {
-      "sell": 4.7,
+      "sell": 4.0,
       "buy": 20.0,
-      "flee": 0.6,
-      "bank": 36.8,
       "updated": "2026-05-24"
     },
     "GH": {
-      "sell": 3.2,
-      "buy": 1.2,
+      "buy": 1.4,
       "bank": 1.1,
       "updated": "2026-05-24"
     },
     "ZA": {
-      "sell": 9.6,
-      "buy": 12.0,
       "flee": 2.3,
       "updated": "2026-05-24"
     },
     "KE": {
-      "sell": 3.7,
-      "buy": 1.1,
+      "sell": 4.4,
       "updated": "2026-05-24"
     },
     "UA": {
       "sell": 37.6,
-      "buy": 23.3,
-      "flee": 3.5,
-      "bank": 11.3,
+      "buy": 23.1,
+      "flee": 3.3,
+      "bank": 11.2,
       "updated": "2026-05-24"
     },
     "RU": {
-      "sell": 28.1,
+      "sell": 28.0,
       "buy": 25.3,
-      "flee": 15.6,
+      "flee": 15.9,
       "bank": 3.5,
       "updated": "2026-05-24"
     },
     "AR": {
-      "sell": 2.4,
-      "buy": 20.3,
-      "flee": 8.4,
-      "bank": 23.5,
+      "sell": 2.3,
+      "buy": 20.2,
+      "flee": 9.6,
+      "bank": 23.6,
       "updated": "2026-05-24"
     },
     "VE": {
-      "sell": 5.7,
-      "buy": 21.9,
-      "flee": 2.1,
-      "bank": 7.3,
+      "sell": 4.0,
+      "flee": 2.0,
       "updated": "2026-05-24"
     },
     "BR": {
-      "sell": 24.3,
-      "buy": 49.5,
-      "flee": 3.1,
-      "bank": 30.7,
+      "sell": 24.4,
       "updated": "2026-05-24"
     },
     "CO": {
-      "sell": 5.5,
-      "buy": 10.3,
-      "bank": 1.2,
+      "sell": 5.3,
+      "buy": 11.5,
       "updated": "2026-05-24"
     }
   },
@@ -29048,48 +29037,7 @@
     "a0b845": "UNKNOWN",
     "a0b841": "UNKNOWN"
   },
-  "bizjet": {
-    "US": {
-      "count": 248,
-      "index": 100,
-      "updated": "2026-05-24"
-    },
-    "CA": {
-      "count": 7,
-      "index": 3,
-      "updated": "2026-05-24"
-    },
-    "AT": {
-      "count": 1,
-      "index": 0,
-      "updated": "2026-05-24"
-    },
-    "MX": {
-      "count": 2,
-      "index": 1,
-      "updated": "2026-05-24"
-    },
-    "AU": {
-      "count": 1,
-      "index": 0,
-      "updated": "2026-05-24"
-    },
-    "JP": {
-      "count": 1,
-      "index": 0,
-      "updated": "2026-05-24"
-    },
-    "PT": {
-      "count": 2,
-      "index": 1,
-      "updated": "2026-05-24"
-    },
-    "CN": {
-      "count": 1,
-      "index": 0,
-      "updated": "2026-05-24"
-    }
-  },
+  "bizjet": {},
   "elite_exit": {
     "AR": {
       "score": 34,
