@@ -15,7 +15,7 @@
     "last_real_time": "2026-05-28T18:33:23.215314",
     "last_trends_update": "2026-05-28",
     "last_bizjet_update": "2026-05-28",
-    "bizjet_total_flying": 0,
+    "bizjet_total_flying": 494,
     "bizjet_cache_size": 35149,
     "last_elite_update": "2026-05-24"
   },
@@ -1275,63 +1275,70 @@
       "sell": 25.4,
       "buy": 37.3,
       "flee": 33.7,
-      "bank": 17.9,
+      "bank": 18.0,
       "updated": "2026-05-28"
     },
     "IN": {
       "sell": 16.8,
-      "flee": 2.8,
-      "bank": 24.4,
+      "buy": 12.6,
+      "flee": 2.9,
+      "bank": 24.5,
       "updated": "2026-05-28"
     },
     "VN": {
       "sell": 30.1,
       "buy": 15.1,
       "flee": 29.3,
-      "bank": 64.7,
+      "bank": 64.8,
       "updated": "2026-05-28"
     },
     "ID": {
-      "sell": 39.8,
-      "flee": 9.1,
+      "sell": 39.7,
+      "buy": 26.0,
       "bank": 34.6,
       "updated": "2026-05-28"
     },
     "PK": {
       "sell": 2.6,
-      "buy": 5.0,
+      "bank": 1.1,
       "updated": "2026-05-28"
     },
     "TR": {
-      "flee": 28.1,
-      "bank": 7.7,
+      "sell": 4.8,
+      "buy": 12.5,
+      "flee": 28.0,
+      "bank": 8.5,
       "updated": "2026-05-28"
     },
     "IR": {
-      "sell": 15.1,
+      "sell": 14.9,
       "buy": 15.2,
       "flee": 17.6,
       "bank": 5.8,
       "updated": "2026-05-28"
     },
     "EG": {
-      "sell": 23.0,
-      "buy": 21.1,
-      "flee": 24.7,
+      "sell": 23.1,
+      "buy": 21.0,
+      "flee": 24.8,
       "updated": "2026-05-28"
     },
     "LB": {
-      "sell": 1.6,
+      "sell": 1.1,
+      "buy": 1.9,
+      "flee": 1.5,
+      "bank": 8.0,
       "updated": "2026-05-28"
     },
     "NG": {
+      "sell": 1.1,
       "buy": 21.3,
       "flee": 0.6,
       "bank": 36.8,
       "updated": "2026-05-28"
     },
     "GH": {
-      "sell": 2.4,
+      "sell": 3.6,
       "buy": 1.1,
       "flee": 1.1,
       "updated": "2026-05-28"
@@ -1343,19 +1350,21 @@
       "updated": "2026-05-28"
     },
     "KE": {
-      "sell": 1.0,
-      "flee": 1.8,
+      "sell": 0.9,
       "updated": "2026-05-28"
     },
     "UA": {
+      "sell": 37.8,
+      "buy": 20.3,
       "flee": 2.8,
+      "bank": 10.4,
       "updated": "2026-05-28"
     },
     "RU": {
-      "sell": 28.7,
-      "buy": 25.9,
-      "flee": 13.8,
-      "bank": 7.5,
+      "sell": 29.2,
+      "buy": 25.2,
+      "flee": 14.1,
+      "bank": 3.5,
       "updated": "2026-05-28"
     },
     "AR": {
@@ -1366,10 +1375,8 @@
       "updated": "2026-05-28"
     },
     "VE": {
-      "sell": 0.9,
+      "sell": 1.0,
       "buy": 18.4,
-      "flee": 0.8,
-      "bank": 6.2,
       "updated": "2026-05-28"
     },
     "BR": {
@@ -1380,8 +1387,8 @@
       "updated": "2026-05-28"
     },
     "CO": {
-      "sell": 10.6,
-      "buy": 8.4,
+      "sell": 11.6,
+      "buy": 8.6,
       "bank": 3.9,
       "updated": "2026-05-28"
     }
@@ -36537,7 +36544,83 @@
     "a13615": "C180",
     "acb892": "CRJ2"
   },
-  "bizjet": {},
+  "bizjet": {
+    "CA": {
+      "count": 10,
+      "index": 2,
+      "updated": "2026-05-28"
+    },
+    "US": {
+      "count": 463,
+      "index": 100,
+      "updated": "2026-05-28"
+    },
+    "AT": {
+      "count": 3,
+      "index": 1,
+      "updated": "2026-05-28"
+    },
+    "DE": {
+      "count": 2,
+      "index": 0,
+      "updated": "2026-05-28"
+    },
+    "TR": {
+      "count": 2,
+      "index": 0,
+      "updated": "2026-05-28"
+    },
+    "IN": {
+      "count": 1,
+      "index": 0,
+      "updated": "2026-05-28"
+    },
+    "FR": {
+      "count": 1,
+      "index": 0,
+      "updated": "2026-05-28"
+    },
+    "CO": {
+      "count": 1,
+      "index": 0,
+      "updated": "2026-05-28"
+    },
+    "BR": {
+      "count": 1,
+      "index": 0,
+      "updated": "2026-05-28"
+    },
+    "GB": {
+      "count": 2,
+      "index": 0,
+      "updated": "2026-05-28"
+    },
+    "PT": {
+      "count": 3,
+      "index": 1,
+      "updated": "2026-05-28"
+    },
+    "MX": {
+      "count": 2,
+      "index": 0,
+      "updated": "2026-05-28"
+    },
+    "ES": {
+      "count": 1,
+      "index": 0,
+      "updated": "2026-05-28"
+    },
+    "PL": {
+      "count": 1,
+      "index": 0,
+      "updated": "2026-05-28"
+    },
+    "CH": {
+      "count": 1,
+      "index": 0,
+      "updated": "2026-05-28"
+    }
+  },
   "elite_exit": {
     "AR": {
       "score": 34,
