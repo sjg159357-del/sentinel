@@ -15,7 +15,7 @@
     "last_real_time": "2026-06-09T05:01:20.380845",
     "last_trends_update": "2026-06-09",
     "last_bizjet_update": "2026-06-09",
-    "bizjet_total_flying": 527,
+    "bizjet_total_flying": 0,
     "bizjet_cache_size": 69764,
     "last_elite_update": "2026-05-24"
   },
@@ -1347,15 +1347,13 @@
       "updated": "2026-06-09"
     },
     "KE": {
-      "flee": 1.5,
-      "bank": 1.1,
+      "flee": 1.6,
+      "bank": 2.0,
       "updated": "2026-06-09"
     },
     "UA": {
-      "sell": 33.9,
+      "sell": 34.1,
       "buy": 20.3,
-      "flee": 2.3,
-      "bank": 9.5,
       "updated": "2026-06-09"
     },
     "RU": {
@@ -1379,14 +1377,12 @@
       "updated": "2026-06-09"
     },
     "BR": {
-      "sell": 25.7,
-      "buy": 45.6,
-      "flee": 6.1,
+      "bank": 39.0,
       "updated": "2026-06-09"
     },
     "CO": {
-      "sell": 10.4,
-      "flee": 1.1,
+      "buy": 1.7,
+      "bank": 1.3,
       "updated": "2026-06-09"
     }
   },
@@ -71156,63 +71152,7 @@
     "aac628": "M20P",
     "a5fd9d": "C152"
   },
-  "bizjet": {
-    "US": {
-      "count": 487,
-      "index": 100,
-      "updated": "2026-06-09"
-    },
-    "CA": {
-      "count": 18,
-      "index": 4,
-      "updated": "2026-06-09"
-    },
-    "AU": {
-      "count": 7,
-      "index": 1,
-      "updated": "2026-06-09"
-    },
-    "JP": {
-      "count": 5,
-      "index": 1,
-      "updated": "2026-06-09"
-    },
-    "MX": {
-      "count": 4,
-      "index": 1,
-      "updated": "2026-06-09"
-    },
-    "MY": {
-      "count": 1,
-      "index": 0,
-      "updated": "2026-06-09"
-    },
-    "BR": {
-      "count": 1,
-      "index": 0,
-      "updated": "2026-06-09"
-    },
-    "KR": {
-      "count": 1,
-      "index": 0,
-      "updated": "2026-06-09"
-    },
-    "FR": {
-      "count": 1,
-      "index": 0,
-      "updated": "2026-06-09"
-    },
-    "NZ": {
-      "count": 1,
-      "index": 0,
-      "updated": "2026-06-09"
-    },
-    "MT": {
-      "count": 1,
-      "index": 0,
-      "updated": "2026-06-09"
-    }
-  },
+  "bizjet": {},
   "elite_exit": {
     "AR": {
       "score": 34,
