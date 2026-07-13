@@ -15,7 +15,7 @@
     "last_real_time": "2026-07-13T10:20:18.990164",
     "last_trends_update": "2026-07-13",
     "last_bizjet_update": "2026-07-13",
-    "bizjet_total_flying": 211,
+    "bizjet_total_flying": 0,
     "bizjet_cache_size": 133435,
     "last_elite_update": "2026-05-24"
   },
@@ -1304,29 +1304,21 @@
       "updated": "2026-07-13"
     },
     "TR": {
-      "buy": 30.1,
-      "flee": 25.9,
-      "bank": 8.1,
+      "buy": 31.3,
+      "flee": 25.1,
       "updated": "2026-07-13"
     },
     "IR": {
-      "sell": 25.7,
-      "buy": 19.5,
-      "flee": 28.6,
-      "bank": 5.0,
+      "bank": 13.5,
       "updated": "2026-07-13"
     },
     "EG": {
-      "sell": 33.5,
-      "buy": 23.3,
-      "flee": 8.0,
+      "sell": 32.3,
+      "buy": 23.6,
       "updated": "2026-07-13"
     },
     "LB": {
-      "sell": 0.5,
       "buy": 1.1,
-      "flee": 1.4,
-      "bank": 9.9,
       "updated": "2026-07-13"
     },
     "NG": {
@@ -1336,15 +1328,13 @@
       "updated": "2026-07-13"
     },
     "GH": {
-      "sell": 1.7,
+      "sell": 1.0,
       "buy": 1.1,
       "updated": "2026-07-13"
     },
     "ZA": {
-      "sell": 9.7,
-      "buy": 9.6,
-      "flee": 1.0,
-      "bank": 1.1,
+      "sell": 8.4,
+      "buy": 9.1,
       "updated": "2026-07-13"
     },
     "KE": {
@@ -1355,20 +1345,17 @@
       "updated": "2026-07-13"
     },
     "UA": {
-      "sell": 39.0,
-      "buy": 14.3,
-      "flee": 2.5,
-      "bank": 8.4,
+      "buy": 11.3,
       "updated": "2026-07-13"
     },
     "RU": {
-      "flee": 12.8,
-      "bank": 5.3,
+      "buy": 40.1,
+      "flee": 12.7,
       "updated": "2026-07-13"
     },
     "AR": {
+      "sell": 1.9,
       "buy": 21.8,
-      "flee": 8.0,
       "updated": "2026-07-13"
     },
     "VE": {
@@ -134829,138 +134816,7 @@
     "39d563": "R66",
     "71020a": "B350"
   },
-  "bizjet": {
-    "US": {
-      "count": 111,
-      "index": 100,
-      "updated": "2026-07-13"
-    },
-    "AU": {
-      "count": 11,
-      "index": 10,
-      "updated": "2026-07-13"
-    },
-    "ZA": {
-      "count": 2,
-      "index": 2,
-      "updated": "2026-07-13"
-    },
-    "JP": {
-      "count": 6,
-      "index": 5,
-      "updated": "2026-07-13"
-    },
-    "GB": {
-      "count": 14,
-      "index": 13,
-      "updated": "2026-07-13"
-    },
-    "AT": {
-      "count": 5,
-      "index": 5,
-      "updated": "2026-07-13"
-    },
-    "DE": {
-      "count": 17,
-      "index": 15,
-      "updated": "2026-07-13"
-    },
-    "IN": {
-      "count": 1,
-      "index": 1,
-      "updated": "2026-07-13"
-    },
-    "MA": {
-      "count": 1,
-      "index": 1,
-      "updated": "2026-07-13"
-    },
-    "LU": {
-      "count": 4,
-      "index": 4,
-      "updated": "2026-07-13"
-    },
-    "GR": {
-      "count": 2,
-      "index": 2,
-      "updated": "2026-07-13"
-    },
-    "SE": {
-      "count": 1,
-      "index": 1,
-      "updated": "2026-07-13"
-    },
-    "PT": {
-      "count": 11,
-      "index": 10,
-      "updated": "2026-07-13"
-    },
-    "LB": {
-      "count": 1,
-      "index": 1,
-      "updated": "2026-07-13"
-    },
-    "PL": {
-      "count": 3,
-      "index": 3,
-      "updated": "2026-07-13"
-    },
-    "CN": {
-      "count": 2,
-      "index": 2,
-      "updated": "2026-07-13"
-    },
-    "CH": {
-      "count": 2,
-      "index": 2,
-      "updated": "2026-07-13"
-    },
-    "CA": {
-      "count": 2,
-      "index": 2,
-      "updated": "2026-07-13"
-    },
-    "PK": {
-      "count": 1,
-      "index": 1,
-      "updated": "2026-07-13"
-    },
-    "BE": {
-      "count": 2,
-      "index": 2,
-      "updated": "2026-07-13"
-    },
-    "IT": {
-      "count": 3,
-      "index": 3,
-      "updated": "2026-07-13"
-    },
-    "TR": {
-      "count": 1,
-      "index": 1,
-      "updated": "2026-07-13"
-    },
-    "MY": {
-      "count": 1,
-      "index": 1,
-      "updated": "2026-07-13"
-    },
-    "MT": {
-      "count": 5,
-      "index": 5,
-      "updated": "2026-07-13"
-    },
-    "FR": {
-      "count": 1,
-      "index": 1,
-      "updated": "2026-07-13"
-    },
-    "IE": {
-      "count": 1,
-      "index": 1,
-      "updated": "2026-07-13"
-    }
-  },
+  "bizjet": {},
   "elite_exit": {
     "AR": {
       "score": 34,
