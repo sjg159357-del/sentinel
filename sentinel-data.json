@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "updated": "2026-07-26",
+    "updated": "2026-07-27",
     "source": "GitHub Actions Auto-Update",
     "note": "annual.citizen 제거 — WB 순이민 데이터 오해석 버그 수정",
     "last_annual_update": "2026-05-16",
@@ -13,10 +13,10 @@
       "citizen": "World Bank: Net migration (SM.POP.NETM), indexed 0-100"
     },
     "last_real_time": "2026-07-27T02:36:35.423010",
-    "last_trends_update": "2026-07-26",
+    "last_trends_update": "2026-07-27",
     "last_bizjet_update": "2026-07-27",
-    "bizjet_total_flying": 1116,
-    "bizjet_cache_size": 147560,
+    "bizjet_total_flying": 723,
+    "bizjet_cache_size": 147633,
     "last_elite_update": "2026-05-24"
   },
   "pp_rates": [
@@ -24,7 +24,7 @@
       "id": "IR",
       "pp": 1700,
       "source": "bonbast.com",
-      "updated": "2026-07-26"
+      "updated": "2026-07-27"
     },
     {
       "id": "SY",
@@ -36,25 +36,25 @@
       "id": "VE",
       "pp": 45,
       "source": "monitordolarve.com",
-      "updated": "2026-07-26"
+      "updated": "2026-07-27"
     },
     {
       "id": "AR",
       "pp": 15,
       "source": "ambito.com",
-      "updated": "2026-07-26"
+      "updated": "2026-07-27"
     },
     {
       "id": "NG",
       "pp": 12,
       "source": "abokiforex.app",
-      "updated": "2026-07-26"
+      "updated": "2026-07-27"
     },
     {
       "id": "LB",
       "pp": 5,
       "source": "lirarate.org",
-      "updated": "2026-07-26"
+      "updated": "2026-07-27"
     },
     {
       "id": "ZW",
@@ -148955,17 +148955,85 @@
     "ad024a": "C175",
     "a72c91": "UNKNOWN",
     "aab50c": "BE33",
-    "487ce4": "UNKNOWN"
+    "487ce4": "UNKNOWN",
+    "500482": "UNKNOWN",
+    "88522f": "UNKNOWN",
+    "884018": "B412",
+    "3c4a52": "UNKNOWN",
+    "a00776": "C210",
+    "7c6237": "BL8",
+    "7c6279": "BE33",
+    "7c60ae": "SR22",
+    "ac6f9b": "LJ31",
+    "ae53f3": "UNKNOWN",
+    "780b3e": "CRJ9",
+    "a3a6d0": "UNKNOWN",
+    "c024a5": "C185",
+    "863b10": "EC25",
+    "780d7c": "B737",
+    "a55e14": "UNKNOWN",
+    "a17b8a": "C195",
+    "881c01": "B407",
+    "7c4e7e": "UNKNOWN",
+    "406d24": "A109",
+    "7c4f5a": "PA18",
+    "a1a7cc": "P28S",
+    "c84b0e": "UNKNOWN",
+    "781921": "A20N",
+    "a1cecc": "C182",
+    "a8a582": "C414",
+    "5113bf": "UNKNOWN",
+    "347a49": "UNKNOWN",
+    "ac426d": "GL7T",
+    "a8a225": "C210",
+    "71f000": "UNKNOWN",
+    "a4270a": "BE36",
+    "408240": "UNKNOWN",
+    "a4ac65": "LJ40",
+    "a54846": "M20P",
+    "7c3901": "C170",
+    "c82248": "UNKNOWN",
+    "a1fa21": "R44",
+    "ad4e0c": "C172",
+    "c82852": "AS50",
+    "c086dd": "P28U",
+    "71f546": "UNKNOWN",
+    "c8278a": "UNKNOWN",
+    "a76645": "UNKNOWN",
+    "aa3659": "C152",
+    "aba325": "UNKNOWN",
+    "71f747": "UNKNOWN",
+    "ae4c03": "UNKNOWN",
+    "a1b6e5": "C82S",
+    "ab3ed5": "C180",
+    "ab3ebc": "PA18",
+    "780f55": "B738",
+    "e10e7d": "UNKNOWN",
+    "780eef": "B738",
+    "a42024": "UNKNOWN",
+    "7504e1": "UNKNOWN",
+    "7c41f4": "PA44",
+    "a5b33a": "M20P",
+    "ad6aa2": "P32R",
+    "a85b11": "UNKNOWN",
+    "a1d143": "BE36",
+    "8a0abe": "UNKNOWN",
+    "c84653": "UNKNOWN",
+    "86e779": "B350",
+    "04c2f2": "UNKNOWN",
+    "a458dc": "BE35",
+    "3c426b": "UNKNOWN",
+    "ad5d21": "AS50",
+    "aafbcb": "P32R",
+    "a4df88": "C182",
+    "7c7beb": "SR22",
+    "a5557e": "BT36",
+    "a7f835": "PA27"
   },
   "bizjet": {
     "US": {
-      "count": 1053,
+      "count": 676,
       "index": 100,
-      "updated": "2026-07-27"
-    },
-    "CA": {
-      "count": 26,
-      "index": 2,
       "updated": "2026-07-27"
     },
     "AT": {
@@ -148973,52 +149041,67 @@
       "index": 0,
       "updated": "2026-07-27"
     },
-    "ES": {
+    "CA": {
+      "count": 12,
+      "index": 2,
+      "updated": "2026-07-27"
+    },
+    "AU": {
+      "count": 15,
+      "index": 2,
+      "updated": "2026-07-27"
+    },
+    "CN": {
       "count": 1,
       "index": 0,
       "updated": "2026-07-27"
     },
     "JP": {
-      "count": 6,
+      "count": 5,
       "index": 1,
       "updated": "2026-07-27"
     },
-    "GB": {
-      "count": 5,
-      "index": 0,
-      "updated": "2026-07-27"
-    },
-    "AU": {
-      "count": 5,
-      "index": 0,
-      "updated": "2026-07-27"
-    },
-    "DE": {
+    "MX": {
       "count": 2,
       "index": 0,
       "updated": "2026-07-27"
     },
-    "GR": {
+    "TW": {
       "count": 1,
       "index": 0,
       "updated": "2026-07-27"
     },
-    "MX": {
-      "count": 10,
-      "index": 1,
-      "updated": "2026-07-27"
-    },
-    "BR": {
-      "count": 3,
+    "KR": {
+      "count": 1,
       "index": 0,
       "updated": "2026-07-27"
     },
-    "MT": {
+    "AR": {
       "count": 2,
       "index": 0,
       "updated": "2026-07-27"
     },
-    "BE": {
+    "IN": {
+      "count": 1,
+      "index": 0,
+      "updated": "2026-07-27"
+    },
+    "GB": {
+      "count": 2,
+      "index": 0,
+      "updated": "2026-07-27"
+    },
+    "BR": {
+      "count": 2,
+      "index": 0,
+      "updated": "2026-07-27"
+    },
+    "MT": {
+      "count": 1,
+      "index": 0,
+      "updated": "2026-07-27"
+    },
+    "FR": {
       "count": 1,
       "index": 0,
       "updated": "2026-07-27"
