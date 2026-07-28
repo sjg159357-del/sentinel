@@ -15,8 +15,8 @@
     "last_real_time": "2026-07-28T05:42:13.079559",
     "last_trends_update": "2026-07-28",
     "last_bizjet_update": "2026-07-28",
-    "bizjet_total_flying": 181,
-    "bizjet_cache_size": 148834,
+    "bizjet_total_flying": 188,
+    "bizjet_cache_size": 148861,
     "last_elite_update": "2026-05-24"
   },
   "pp_rates": [
@@ -1337,9 +1337,6 @@
       "updated": "2026-07-28"
     },
     "KE": {
-      "sell": 3.6,
-      "buy": 1.2,
-      "flee": 1.1,
       "bank": 1.1,
       "updated": "2026-07-28"
     },
@@ -1351,21 +1348,17 @@
       "updated": "2026-07-28"
     },
     "RU": {
-      "sell": 21.3,
       "buy": 35.5,
-      "flee": 12.6,
-      "bank": 4.7,
-      "updated": "2026-07-27"
+      "flee": 14.9,
+      "bank": 3.5,
+      "updated": "2026-07-28"
     },
     "AR": {
       "sell": 2.7,
-      "buy": 22.4,
-      "flee": 8.4,
-      "bank": 19.2,
-      "updated": "2026-07-27"
+      "updated": "2026-07-28"
     },
     "VE": {
-      "sell": 1.1,
+      "sell": 4.8,
       "updated": "2026-07-28"
     },
     "BR": {
@@ -150214,42 +150207,84 @@
     "8967dd": "A139",
     "4b2c5d": "BALL",
     "471967": "UNKNOWN",
-    "47039d": "UNKNOWN"
+    "47039d": "UNKNOWN",
+    "320005": "P180",
+    "04a36f": "UNKNOWN",
+    "49250a": "UNKNOWN",
+    "05a08b": "DHC6",
+    "0097f4": "UNKNOWN",
+    "3a2c15": "BCS3",
+    "8058be": "UNKNOWN",
+    "78040b": "B738",
+    "31d865": "ECHO",
+    "4405d4": "UNKNOWN",
+    "4acdae": "UNKNOWN",
+    "4b3107": "UNKNOWN",
+    "7c7136": "PA31",
+    "4274b2": "UNKNOWN",
+    "345ee7": "UNKNOWN",
+    "3401c3": "UNKNOWN",
+    "87c415": "UNKNOWN",
+    "a2e9cf": "UNKNOWN",
+    "ae568f": "UNKNOWN",
+    "a1e37a": "UNKNOWN",
+    "7c5780": "B06",
+    "aa9b38": "GC1",
+    "3c56e2": "UNKNOWN",
+    "4b4dae": "DG80",
+    "471567": "UNKNOWN",
+    "3c4317": "UNKNOWN",
+    "4692c9": "A320"
   },
   "bizjet": {
     "US": {
-      "count": 129,
+      "count": 119,
       "index": 100,
       "updated": "2026-07-28"
     },
     "AT": {
-      "count": 3,
+      "count": 2,
       "index": 2,
       "updated": "2026-07-28"
     },
     "CA": {
-      "count": 2,
-      "index": 2,
+      "count": 3,
+      "index": 3,
       "updated": "2026-07-28"
     },
     "AU": {
-      "count": 6,
-      "index": 5,
+      "count": 12,
+      "index": 10,
+      "updated": "2026-07-28"
+    },
+    "HU": {
+      "count": 1,
+      "index": 1,
       "updated": "2026-07-28"
     },
     "ZA": {
-      "count": 3,
-      "index": 2,
+      "count": 4,
+      "index": 3,
+      "updated": "2026-07-28"
+    },
+    "MZ": {
+      "count": 1,
+      "index": 1,
       "updated": "2026-07-28"
     },
     "FR": {
-      "count": 2,
-      "index": 2,
+      "count": 3,
+      "index": 3,
+      "updated": "2026-07-28"
+    },
+    "SE": {
+      "count": 1,
+      "index": 1,
       "updated": "2026-07-28"
     },
     "PT": {
-      "count": 6,
-      "index": 5,
+      "count": 7,
+      "index": 6,
       "updated": "2026-07-28"
     },
     "LU": {
@@ -150264,17 +150299,12 @@
     },
     "DE": {
       "count": 7,
-      "index": 5,
-      "updated": "2026-07-28"
-    },
-    "CN": {
-      "count": 1,
-      "index": 1,
+      "index": 6,
       "updated": "2026-07-28"
     },
     "GB": {
-      "count": 3,
-      "index": 2,
+      "count": 4,
+      "index": 3,
       "updated": "2026-07-28"
     },
     "JP": {
@@ -150282,14 +150312,19 @@
       "index": 3,
       "updated": "2026-07-28"
     },
-    "PK": {
+    "BR": {
+      "count": 1,
+      "index": 1,
+      "updated": "2026-07-28"
+    },
+    "NZ": {
       "count": 1,
       "index": 1,
       "updated": "2026-07-28"
     },
     "PL": {
-      "count": 2,
-      "index": 2,
+      "count": 4,
+      "index": 3,
       "updated": "2026-07-28"
     },
     "TR": {
@@ -150298,13 +150333,13 @@
       "updated": "2026-07-28"
     },
     "MT": {
-      "count": 6,
-      "index": 5,
+      "count": 7,
+      "index": 6,
       "updated": "2026-07-28"
     },
     "IT": {
-      "count": 2,
-      "index": 2,
+      "count": 3,
+      "index": 3,
       "updated": "2026-07-28"
     }
   },
