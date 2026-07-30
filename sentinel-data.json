@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "updated": "2026-07-29",
+    "updated": "2026-07-30",
     "source": "GitHub Actions Auto-Update",
     "note": "annual.citizen 제거 — WB 순이민 데이터 오해석 버그 수정",
     "last_annual_update": "2026-05-16",
@@ -13,10 +13,10 @@
       "citizen": "World Bank: Net migration (SM.POP.NETM), indexed 0-100"
     },
     "last_real_time": "2026-07-30T02:27:03.371841",
-    "last_trends_update": "2026-07-29",
+    "last_trends_update": "2026-07-30",
     "last_bizjet_update": "2026-07-30",
-    "bizjet_total_flying": 716,
-    "bizjet_cache_size": 151541,
+    "bizjet_total_flying": 445,
+    "bizjet_cache_size": 151593,
     "last_elite_update": "2026-05-24"
   },
   "pp_rates": [
@@ -24,7 +24,7 @@
       "id": "IR",
       "pp": 1700,
       "source": "bonbast.com",
-      "updated": "2026-07-29"
+      "updated": "2026-07-30"
     },
     {
       "id": "SY",
@@ -36,25 +36,25 @@
       "id": "VE",
       "pp": 45,
       "source": "monitordolarve.com",
-      "updated": "2026-07-29"
+      "updated": "2026-07-30"
     },
     {
       "id": "AR",
       "pp": 15,
       "source": "ambito.com",
-      "updated": "2026-07-29"
+      "updated": "2026-07-30"
     },
     {
       "id": "NG",
       "pp": 12,
       "source": "abokiforex.app",
-      "updated": "2026-07-29"
+      "updated": "2026-07-30"
     },
     {
       "id": "LB",
       "pp": 5,
       "source": "lirarate.org",
-      "updated": "2026-07-29"
+      "updated": "2026-07-30"
     },
     {
       "id": "ZW",
@@ -152913,41 +152913,103 @@
     "c00637": "DH8A",
     "a5ec3c": "C82T",
     "a07857": "C06T",
-    "aac811": "PA44"
+    "aac811": "PA44",
+    "a461f9": "C172",
+    "7c0a8f": "PA24",
+    "12988e": "UNKNOWN",
+    "ab6e0a": "P32R",
+    "8a067d": "UNKNOWN",
+    "a4d77c": "PA31",
+    "c02107": "AS50",
+    "ae60cf": "UNKNOWN",
+    "7c1f68": "DIMO",
+    "c025ca": "PA24",
+    "a6f5d8": "BE20",
+    "aae86c": "BE76",
+    "780b6f": "A320",
+    "7c5342": "DH8A",
+    "a5c1a0": "FA20",
+    "8965aa": "UNKNOWN",
+    "71f7d7": "UNKNOWN",
+    "abdc61": "PA32",
+    "840613": "UNKNOWN",
+    "7c19e0": "C172",
+    "c8297f": "EC30",
+    "7804c1": "E190",
+    "84095f": "UNKNOWN",
+    "a8b3c2": "S22T",
+    "a5184e": "PA32",
+    "ae2bd6": "UNKNOWN",
+    "a148b1": "C82S",
+    "7cf8c1": "UNKNOWN",
+    "aaef02": "UNKNOWN",
+    "7c1133": "C172",
+    "3c6516": "A346",
+    "a7d4ea": "C172",
+    "acb22a": "UNKNOWN",
+    "ae4cec": "H47",
+    "a8e996": "C152",
+    "a42908": "BE95",
+    "490c48": "UNKNOWN",
+    "7c6701": "C182",
+    "a3257a": "PA34",
+    "8690ec": "B505",
+    "a08667": "DV20",
+    "7dc735": "UNKNOWN",
+    "3d64ac": "UNKNOWN",
+    "7c4401": "B412",
+    "a56421": "C172",
+    "a5a4bd": "C180",
+    "a35cda": "C182",
+    "a2f71a": "UNKNOWN",
+    "04c2d8": "UNKNOWN",
+    "a0a0ba": "UNKNOWN",
+    "c04f84": "C750",
+    "a17277": "C177"
   },
   "bizjet": {
     "US": {
-      "count": 667,
+      "count": 399,
       "index": 100,
       "updated": "2026-07-30"
     },
-    "CA": {
-      "count": 24,
-      "index": 4,
+    "AU": {
+      "count": 12,
+      "index": 3,
       "updated": "2026-07-30"
     },
-    "FR": {
+    "ZA": {
       "count": 1,
       "index": 0,
       "updated": "2026-07-30"
     },
     "JP": {
-      "count": 5,
+      "count": 3,
       "index": 1,
       "updated": "2026-07-30"
     },
-    "CO": {
-      "count": 2,
+    "CA": {
+      "count": 11,
+      "index": 3,
+      "updated": "2026-07-30"
+    },
+    "MA": {
+      "count": 1,
       "index": 0,
       "updated": "2026-07-30"
     },
-    "AU": {
+    "AR": {
+      "count": 1,
+      "index": 0,
+      "updated": "2026-07-30"
+    },
+    "BR": {
       "count": 5,
       "index": 1,
       "updated": "2026-07-30"
     },
     "MX": {
-      "count": 4,
+      "count": 3,
       "index": 1,
       "updated": "2026-07-30"
     },
@@ -152961,19 +153023,24 @@
       "index": 0,
       "updated": "2026-07-30"
     },
-    "BR": {
-      "count": 3,
+    "IN": {
+      "count": 1,
       "index": 0,
       "updated": "2026-07-30"
     },
-    "PL": {
+    "TH": {
+      "count": 2,
+      "index": 1,
+      "updated": "2026-07-30"
+    },
+    "CN": {
       "count": 1,
       "index": 0,
       "updated": "2026-07-30"
     },
     "MT": {
-      "count": 2,
-      "index": 0,
+      "count": 3,
+      "index": 1,
       "updated": "2026-07-30"
     }
   },
