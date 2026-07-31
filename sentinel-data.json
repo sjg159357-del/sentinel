@@ -15,8 +15,8 @@
     "last_real_time": "2026-07-31T04:19:23.778844",
     "last_trends_update": "2026-07-31",
     "last_bizjet_update": "2026-07-31",
-    "bizjet_total_flying": 751,
-    "bizjet_cache_size": 152949,
+    "bizjet_total_flying": 257,
+    "bizjet_cache_size": 152997,
     "last_elite_update": "2026-05-24"
   },
   "pp_rates": [
@@ -1265,83 +1265,102 @@
   ],
   "trends": {
     "KR": {
-      "sell": 2.2,
-      "buy": 27.0,
-      "flee": 1.5,
-      "bank": 3.0,
-      "updated": "2026-07-30"
+      "sell": 3.0,
+      "buy": 28.6,
+      "flee": 0.6,
+      "bank": 4.0,
+      "updated": "2026-07-31"
     },
     "JP": {
-      "sell": 34.6,
-      "buy": 58.0,
-      "flee": 45.2,
-      "bank": 15.1,
-      "updated": "2026-07-30"
+      "sell": 34.4,
+      "buy": 57.9,
+      "flee": 43.7,
+      "bank": 16.9,
+      "updated": "2026-07-31"
     },
     "IN": {
-      "sell": 13.7,
-      "buy": 20.1,
+      "sell": 14.7,
+      "buy": 19.5,
       "flee": 5.6,
-      "bank": 20.8,
-      "updated": "2026-07-30"
+      "bank": 20.0,
+      "updated": "2026-07-31"
     },
     "VN": {
+      "sell": 31.2,
       "buy": 20.3,
-      "flee": 19.2,
+      "flee": 19.5,
+      "bank": 63.6,
       "updated": "2026-07-31"
     },
     "ID": {
-      "flee": 6.1,
+      "sell": 45.2,
+      "buy": 35.8,
+      "flee": 6.2,
+      "bank": 38.4,
       "updated": "2026-07-31"
     },
     "PK": {
+      "sell": 5.5,
       "buy": 5.4,
-      "flee": 1.1,
+      "bank": 1.1,
       "updated": "2026-07-31"
     },
     "TR": {
+      "sell": 3.0,
+      "buy": 30.4,
+      "flee": 25.2,
       "bank": 2.3,
       "updated": "2026-07-31"
     },
     "IR": {
+      "sell": 25.7,
+      "buy": 25.1,
+      "flee": 27.6,
       "bank": 5.3,
       "updated": "2026-07-31"
     },
     "EG": {
-      "sell": 31.3,
-      "buy": 23.8,
-      "flee": 8.1,
-      "updated": "2026-07-30"
+      "sell": 25.8,
+      "buy": 23.4,
+      "flee": 7.9,
+      "updated": "2026-07-31"
     },
     "LB": {
-      "buy": 1.8,
-      "updated": "2026-07-30"
+      "sell": 1.2,
+      "buy": 1.1,
+      "flee": 3.4,
+      "updated": "2026-07-31"
     },
     "NG": {
-      "buy": 32.2,
-      "flee": 0.5,
-      "bank": 36.4,
+      "bank": 36.8,
       "updated": "2026-07-31"
     },
     "GH": {
+      "sell": 0.8,
       "buy": 1.1,
       "updated": "2026-07-31"
     },
     "ZA": {
-      "flee": 3.8,
+      "sell": 8.8,
+      "buy": 8.4,
+      "flee": 4.2,
       "updated": "2026-07-31"
     },
     "KE": {
-      "sell": 3.8,
-      "updated": "2026-07-30"
+      "sell": 3.3,
+      "updated": "2026-07-31"
     },
     "UA": {
-      "flee": 1.8,
-      "bank": 9.0,
-      "updated": "2026-07-30"
+      "sell": 40.3,
+      "buy": 13.2,
+      "flee": 4.3,
+      "bank": 9.7,
+      "updated": "2026-07-31"
     },
     "RU": {
-      "buy": 35.1,
+      "sell": 21.1,
+      "buy": 36.2,
+      "flee": 9.9,
       "updated": "2026-07-31"
     },
     "AR": {
@@ -154312,50 +154331,93 @@
     "04c312": "UNKNOWN",
     "ae59be": "H47",
     "ac3c66": "C425",
-    "a80523": "PA34"
+    "a80523": "PA34",
+    "a222bb": "H47",
+    "a8306c": "UNKNOWN",
+    "7cc572": "UNKNOWN",
+    "ae73f6": "UNKNOWN",
+    "728846": "UNKNOWN",
+    "489126": "UNKNOWN",
+    "73958d": "UNKNOWN",
+    "02017d": "UNKNOWN",
+    "ae539c": "UNKNOWN",
+    "ae684b": "UNKNOWN",
+    "80087e": "UNKNOWN",
+    "020079": "UNKNOWN",
+    "780b97": "B738",
+    "a26c78": "UNKNOWN",
+    "aa8346": "AC50",
+    "7c4da7": "R44",
+    "7c070b": "BE55",
+    "7d0049": "UNKNOWN",
+    "5080da": "AN32",
+    "a14578": "R44",
+    "7c1a3b": "PC12",
+    "71c754": "UNKNOWN",
+    "7c23ca": "P28A",
+    "7c6c76": "SR20",
+    "3f27e7": "UNKNOWN",
+    "7c6b95": "EC35",
+    "7c7edb": "SR20",
+    "7c398f": "RV10",
+    "a9ad86": "C182",
+    "7c6cb9": "RV7",
+    "a896c6": "R22",
+    "7c5c58": "C525",
+    "7c1609": "BE58",
+    "a9e290": "C172",
+    "8400fd": "UNKNOWN",
+    "7c0379": "C172",
+    "5140c3": "UNKNOWN",
+    "4b2cd2": "BALL",
+    "4b2cbb": "UNKNOWN",
+    "314a13": "UNKNOWN",
+    "ae593b": "UNKNOWN",
+    "8571a9": "UNKNOWN",
+    "780f98": "AJ27",
+    "33fcbe": "UNKNOWN",
+    "a54385": "PA32",
+    "88140c": "UNKNOWN",
+    "ac2b87": "C182",
+    "a11b88": "C180"
   },
   "bizjet": {
     "US": {
-      "count": 692,
+      "count": 222,
       "index": 100,
       "updated": "2026-07-31"
     },
     "CA": {
-      "count": 30,
-      "index": 4,
+      "count": 3,
+      "index": 1,
       "updated": "2026-07-31"
     },
     "AU": {
-      "count": 9,
-      "index": 1,
+      "count": 11,
+      "index": 5,
       "updated": "2026-07-31"
     },
     "JP": {
-      "count": 5,
+      "count": 3,
       "index": 1,
-      "updated": "2026-07-31"
-    },
-    "MX": {
-      "count": 5,
-      "index": 1,
-      "updated": "2026-07-31"
-    },
-    "DE": {
-      "count": 2,
-      "index": 0,
-      "updated": "2026-07-31"
-    },
-    "CH": {
-      "count": 1,
-      "index": 0,
       "updated": "2026-07-31"
     },
     "BR": {
       "count": 2,
+      "index": 1,
+      "updated": "2026-07-31"
+    },
+    "MX": {
+      "count": 1,
       "index": 0,
       "updated": "2026-07-31"
     },
-    "NZ": {
+    "IN": {
+      "count": 2,
+      "index": 1,
+      "updated": "2026-07-31"
+    },
+    "PT": {
       "count": 1,
       "index": 0,
       "updated": "2026-07-31"
@@ -154365,17 +154427,32 @@
       "index": 0,
       "updated": "2026-07-31"
     },
-    "FR": {
+    "GR": {
       "count": 1,
       "index": 0,
       "updated": "2026-07-31"
     },
-    "ZA": {
-      "count": 1,
-      "index": 0,
+    "PL": {
+      "count": 3,
+      "index": 1,
       "updated": "2026-07-31"
     },
     "IT": {
+      "count": 2,
+      "index": 1,
+      "updated": "2026-07-31"
+    },
+    "MT": {
+      "count": 3,
+      "index": 1,
+      "updated": "2026-07-31"
+    },
+    "TR": {
+      "count": 1,
+      "index": 0,
+      "updated": "2026-07-31"
+    },
+    "CH": {
       "count": 1,
       "index": 0,
       "updated": "2026-07-31"
