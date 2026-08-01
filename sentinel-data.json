@@ -14,9 +14,9 @@
     },
     "last_real_time": "2026-07-31T23:57:44.182880",
     "last_trends_update": "2026-07-31",
-    "last_bizjet_update": "2026-07-31",
-    "bizjet_total_flying": 870,
-    "bizjet_cache_size": 154292,
+    "last_bizjet_update": "2026-08-01",
+    "bizjet_total_flying": 684,
+    "bizjet_cache_size": 154395,
     "last_elite_update": "2026-05-24"
   },
   "pp_rates": [
@@ -1265,42 +1265,43 @@
   ],
   "trends": {
     "KR": {
-      "sell": 1.8,
-      "buy": 28.3,
+      "sell": 1.9,
+      "buy": 24.8,
       "flee": 0.8,
-      "bank": 2.9,
+      "bank": 2.7,
       "updated": "2026-07-31"
     },
     "JP": {
-      "sell": 34.7,
-      "buy": 58.5,
-      "flee": 34.8,
-      "bank": 15.6,
+      "sell": 35.6,
+      "buy": 57.5,
+      "flee": 42.8,
+      "bank": 16.8,
       "updated": "2026-07-31"
     },
     "IN": {
-      "sell": 14.8,
-      "buy": 18.9,
-      "flee": 6.6,
-      "bank": 18.4,
+      "sell": 14.5,
+      "buy": 19.7,
+      "flee": 7.2,
+      "bank": 17.2,
       "updated": "2026-07-31"
     },
     "VN": {
-      "sell": 33.5,
-      "buy": 20.0,
-      "flee": 19.8,
-      "bank": 61.7,
+      "sell": 32.6,
+      "buy": 20.1,
+      "flee": 20.7,
+      "bank": 62.8,
       "updated": "2026-07-31"
     },
     "ID": {
-      "sell": 45.5,
-      "buy": 34.7,
+      "sell": 46.2,
+      "buy": 36.1,
       "flee": 5.5,
+      "bank": 39.4,
       "updated": "2026-07-31"
     },
     "PK": {
-      "buy": 4.4,
-      "flee": 1.1,
+      "sell": 5.5,
+      "buy": 3.1,
       "updated": "2026-07-31"
     },
     "TR": {
@@ -155672,93 +155673,166 @@
     "a0c838": "BL8",
     "a19869": "C210",
     "746204": "UNKNOWN",
-    "a8f0f0": "C150"
+    "a8f0f0": "C150",
+    "4aa913": "UNKNOWN",
+    "a9793c": "P28A",
+    "a4b308": "BE23",
+    "7c7482": "AC50",
+    "a9a022": "R44",
+    "a36805": "PA12",
+    "7cc666": "UNKNOWN",
+    "7c7759": "RV7",
+    "a3223c": "C182",
+    "a3dec9": "HUSK",
+    "c80b79": "T6",
+    "a344ea": "P46T",
+    "781fab": "AJ27",
+    "aaab92": "FDCT",
+    "acfe94": "P28R",
+    "e0f4d0": "UNKNOWN",
+    "a4f5ad": "C182",
+    "a1a9f9": "C206",
+    "a0bf42": "P28A",
+    "a00200": "SF50",
+    "c81913": "UNKNOWN",
+    "a1a713": "BE95",
+    "acfb9d": "M20P",
+    "407eab": "GAZL",
+    "4ca26c": "UNKNOWN",
+    "4ca278": "UNKNOWN",
+    "ab3889": "S22T",
+    "c04411": "C185",
+    "4b314e": "UNKNOWN",
+    "7c2bca": "EV97",
+    "7cf6d8": "UNKNOWN",
+    "407aeb": "VENT",
+    "c819b6": "PC6T",
+    "a5906a": "BE58",
+    "aa167e": "PA20",
+    "426ac4": "UNKNOWN",
+    "a3f2a7": "C06T",
+    "adf41f": "SR22",
+    "a0ef02": "C172",
+    "ac82da": "C550",
+    "a10eb8": "DHC2",
+    "a91824": "C210",
+    "abb573": "C182",
+    "7330a5": "UNKNOWN",
+    "a271b2": "UNKNOWN",
+    "a3e299": "BE35",
+    "7c124f": "P32R",
+    "a9abcc": "UNKNOWN",
+    "ae2661": "AS65",
+    "0d0bd1": "G650",
+    "a46cc4": "EC35",
+    "a1a071": "C172",
+    "a9bfe9": "PA18",
+    "a08b13": "T34P",
+    "c8021e": "UNKNOWN",
+    "c8021c": "UNKNOWN",
+    "a1a581": "M20P",
+    "c8159c": "UNKNOWN",
+    "c1e437": "UNKNOWN",
+    "a2760c": "UNKNOWN",
+    "7cad9a": "ECHO",
+    "71e247": "UNKNOWN",
+    "a38368": "UNKNOWN",
+    "a6ca5a": "C72R",
+    "acb36f": "C172",
+    "a048ef": "M20P",
+    "aa8fc5": "JPRO",
+    "a81a27": "PA46",
+    "7c168f": "B429",
+    "a7d986": "C150",
+    "ac861e": "HUSK",
+    "a6a5e7": "C172",
+    "a1542f": "C185",
+    "a03479": "P28R",
+    "7c4c19": "P28A",
+    "a1674d": "PA24",
+    "ace9bb": "S22T",
+    "a88473": "S22T",
+    "a12c24": "C172",
+    "a4ef08": "UNKNOWN",
+    "a1e4d1": "C182",
+    "a49fa6": "P28A",
+    "a67327": "UNKNOWN",
+    "a4468f": "TBM8",
+    "a31380": "R44",
+    "7a15dc": "UNKNOWN",
+    "aae94c": "C208",
+    "7a160f": "UNKNOWN",
+    "abe414": "BE35",
+    "abe2e1": "G550",
+    "a0b4f1": "UNKNOWN",
+    "a06603": "C182",
+    "a5439b": "P32R",
+    "aa40c8": "C425",
+    "a95b53": "C172",
+    "a1b179": "C208",
+    "a2817e": "C182",
+    "a7979b": "SR22",
+    "50b6ba": "UNKNOWN",
+    "a81769": "DH2T",
+    "ab1b4d": "PA24",
+    "a81716": "P28A",
+    "a79523": "UNKNOWN"
   },
   "bizjet": {
     "US": {
-      "count": 813,
+      "count": 637,
       "index": 100,
-      "updated": "2026-07-31"
+      "updated": "2026-08-01"
     },
     "CA": {
-      "count": 26,
+      "count": 20,
       "index": 3,
-      "updated": "2026-07-31"
+      "updated": "2026-08-01"
     },
-    "BR": {
-      "count": 6,
+    "JP": {
+      "count": 4,
       "index": 1,
-      "updated": "2026-07-31"
+      "updated": "2026-08-01"
+    },
+    "DE": {
+      "count": 2,
+      "index": 0,
+      "updated": "2026-08-01"
     },
     "IN": {
       "count": 1,
       "index": 0,
-      "updated": "2026-07-31"
+      "updated": "2026-08-01"
     },
-    "CO": {
-      "count": 1,
-      "index": 0,
-      "updated": "2026-07-31"
-    },
-    "JP": {
-      "count": 1,
-      "index": 0,
-      "updated": "2026-07-31"
-    },
-    "VE": {
-      "count": 1,
-      "index": 0,
-      "updated": "2026-07-31"
+    "BR": {
+      "count": 5,
+      "index": 1,
+      "updated": "2026-08-01"
     },
     "MX": {
       "count": 8,
       "index": 1,
-      "updated": "2026-07-31"
+      "updated": "2026-08-01"
     },
-    "GB": {
+    "AT": {
       "count": 2,
       "index": 0,
-      "updated": "2026-07-31"
+      "updated": "2026-08-01"
     },
     "AU": {
       "count": 3,
       "index": 0,
-      "updated": "2026-07-31"
-    },
-    "DE": {
-      "count": 1,
-      "index": 0,
-      "updated": "2026-07-31"
-    },
-    "AT": {
-      "count": 1,
-      "index": 0,
-      "updated": "2026-07-31"
-    },
-    "CH": {
-      "count": 1,
-      "index": 0,
-      "updated": "2026-07-31"
-    },
-    "NZ": {
-      "count": 1,
-      "index": 0,
-      "updated": "2026-07-31"
+      "updated": "2026-08-01"
     },
     "MT": {
       "count": 1,
       "index": 0,
-      "updated": "2026-07-31"
+      "updated": "2026-08-01"
     },
-    "HU": {
+    "GB": {
       "count": 1,
       "index": 0,
-      "updated": "2026-07-31"
-    },
-    "PT": {
-      "count": 2,
-      "index": 0,
-      "updated": "2026-07-31"
+      "updated": "2026-08-01"
     }
   },
   "elite_exit": {
