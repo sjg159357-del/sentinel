@@ -15,8 +15,8 @@
     "last_real_time": "2026-08-12T04:21:07.456649",
     "last_trends_update": "2026-08-12",
     "last_bizjet_update": "2026-08-12",
-    "bizjet_total_flying": 254,
-    "bizjet_cache_size": 166515,
+    "bizjet_total_flying": 205,
+    "bizjet_cache_size": 166525,
     "last_elite_update": "2026-05-24"
   },
   "pp_rates": [
@@ -167869,42 +167869,57 @@
     "a54353": "C170",
     "ae59c1": "H47",
     "7c47a1": "AC11",
-    "800cda": "C56X"
+    "800cda": "C56X",
+    "0d12cd": "UNKNOWN",
+    "4b4886": "UNKNOWN",
+    "7cf35e": "UNKNOWN",
+    "8013b5": "A20N",
+    "702f18": "UNKNOWN",
+    "c82898": "AS50",
+    "ae56c8": "UNKNOWN",
+    "4b2c8a": "BALL",
+    "4bd06d": "UNKNOWN",
+    "ad5d07": "TBM9"
   },
   "bizjet": {
     "US": {
-      "count": 222,
+      "count": 170,
       "index": 100,
       "updated": "2026-08-12"
     },
     "AU": {
-      "count": 6,
-      "index": 3,
-      "updated": "2026-08-12"
-    },
-    "CA": {
-      "count": 6,
-      "index": 3,
+      "count": 11,
+      "index": 6,
       "updated": "2026-08-12"
     },
     "JP": {
-      "count": 7,
+      "count": 5,
       "index": 3,
       "updated": "2026-08-12"
     },
     "AR": {
-      "count": 2,
+      "count": 1,
       "index": 1,
+      "updated": "2026-08-12"
+    },
+    "ZA": {
+      "count": 1,
+      "index": 1,
+      "updated": "2026-08-12"
+    },
+    "CA": {
+      "count": 5,
+      "index": 3,
       "updated": "2026-08-12"
     },
     "GB": {
-      "count": 2,
-      "index": 1,
+      "count": 3,
+      "index": 2,
       "updated": "2026-08-12"
     },
-    "MX": {
+    "TR": {
       "count": 1,
-      "index": 0,
+      "index": 1,
       "updated": "2026-08-12"
     },
     "IN": {
@@ -167918,13 +167933,13 @@
       "updated": "2026-08-12"
     },
     "PL": {
-      "count": 3,
+      "count": 2,
       "index": 1,
       "updated": "2026-08-12"
     },
     "MT": {
-      "count": 1,
-      "index": 0,
+      "count": 2,
+      "index": 1,
       "updated": "2026-08-12"
     }
   },
