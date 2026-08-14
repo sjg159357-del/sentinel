@@ -15,8 +15,8 @@
     "last_real_time": "2026-08-14T20:25:56.043200",
     "last_trends_update": "2026-08-14",
     "last_bizjet_update": "2026-08-14",
-    "bizjet_total_flying": 1115,
-    "bizjet_cache_size": 169484,
+    "bizjet_total_flying": 1012,
+    "bizjet_cache_size": 169545,
     "last_elite_update": "2026-05-24"
   },
   "pp_rates": [
@@ -1267,12 +1267,12 @@
     "KR": {
       "sell": 1.3,
       "buy": 16.5,
-      "flee": 3.6,
+      "flee": 3.7,
       "bank": 2.6,
       "updated": "2026-08-14"
     },
     "JP": {
-      "sell": 34.3,
+      "sell": 34.4,
       "buy": 56.8,
       "flee": 38.9,
       "bank": 21.1,
@@ -1282,7 +1282,7 @@
       "sell": 14.4,
       "buy": 26.0,
       "flee": 5.4,
-      "bank": 19.1,
+      "bank": 19.2,
       "updated": "2026-08-14"
     },
     "VN": {
@@ -1293,29 +1293,29 @@
       "updated": "2026-08-14"
     },
     "ID": {
-      "sell": 47.5,
+      "sell": 47.6,
       "buy": 35.5,
-      "flee": 4.9,
+      "flee": 5.0,
       "bank": 36.7,
       "updated": "2026-08-14"
     },
     "PK": {
-      "sell": 5.7,
-      "buy": 3.9,
+      "sell": 5.6,
+      "buy": 3.8,
       "updated": "2026-08-14"
     },
     "TR": {
       "sell": 2.7,
-      "buy": 30.4,
-      "flee": 24.6,
-      "bank": 8.7,
+      "buy": 30.3,
+      "flee": 24.5,
+      "bank": 8.9,
       "updated": "2026-08-14"
     },
     "IR": {
       "sell": 30.8,
       "buy": 22.7,
       "flee": 26.0,
-      "bank": 3.5,
+      "bank": 3.4,
       "updated": "2026-08-14"
     },
     "EG": {
@@ -1332,7 +1332,7 @@
       "updated": "2026-08-14"
     },
     "NG": {
-      "sell": 3.4,
+      "sell": 4.6,
       "buy": 23.2,
       "flee": 0.8,
       "bank": 33.6,
@@ -1347,54 +1347,54 @@
     "ZA": {
       "sell": 13.2,
       "buy": 7.7,
-      "flee": 4.5,
+      "flee": 4.8,
       "bank": 1.1,
       "updated": "2026-08-14"
     },
     "KE": {
-      "sell": 4.2,
+      "sell": 4.1,
       "buy": 2.1,
       "bank": 1.1,
       "updated": "2026-08-14"
     },
     "UA": {
       "sell": 33.4,
-      "buy": 11.8,
-      "flee": 5.5,
+      "buy": 11.9,
+      "flee": 5.8,
       "bank": 10.4,
       "updated": "2026-08-14"
     },
     "RU": {
       "sell": 19.6,
-      "buy": 35.5,
+      "buy": 35.6,
       "flee": 11.5,
       "bank": 3.9,
       "updated": "2026-08-14"
     },
     "AR": {
-      "sell": 2.4,
+      "sell": 2.5,
       "buy": 22.0,
-      "flee": 5.9,
-      "bank": 18.8,
+      "flee": 6.0,
+      "bank": 18.9,
       "updated": "2026-08-14"
     },
     "VE": {
-      "sell": 4.3,
+      "sell": 4.6,
       "buy": 23.2,
-      "flee": 0.9,
-      "bank": 6.6,
+      "flee": 1.0,
+      "bank": 6.7,
       "updated": "2026-08-14"
     },
     "BR": {
       "sell": 20.0,
-      "buy": 55.9,
+      "buy": 56.0,
       "flee": 2.9,
-      "bank": 34.6,
+      "bank": 34.7,
       "updated": "2026-08-14"
     },
     "CO": {
       "sell": 4.2,
-      "buy": 2.7,
+      "buy": 2.8,
       "flee": 1.1,
       "bank": 1.3,
       "updated": "2026-08-14"
@@ -170884,25 +170884,81 @@
     "aa0f11": "PA18",
     "47beb3": "UNKNOWN",
     "ad5b4c": "C210",
-    "a96ade": "C55B"
+    "a96ade": "C55B",
+    "a091a7": "UNKNOWN",
+    "c04939": "COL4",
+    "a8a66c": "C182",
+    "ad53a9": "UNKNOWN",
+    "acdf3e": "BE35",
+    "a5865b": "SR22",
+    "a74b24": "BE35",
+    "a9db40": "C172",
+    "a200f8": "S22T",
+    "40680e": "C206",
+    "aa826f": "PA30",
+    "e4a8a0": "UNKNOWN",
+    "a7da51": "S22T",
+    "a1a966": "UNKNOWN",
+    "a0bdc4": "CJ6",
+    "a2fde2": "UNKNOWN",
+    "a15734": "UNKNOWN",
+    "a1b9c0": "C560",
+    "a37296": "UNKNOWN",
+    "406cf7": "BALL",
+    "0aca17": "UNKNOWN",
+    "a2dad5": "BE36",
+    "a257fe": "BE20",
+    "ab37af": "C172",
+    "ac4335": "UNKNOWN",
+    "a056c5": "F2LX",
+    "a773ef": "C180",
+    "a27058": "M20P",
+    "e49011": "UNKNOWN",
+    "aa7d2c": "UNKNOWN",
+    "06a7ae": "UNKNOWN",
+    "a2d83d": "C172",
+    "a68d43": "R44",
+    "a0dfad": "COL4",
+    "7c4a7b": "C185",
+    "441e1a": "UNKNOWN",
+    "a93ca9": "C210",
+    "152a8d": "IL76",
+    "ae4b3d": "H53",
+    "4ca821": "UNKNOWN",
+    "ab7983": "C170",
+    "4bce9a": "UNKNOWN",
+    "0b443b": "UNKNOWN",
+    "a50ea2": "C425",
+    "4d25ef": "UNKNOWN",
+    "e80968": "G2CA",
+    "a68212": "C182",
+    "a575df": "C421",
+    "c015a7": "R44",
+    "a3bb78": "C206",
+    "a1f78d": "M20T",
+    "a4313d": "TF19",
+    "abc2a0": "UNKNOWN",
+    "a32996": "UNKNOWN",
+    "a6c62e": "C172",
+    "ab0c4b": "BE9L",
+    "a2e08d": "P337",
+    "a2f44a": "C172",
+    "ad5b67": "R44",
+    "a089dd": "C172",
+    "e401b4": "UNKNOWN"
   },
   "bizjet": {
     "US": {
-      "count": 1037,
+      "count": 956,
       "index": 100,
       "updated": "2026-08-14"
     },
-    "BR": {
-      "count": 5,
-      "index": 0,
-      "updated": "2026-08-14"
-    },
     "CA": {
-      "count": 33,
+      "count": 27,
       "index": 3,
       "updated": "2026-08-14"
     },
-    "ES": {
+    "AT": {
       "count": 1,
       "index": 0,
       "updated": "2026-08-14"
@@ -170912,13 +170968,8 @@
       "index": 0,
       "updated": "2026-08-14"
     },
-    "FR": {
-      "count": 1,
-      "index": 0,
-      "updated": "2026-08-14"
-    },
-    "GB": {
-      "count": 11,
+    "BR": {
+      "count": 6,
       "index": 1,
       "updated": "2026-08-14"
     },
@@ -170927,7 +170978,32 @@
       "index": 0,
       "updated": "2026-08-14"
     },
-    "LB": {
+    "MX": {
+      "count": 8,
+      "index": 1,
+      "updated": "2026-08-14"
+    },
+    "TR": {
+      "count": 2,
+      "index": 0,
+      "updated": "2026-08-14"
+    },
+    "CN": {
+      "count": 1,
+      "index": 0,
+      "updated": "2026-08-14"
+    },
+    "CO": {
+      "count": 1,
+      "index": 0,
+      "updated": "2026-08-14"
+    },
+    "GB": {
+      "count": 1,
+      "index": 0,
+      "updated": "2026-08-14"
+    },
+    "FR": {
       "count": 1,
       "index": 0,
       "updated": "2026-08-14"
@@ -170937,48 +171013,8 @@
       "index": 0,
       "updated": "2026-08-14"
     },
-    "MX": {
-      "count": 5,
-      "index": 0,
-      "updated": "2026-08-14"
-    },
-    "TR": {
-      "count": 3,
-      "index": 0,
-      "updated": "2026-08-14"
-    },
-    "PT": {
-      "count": 2,
-      "index": 0,
-      "updated": "2026-08-14"
-    },
-    "NZ": {
-      "count": 1,
-      "index": 0,
-      "updated": "2026-08-14"
-    },
-    "GR": {
-      "count": 1,
-      "index": 0,
-      "updated": "2026-08-14"
-    },
-    "PL": {
-      "count": 2,
-      "index": 0,
-      "updated": "2026-08-14"
-    },
     "MT": {
-      "count": 4,
-      "index": 0,
-      "updated": "2026-08-14"
-    },
-    "IN": {
-      "count": 1,
-      "index": 0,
-      "updated": "2026-08-14"
-    },
-    "AU": {
-      "count": 1,
+      "count": 2,
       "index": 0,
       "updated": "2026-08-14"
     }
