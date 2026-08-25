@@ -15,8 +15,8 @@
     "last_real_time": "2026-08-25T02:17:48.026372",
     "last_trends_update": "2026-08-25",
     "last_bizjet_update": "2026-08-25",
-    "bizjet_total_flying": 496,
-    "bizjet_cache_size": 179569,
+    "bizjet_total_flying": 360,
+    "bizjet_cache_size": 179583,
     "last_elite_update": "2026-05-24"
   },
   "pp_rates": [
@@ -1265,126 +1265,136 @@
   ],
   "trends": {
     "KR": {
-      "sell": 2.1,
-      "buy": 14.1,
-      "flee": 0.7,
-      "bank": 2.5,
+      "sell": 4.1,
+      "buy": 15.5,
+      "flee": 1.3,
+      "bank": 2.4,
       "updated": "2026-08-25"
     },
     "JP": {
-      "sell": 33.2,
-      "buy": 41.1,
-      "flee": 35.2,
-      "bank": 20.0,
+      "sell": 29.0,
+      "buy": 42.8,
+      "flee": 40.0,
+      "bank": 22.2,
       "updated": "2026-08-25"
     },
     "IN": {
-      "sell": 14.9,
-      "buy": 26.2,
-      "flee": 5.9,
-      "bank": 21.7,
+      "sell": 14.6,
+      "buy": 25.8,
+      "flee": 6.4,
+      "bank": 20.1,
       "updated": "2026-08-25"
     },
     "VN": {
-      "sell": 30.5,
+      "sell": 29.9,
       "buy": 18.9,
-      "flee": 23.9,
-      "bank": 55.1,
+      "flee": 23.4,
+      "bank": 65.4,
       "updated": "2026-08-25"
     },
     "ID": {
-      "sell": 46.9,
-      "buy": 34.8,
+      "sell": 47.5,
+      "buy": 32.9,
       "flee": 4.8,
-      "bank": 24.8,
+      "bank": 34.4,
       "updated": "2026-08-25"
     },
     "PK": {
-      "sell": 3.0,
-      "buy": 6.6,
+      "sell": 2.7,
+      "buy": 5.5,
       "bank": 1.1,
       "updated": "2026-08-25"
     },
     "TR": {
       "sell": 3.0,
       "buy": 31.7,
+      "flee": 24.5,
+      "bank": 9.9,
       "updated": "2026-08-25"
     },
     "IR": {
-      "buy": 23.3,
+      "sell": 28.0,
+      "buy": 24.0,
+      "flee": 25.6,
+      "bank": 4.6,
       "updated": "2026-08-25"
     },
     "EG": {
-      "buy": 24.2,
-      "flee": 6.7,
-      "bank": 2.1,
+      "sell": 28.9,
+      "buy": 24.0,
+      "flee": 7.1,
       "updated": "2026-08-25"
     },
     "LB": {
-      "sell": 0.8,
-      "buy": 2.1,
-      "flee": 1.8,
-      "bank": 8.3,
+      "sell": 2.6,
+      "buy": 1.8,
+      "flee": 1.3,
+      "bank": 10.6,
       "updated": "2026-08-25"
     },
     "NG": {
-      "sell": 1.4,
+      "sell": 1.0,
+      "buy": 26.0,
+      "flee": 0.5,
+      "bank": 34.8,
       "updated": "2026-08-25"
     },
     "GH": {
-      "sell": 3.3,
-      "updated": "2026-08-24"
+      "sell": 3.0,
+      "bank": 1.1,
+      "updated": "2026-08-25"
     },
     "ZA": {
-      "sell": 11.0,
-      "buy": 6.6,
-      "flee": 4.8,
-      "updated": "2026-08-24"
+      "sell": 10.4,
+      "buy": 7.3,
+      "flee": 1.5,
+      "bank": 1.1,
+      "updated": "2026-08-25"
     },
     "KE": {
-      "sell": 3.5,
-      "buy": 1.1,
-      "flee": 1.1,
-      "updated": "2026-08-24"
+      "sell": 1.3,
+      "buy": 2.0,
+      "updated": "2026-08-25"
     },
     "UA": {
-      "buy": 13.8,
-      "flee": 1.1,
-      "bank": 9.7,
+      "sell": 36.3,
+      "buy": 11.6,
+      "flee": 3.9,
+      "bank": 10.0,
       "updated": "2026-08-25"
     },
     "RU": {
-      "sell": 18.3,
-      "buy": 32.3,
-      "flee": 11.6,
-      "bank": 5.9,
-      "updated": "2026-08-24"
+      "sell": 17.8,
+      "buy": 34.2,
+      "flee": 12.3,
+      "bank": 4.0,
+      "updated": "2026-08-25"
     },
     "AR": {
-      "sell": 1.8,
-      "buy": 21.7,
-      "flee": 7.7,
-      "bank": 22.9,
+      "sell": 2.4,
+      "buy": 21.9,
+      "flee": 10.1,
+      "bank": 18.7,
       "updated": "2026-08-25"
     },
     "VE": {
-      "sell": 1.4,
-      "buy": 24.2,
-      "flee": 3.2,
-      "bank": 2.4,
+      "sell": 1.2,
+      "buy": 23.1,
+      "flee": 4.6,
+      "bank": 7.9,
       "updated": "2026-08-25"
     },
     "BR": {
-      "sell": 20.1,
-      "buy": 21.0,
-      "flee": 3.7,
-      "bank": 35.4,
+      "sell": 21.5,
+      "buy": 20.0,
+      "flee": 3.5,
+      "bank": 34.2,
       "updated": "2026-08-25"
     },
     "CO": {
-      "sell": 11.0,
-      "buy": 2.5,
-      "bank": 5.8,
+      "sell": 4.2,
+      "buy": 2.3,
+      "bank": 5.5,
       "updated": "2026-08-25"
     }
   },
@@ -180957,45 +180967,59 @@
     "a19962": "BE35",
     "a0b657": "UH1",
     "a5442c": "P28A",
-    "a935c0": "C182"
+    "a935c0": "C182",
+    "381126": "UNKNOWN",
+    "7cc633": "UNKNOWN",
+    "a0e4e5": "C206",
+    "4b346e": "UNKNOWN",
+    "e082d4": "UNKNOWN",
+    "a4f22f": "C182",
+    "71f50b": "UNKNOWN",
+    "416b1b": "UNKNOWN",
+    "a1a34c": "UNKNOWN",
+    "ae01db": "BE20",
+    "a1b77c": "GLF4",
+    "a1a3c8": "CH7A",
+    "a19616": "M20P",
+    "486b1b": "UNKNOWN"
   },
   "bizjet": {
     "US": {
-      "count": 450,
+      "count": 333,
       "index": 100,
       "updated": "2026-08-25"
     },
     "CA": {
-      "count": 22,
-      "index": 5,
+      "count": 8,
+      "index": 2,
       "updated": "2026-08-25"
     },
     "AU": {
-      "count": 7,
-      "index": 2,
+      "count": 9,
+      "index": 3,
       "updated": "2026-08-25"
     },
     "JP": {
-      "count": 7,
+      "count": 5,
       "index": 2,
+      "updated": "2026-08-25"
+    },
+    "BR": {
+      "count": 1,
+      "index": 0,
       "updated": "2026-08-25"
     },
     "MX": {
-      "count": 7,
-      "index": 2,
+      "count": 1,
+      "index": 0,
       "updated": "2026-08-25"
     },
     "DE": {
-      "count": 1,
-      "index": 0,
+      "count": 2,
+      "index": 1,
       "updated": "2026-08-25"
     },
-    "VE": {
-      "count": 1,
-      "index": 0,
-      "updated": "2026-08-25"
-    },
-    "MT": {
+    "GB": {
       "count": 1,
       "index": 0,
       "updated": "2026-08-25"
