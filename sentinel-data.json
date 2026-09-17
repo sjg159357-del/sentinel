@@ -15,8 +15,8 @@
     "last_real_time": "2026-09-17T12:58:19.680760",
     "last_trends_update": "2026-09-17",
     "last_bizjet_update": "2026-09-17",
-    "bizjet_total_flying": 169,
-    "bizjet_cache_size": 188220,
+    "bizjet_total_flying": 758,
+    "bizjet_cache_size": 188288,
     "last_elite_update": "2026-05-24"
   },
   "pp_rates": [
@@ -1265,24 +1265,24 @@
   ],
   "trends": {
     "KR": {
-      "sell": 2.5,
-      "buy": 11.3,
-      "flee": 2.1,
+      "sell": 2.2,
+      "buy": 13.1,
+      "flee": 2.9,
       "bank": 2.0,
       "updated": "2026-09-17"
     },
     "JP": {
-      "sell": 30.1,
-      "buy": 54.4,
-      "flee": 43.3,
-      "bank": 21.1,
+      "sell": 29.4,
+      "buy": 56.0,
+      "flee": 39.8,
+      "bank": 20.5,
       "updated": "2026-09-17"
     },
     "IN": {
       "sell": 23.9,
-      "buy": 24.6,
-      "flee": 5.5,
-      "bank": 21.6,
+      "buy": 24.5,
+      "flee": 5.2,
+      "bank": 18.3,
       "updated": "2026-09-17"
     },
     "VN": {
@@ -1333,8 +1333,6 @@
       "updated": "2026-09-17"
     },
     "GH": {
-      "sell": 1.1,
-      "flee": 1.1,
       "bank": 1.1,
       "updated": "2026-09-17"
     },
@@ -1351,10 +1349,8 @@
       "updated": "2026-09-17"
     },
     "UA": {
-      "sell": 34.3,
-      "buy": 12.6,
-      "flee": 3.6,
-      "bank": 10.3,
+      "sell": 33.4,
+      "buy": 5.0,
       "updated": "2026-09-17"
     },
     "RU": {
@@ -1384,9 +1380,7 @@
       "updated": "2026-09-17"
     },
     "CO": {
-      "sell": 4.0,
-      "buy": 10.3,
-      "flee": 2.1,
+      "buy": 9.1,
       "bank": 1.1,
       "updated": "2026-09-17"
     }
@@ -189611,117 +189605,205 @@
     "495418": "UNKNOWN",
     "359517": "UNKNOWN",
     "4b1a08": "UNKNOWN",
-    "89449f": "UNKNOWN"
+    "89449f": "UNKNOWN",
+    "ae61cc": "UNKNOWN",
+    "38001b": "RV7",
+    "e4a838": "UNKNOWN",
+    "a3573e": "C182",
+    "a39b31": "UNKNOWN",
+    "a89e24": "M20P",
+    "4a8a89": "UNKNOWN",
+    "e49c9a": "UNKNOWN",
+    "020186": "UNKNOWN",
+    "320089": "UNKNOWN",
+    "a0c26e": "UNKNOWN",
+    "ae63ee": "UNKNOWN",
+    "a71539": "UNKNOWN",
+    "e0b2d2": "UNKNOWN",
+    "e062d4": "UNKNOWN",
+    "400fbd": "DA40",
+    "ad44a2": "UNKNOWN",
+    "a39913": "P28A",
+    "a40750": "UNKNOWN",
+    "0b410b": "UNKNOWN",
+    "aa37f3": "BE58",
+    "a56efb": "C172",
+    "a3a156": "UNKNOWN",
+    "44e02e": "UNKNOWN",
+    "45aa55": "C56X",
+    "49d15d": "SR22",
+    "e082de": "UNKNOWN",
+    "a9758a": "C182",
+    "a0153d": "UNKNOWN",
+    "a05beb": "UNKNOWN",
+    "a8fd29": "UNKNOWN",
+    "e08194": "C680",
+    "50056b": "UNKNOWN",
+    "43f80e": "UNKNOWN",
+    "4403e4": "UNKNOWN",
+    "459702": "UNKNOWN",
+    "402c6b": "ULAC",
+    "a1d85a": "SR20",
+    "427d5c": "UNKNOWN",
+    "a4aa54": "MU2",
+    "3c888d": "UNKNOWN",
+    "e840d3": "UNKNOWN",
+    "3c0d37": "UNKNOWN",
+    "c1e610": "UNKNOWN",
+    "441e38": "UNKNOWN",
+    "a77983": "M20P",
+    "a32e9b": "UNKNOWN",
+    "a1fca7": "B407",
+    "4b3875": "UNKNOWN",
+    "a4f11a": "PA32",
+    "49d671": "UNKNOWN",
+    "3843ba": "UNKNOWN",
+    "a9cc53": "UNKNOWN",
+    "a1e603": "UNKNOWN",
+    "c05e59": "RV10",
+    "a70713": "B407",
+    "a91331": "RV4",
+    "3db375": "UNKNOWN",
+    "3ff370": "C42",
+    "4b06fe": "C172",
+    "38543b": "UNKNOWN",
+    "400a45": "P28A",
+    "a36dd3": "C182",
+    "407154": "A139",
+    "408466": "UNKNOWN",
+    "40716f": "PA18",
+    "a48f79": "UNKNOWN",
+    "3dd819": "UNKNOWN"
   },
   "bizjet": {
-    "PL": {
-      "count": 4,
-      "index": 9,
-      "updated": "2026-09-17"
-    },
-    "AT": {
-      "count": 8,
-      "index": 18,
+    "CA": {
+      "count": 18,
+      "index": 3,
       "updated": "2026-09-17"
     },
     "US": {
-      "count": 45,
+      "count": 607,
       "index": 100,
       "updated": "2026-09-17"
     },
-    "AU": {
+    "PL": {
+      "count": 5,
+      "index": 1,
+      "updated": "2026-09-17"
+    },
+    "AT": {
       "count": 7,
-      "index": 16,
+      "index": 1,
       "updated": "2026-09-17"
     },
     "HU": {
       "count": 1,
-      "index": 2,
+      "index": 0,
       "updated": "2026-09-17"
     },
     "ZA": {
-      "count": 3,
-      "index": 7,
+      "count": 4,
+      "index": 1,
+      "updated": "2026-09-17"
+    },
+    "AU": {
+      "count": 1,
+      "index": 0,
       "updated": "2026-09-17"
     },
     "CH": {
-      "count": 4,
-      "index": 9,
+      "count": 1,
+      "index": 0,
       "updated": "2026-09-17"
     },
     "DE": {
-      "count": 27,
-      "index": 60,
-      "updated": "2026-09-17"
-    },
-    "TR": {
-      "count": 3,
-      "index": 7,
+      "count": 32,
+      "index": 5,
       "updated": "2026-09-17"
     },
     "LU": {
-      "count": 4,
-      "index": 9,
+      "count": 10,
+      "index": 2,
+      "updated": "2026-09-17"
+    },
+    "BR": {
+      "count": 8,
+      "index": 1,
       "updated": "2026-09-17"
     },
     "SE": {
-      "count": 4,
-      "index": 9,
+      "count": 3,
+      "index": 0,
       "updated": "2026-09-17"
     },
     "PT": {
-      "count": 17,
-      "index": 38,
+      "count": 23,
+      "index": 4,
       "updated": "2026-09-17"
     },
-    "JP": {
-      "count": 6,
-      "index": 13,
-      "updated": "2026-09-17"
-    },
-    "CN": {
+    "RO": {
       "count": 1,
-      "index": 2,
+      "index": 0,
+      "updated": "2026-09-17"
+    },
+    "GB": {
+      "count": 7,
+      "index": 1,
       "updated": "2026-09-17"
     },
     "ES": {
       "count": 1,
-      "index": 2,
+      "index": 0,
       "updated": "2026-09-17"
     },
-    "TW": {
+    "MX": {
       "count": 1,
-      "index": 2,
+      "index": 0,
       "updated": "2026-09-17"
     },
-    "GB": {
-      "count": 10,
-      "index": 22,
+    "TR": {
+      "count": 3,
+      "index": 0,
       "updated": "2026-09-17"
     },
-    "FR": {
-      "count": 9,
-      "index": 20,
+    "AR": {
+      "count": 1,
+      "index": 0,
+      "updated": "2026-09-17"
+    },
+    "CN": {
+      "count": 1,
+      "index": 0,
       "updated": "2026-09-17"
     },
     "BE": {
-      "count": 3,
-      "index": 7,
+      "count": 4,
+      "index": 1,
+      "updated": "2026-09-17"
+    },
+    "FR": {
+      "count": 7,
+      "index": 1,
       "updated": "2026-09-17"
     },
     "TH": {
       "count": 1,
-      "index": 2,
+      "index": 0,
       "updated": "2026-09-17"
     },
     "IT": {
-      "count": 4,
-      "index": 9,
+      "count": 2,
+      "index": 0,
+      "updated": "2026-09-17"
+    },
+    "EG": {
+      "count": 1,
+      "index": 0,
       "updated": "2026-09-17"
     },
     "MT": {
-      "count": 6,
-      "index": 13,
+      "count": 8,
+      "index": 1,
       "updated": "2026-09-17"
     }
   },
