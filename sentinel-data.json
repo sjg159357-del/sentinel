@@ -15,8 +15,8 @@
     "last_real_time": "2026-10-21T17:50:25.187871",
     "last_trends_update": "2026-10-21",
     "last_bizjet_update": "2026-10-21",
-    "bizjet_total_flying": 735,
-    "bizjet_cache_size": 197549,
+    "bizjet_total_flying": 1110,
+    "bizjet_cache_size": 197652,
     "last_elite_update": "2026-05-24"
   },
   "pp_rates": [
@@ -198941,117 +198941,205 @@
     "a0546f": "C182",
     "0ae0ec": "UNKNOWN",
     "ac9152": "UNKNOWN",
-    "a552c1": "PA44"
+    "a552c1": "PA44",
+    "a6aed1": "H500",
+    "adffd0": "UNKNOWN",
+    "ac7daf": "UNKNOWN",
+    "3e8b02": "UNKNOWN",
+    "a092d0": "UNKNOWN",
+    "a462a4": "C172",
+    "ab2725": "UNKNOWN",
+    "adff96": "T38",
+    "38121a": "UNKNOWN",
+    "a723f1": "C172",
+    "a02def": "P208",
+    "ac38f3": "UNKNOWN",
+    "ae6801": "UNKNOWN",
+    "a943cd": "C182",
+    "acac01": "C172",
+    "a51ec2": "UNKNOWN",
+    "ac1206": "C172",
+    "a1180b": "E300",
+    "ae649e": "UNKNOWN",
+    "ab5fd2": "R44",
+    "ad0b25": "P28A",
+    "a31e42": "DHC2",
+    "c051ae": "UNKNOWN",
+    "ab2044": "C310",
+    "a00110": "BE35",
+    "486590": "UNKNOWN",
+    "ad0af2": "UNKNOWN",
+    "0d08d2": "UNKNOWN",
+    "a993c6": "UNKNOWN",
+    "a67c8f": "P32T",
+    "a7ec96": "UNKNOWN",
+    "a5e12b": "PA22",
+    "ad7746": "C06T",
+    "a853c5": "C182",
+    "a5e230": "C82R",
+    "a1cfd8": "UNKNOWN",
+    "e49a67": "UNKNOWN",
+    "a37508": "WACF",
+    "e33202": "UNKNOWN",
+    "a0029a": "UNKNOWN",
+    "a134e5": "C177",
+    "a1ba85": "C210",
+    "a9d629": "C172",
+    "a412fa": "C182",
+    "ad4dcc": "C180",
+    "a520b7": "PA32",
+    "4ae457": "UNKNOWN",
+    "a4abda": "BE20",
+    "a58c1b": "C150",
+    "a10bc9": "STRK",
+    "a530c3": "BE36",
+    "a46bd2": "EA50",
+    "ac80f2": "P28A",
+    "a054ce": "UNKNOWN",
+    "a34d3b": "PA32",
+    "a0b97a": "C206",
+    "a69a50": "P28A",
+    "a5599a": "M20P",
+    "460554": "C172",
+    "a7d669": "C06T",
+    "a1c5ad": "S22T",
+    "0b4379": "UNKNOWN",
+    "782474": "UNKNOWN",
+    "a5258f": "WACF",
+    "a8854f": "C172",
+    "ac623c": "CRJ2",
+    "a4aefd": "UNKNOWN",
+    "ae1839": "H60",
+    "a751c0": "BE35",
+    "4b7fcf": "EC35",
+    "ae4e1e": "H47",
+    "a3e61e": "PA46",
+    "a8865e": "C172",
+    "acb333": "C182",
+    "a1c960": "CH7B",
+    "ae5d89": "UNKNOWN",
+    "a82ce2": "C421",
+    "a33e46": "C182",
+    "aadf8d": "UNKNOWN",
+    "ade412": "C206",
+    "a7c795": "UNKNOWN",
+    "424ce0": "UNKNOWN",
+    "a86f9f": "C150",
+    "a61c85": "UNKNOWN",
+    "ae595b": "C30J",
+    "a20697": "UNKNOWN",
+    "a1c01a": "C182",
+    "a191c1": "M20T",
+    "a1f649": "C177",
+    "a86ccc": "UNKNOWN",
+    "a7905d": "UNKNOWN",
+    "a5b7a3": "C337",
+    "a46b44": "B407",
+    "aaa3c9": "UNKNOWN",
+    "ac2c50": "P28A",
+    "a555da": "B763",
+    "a6c5a8": "C172",
+    "ab0ab3": "SR22",
+    "a5b683": "C170",
+    "ab1abe": "SR22",
+    "aafad5": "BE23",
+    "0ae128": "UNKNOWN",
+    "a6d5ff": "R44"
   },
   "bizjet": {
     "US": {
-      "count": 600,
+      "count": 1016,
       "index": 100,
       "updated": "2026-10-21"
     },
     "CA": {
-      "count": 23,
-      "index": 4,
+      "count": 35,
+      "index": 3,
       "updated": "2026-10-21"
     },
-    "AU": {
-      "count": 4,
-      "index": 1,
-      "updated": "2026-10-21"
-    },
-    "AT": {
+    "BR": {
       "count": 6,
       "index": 1,
       "updated": "2026-10-21"
     },
-    "HU": {
+    "AT": {
+      "count": 3,
+      "index": 0,
+      "updated": "2026-10-21"
+    },
+    "AU": {
       "count": 1,
       "index": 0,
       "updated": "2026-10-21"
     },
     "DE": {
-      "count": 24,
-      "index": 4,
+      "count": 11,
+      "index": 1,
+      "updated": "2026-10-21"
+    },
+    "GB": {
+      "count": 8,
+      "index": 1,
       "updated": "2026-10-21"
     },
     "IN": {
-      "count": 2,
-      "index": 0,
-      "updated": "2026-10-21"
-    },
-    "ZA": {
-      "count": 2,
-      "index": 0,
-      "updated": "2026-10-21"
-    },
-    "PL": {
-      "count": 5,
-      "index": 1,
-      "updated": "2026-10-21"
-    },
-    "FR": {
-      "count": 6,
-      "index": 1,
-      "updated": "2026-10-21"
-    },
-    "LU": {
-      "count": 5,
-      "index": 1,
-      "updated": "2026-10-21"
-    },
-    "AE": {
       "count": 1,
       "index": 0,
       "updated": "2026-10-21"
     },
-    "BR": {
-      "count": 10,
-      "index": 2,
+    "MA": {
+      "count": 1,
+      "index": 0,
       "updated": "2026-10-21"
     },
-    "GB": {
-      "count": 6,
-      "index": 1,
+    "LU": {
+      "count": 3,
+      "index": 0,
       "updated": "2026-10-21"
     },
-    "RO": {
+    "CO": {
       "count": 1,
       "index": 0,
       "updated": "2026-10-21"
     },
     "PT": {
-      "count": 20,
-      "index": 3,
+      "count": 3,
+      "index": 0,
       "updated": "2026-10-21"
     },
-    "BE": {
-      "count": 5,
-      "index": 1,
+    "FR": {
+      "count": 3,
+      "index": 0,
       "updated": "2026-10-21"
     },
-    "TR": {
-      "count": 1,
+    "PL": {
+      "count": 3,
+      "index": 0,
+      "updated": "2026-10-21"
+    },
+    "ES": {
+      "count": 2,
       "index": 0,
       "updated": "2026-10-21"
     },
     "SE": {
-      "count": 2,
-      "index": 0,
-      "updated": "2026-10-21"
-    },
-    "CH": {
-      "count": 2,
+      "count": 1,
       "index": 0,
       "updated": "2026-10-21"
     },
     "MX": {
+      "count": 3,
+      "index": 0,
+      "updated": "2026-10-21"
+    },
+    "SA": {
       "count": 1,
       "index": 0,
       "updated": "2026-10-21"
     },
     "MT": {
-      "count": 4,
-      "index": 1,
+      "count": 5,
+      "index": 0,
       "updated": "2026-10-21"
     },
     "IT": {
@@ -199059,12 +199147,7 @@
       "index": 0,
       "updated": "2026-10-21"
     },
-    "KE": {
-      "count": 1,
-      "index": 0,
-      "updated": "2026-10-21"
-    },
-    "SA": {
+    "CH": {
       "count": 1,
       "index": 0,
       "updated": "2026-10-21"
