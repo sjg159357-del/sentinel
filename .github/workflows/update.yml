@@ -10,11 +10,19 @@ on:
 permissions:
   contents: write
 
+# Both workflows write the same JSON file. Serialize their executions.
+concurrency:
+  group: sentinel-data-main
+  cancel-in-progress: false
+
 jobs:
   hourly-real-time:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
 
       - uses: actions/setup-python@v4
         with:
@@ -28,15 +36,21 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python3 scripts/detect_events.py
 
-      - name: 커밋
-        env:
-          GH_TOKEN: ${{ github.token }}
+      - name: 커밋 & 푸시 (안전한 fast-forward)
         run: |
+          set -euo pipefail
           git config user.name "Sentinel Bot"
           git config user.email "sentinel-bot@github.com"
           git add sentinel-data.json
-          git diff --staged --quiet || git commit -m "🚨 Hourly Real-time"
-          git push https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git HEAD:main
+          if git diff --cached --quiet; then
+            echo "변경 없음: 푸시 생략"
+            exit 0
+          fi
+          git commit -m "🚨 Hourly Real-time [${{ github.run_id }}]"
+          # Avoid overwrite/force pushes; incorporate any newer commits.
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
 
   daily-update:
     needs: hourly-real-time
@@ -59,12 +73,18 @@ jobs:
           python3 scripts/update_trends.py
           python3 scripts/update_bizjet.py
 
-      - name: 커밋
-        env:
-          GH_TOKEN: ${{ github.token }}
+      - name: 커밋 & 푸시 (안전한 fast-forward)
         run: |
+          set -euo pipefail
           git config user.name "Sentinel Bot"
           git config user.email "sentinel-bot@github.com"
           git add sentinel-data.json
-          git diff --staged --quiet || git commit -m "📅 Daily Update"
-          git push https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git HEAD:main
+          if git diff --cached --quiet; then
+            echo "변경 없음: 푸시 생략"
+            exit 0
+          fi
+          git commit -m "📅 Daily Update [${{ github.run_id }}]"
+          # Avoid overwrite/force pushes; incorporate any newer commits.
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
