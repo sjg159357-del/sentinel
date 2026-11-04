@@ -50,8 +50,8 @@ for kw in crisis_keywords:
         pass
 
 # 저장
-data["alerts"] = (new_alerts + alerts)[-50:]
-data["_meta"]["last_real_time"] = datetime.now().isoformat()
+data["alerts"] = (new_alerts + alerts)[:50]
+data.setdefault("_meta", {})["last_real_time"] = datetime.now().isoformat()
 
 with open("sentinel-data.json", "w", encoding="utf-8") as f:
     json.dump(data, f, ensure_ascii=False, indent=2)
@@ -61,7 +61,7 @@ if new_alerts and TG_TOKEN and TG_CHAT:
     msg = f"🚨 SENTINEL 실시간 경보 ({datetime.now().strftime('%H:%M')})\n\n" + "\n".join(a["message"] for a in new_alerts[:5])
     try:
         requests.post(f"https://api.telegram.org/bot{TG_TOKEN}/sendMessage", 
-                      json={"chat_id": TG_CHAT, "text": msg})
+                      json={"chat_id": TG_CHAT, "text": msg}, timeout=15)
     except:
         pass
 
