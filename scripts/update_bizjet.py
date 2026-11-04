@@ -22,6 +22,7 @@ SENTINEL 비즈니스 제트 활동 지수 자동 업데이트
 import json
 import requests
 import time
+import sys
 from datetime import date, datetime
 from collections import Counter, defaultdict
 
@@ -110,8 +111,12 @@ try:
     states = opensky_data.get("states", [])
     print(f"  현재 비행 중: {len(states)}대")
 except Exception as e:
-    print(f"  ❌ OpenSky 조회 실패: {e}")
-    states = []
+    print(f"  ❌ OpenSky 조회 실패: {e}. 기존 비즈니스 제트 데이터 보존")
+    sys.exit(0)
+
+if not states:
+    print("  ⚠️ OpenSky 항공기 데이터 없음. 기존 지수 보존")
+    sys.exit(0)
 
 # 비행 중인 항공기만 필터링 (on_ground=False)
 flying = [s for s in states if not s[8]]
@@ -190,7 +195,7 @@ for iso2, cnt in biz_by_country.most_common(15):
 # 미국이 압도적으로 많으므로 인구 보정 또는 상대적 순위로 정규화
 # 방법: 상위 국가 대비 비율 × 100 (미국=100 기준)
 
-us_count = biz_by_country.get("US", 1)
+us_count = max(1, biz_by_country.get("US", 0))
 bizjet_index = {}
 
 for iso2, cnt in biz_by_country.items():
@@ -203,6 +208,11 @@ for iso2, cnt in biz_by_country.items():
         "updated": TODAY
     }
 
+
+# Incomplete type lookup can produce zero aircraft; do not replace the last valid snapshot.
+if total_biz == 0:
+    print("  ⚠️ 분류된 항공기 0대. 기존 지수 보존")
+    sys.exit(0)
 
 # ── 5단계: sentinel-data.json 저장 ──────────────────────────────────────────
 data["bizjet_cache"] = bizjet_cache
@@ -219,3 +229,4 @@ print(f"   비행 중 비즈니스 제트: {total_biz}대")
 print(f"   집계 국가: {len(bizjet_index)}개국")
 print(f"   캐시 크기: {len(bizjet_cache)}개 항공기")
 print(f"   sentinel-data.json 저장됨")
+
