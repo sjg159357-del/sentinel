@@ -12,7 +12,7 @@
       "dep3y": "World Bank: Official exchange rate (PA.NUS.FCRF), 3-year change %",
       "citizen": "World Bank: Net migration (SM.POP.NETM), indexed 0-100"
     },
-    "last_real_time": "2026-11-05T19:23:32.596315",
+    "last_real_time": "2026-11-06T00:40:33.186264",
     "last_trends_update": "2026-11-05",
     "last_bizjet_update": "2026-11-05",
     "bizjet_total_flying": 1240,
@@ -914,6 +914,20 @@
   "alerts": [
     {
       "type": "실시간",
+      "message": "🔥 capital control 관련 뉴스 감지",
+      "title": "国海证券 ( 000750 ): 国海证券股份有限公司2026年中期风险控制指标报告 - CFi . CN 中财网",
+      "date": "2026-11-06",
+      "time": "00:39"
+    },
+    {
+      "type": "실시간",
+      "message": "🔥 capital control 관련 뉴스 감지",
+      "title": "Путин передал во временное управление четыре крупные компании",
+      "date": "2026-11-06",
+      "time": "00:39"
+    },
+    {
+      "type": "실시간",
       "message": "🔥 bank run 관련 뉴스 감지",
       "title": "北京向國營銀行保險公司注資 未能提振股價 | 兩岸",
       "date": "2026-11-05",
@@ -1247,20 +1261,6 @@
       "title": "华建集团 ( 600629 ): 华东建筑集团股份有限公司关于公司募集资金专户部分资金被冻结 - CFi . CN 中财网",
       "date": "2026-05-17",
       "time": "13:25"
-    },
-    {
-      "type": "실시간",
-      "message": "🔥 capital control 관련 뉴스 감지",
-      "title": "Beijing ， testigo de una nevada primaveral | Spanish . xinhuanet . com",
-      "date": "2026-05-17",
-      "time": "12:49"
-    },
-    {
-      "type": "실시간",
-      "message": "🔥 capital control 관련 뉴스 감지",
-      "title": "GSCF Launches C4 : Connected Capital Control Center",
-      "date": "2026-05-17",
-      "time": "12:49"
     }
   ],
   "trends": {
