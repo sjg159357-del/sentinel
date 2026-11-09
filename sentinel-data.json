@@ -12,7 +12,7 @@
       "dep3y": "World Bank: Official exchange rate (PA.NUS.FCRF), 3-year change %",
       "citizen": "World Bank: Net migration (SM.POP.NETM), indexed 0-100"
     },
-    "last_real_time": "2026-11-08T20:59:48.335178",
+    "last_real_time": "2026-11-09T00:40:21.275742",
     "last_trends_update": "2026-11-08",
     "last_bizjet_update": "2026-11-08",
     "bizjet_total_flying": 1263,
@@ -914,6 +914,20 @@
   "alerts": [
     {
       "type": "실시간",
+      "message": "🔥 capital control 관련 뉴스 감지",
+      "title": "国海证券 ( 000750 ): 国海证券股份有限公司2026年中期风险控制指标报告 - CFi . CN 中财网",
+      "date": "2026-11-09",
+      "time": "00:39"
+    },
+    {
+      "type": "실시간",
+      "message": "🔥 capital control 관련 뉴스 감지",
+      "title": "Путин передал во временное управление четыре крупные компании",
+      "date": "2026-11-09",
+      "time": "00:39"
+    },
+    {
+      "type": "실시간",
       "message": "🔥 account freeze 관련 뉴스 감지",
       "title": "众泰4398万股遭冻结 ！ 半数被解 ， 偿债专户涉3654万债务",
       "date": "2026-11-08",
@@ -1247,20 +1261,6 @@
       "title": "华建集团 ( 600629 ): 华东建筑集团股份有限公司关于公司募集资金专户部分资金被冻结 - CFi . CN 中财网",
       "date": "2026-05-17",
       "time": "21:51"
-    },
-    {
-      "type": "실시간",
-      "message": "🔥 corralito 관련 뉴스 감지",
-      "title": "New Mexico State University S . - 2026",
-      "date": "2026-05-17",
-      "time": "20:42"
-    },
-    {
-      "type": "실시간",
-      "message": "🔥 corralito 관련 뉴스 감지",
-      "title": "Minambiente y la ANT recuperan ambientalmente el sistema de humedales del Bajo Sinú",
-      "date": "2026-05-17",
-      "time": "20:42"
     }
   ],
   "trends": {
