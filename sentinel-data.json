@@ -12,7 +12,7 @@
       "dep3y": "World Bank: Official exchange rate (PA.NUS.FCRF), 3-year change %",
       "citizen": "World Bank: Net migration (SM.POP.NETM), indexed 0-100"
     },
-    "last_real_time": "2026-11-12T09:59:12.131825",
+    "last_real_time": "2026-11-12T17:52:05.446526",
     "last_trends_update": "2026-11-12",
     "last_bizjet_update": "2026-11-12",
     "bizjet_total_flying": 151,
@@ -914,6 +914,20 @@
   "alerts": [
     {
       "type": "실시간",
+      "message": "🔥 capital control 관련 뉴스 감지",
+      "title": "国海证券 ( 000750 ): 国海证券股份有限公司2026年中期风险控制指标报告 - CFi . CN 中财网",
+      "date": "2026-11-12",
+      "time": "17:51"
+    },
+    {
+      "type": "실시간",
+      "message": "🔥 capital control 관련 뉴스 감지",
+      "title": "Путин передал во временное управление четыре крупные компании",
+      "date": "2026-11-12",
+      "time": "17:51"
+    },
+    {
+      "type": "실시간",
       "message": "🔥 account freeze 관련 뉴스 감지",
       "title": "众泰4398万股遭冻结 ！ 半数被解 ， 偿债专户涉3654万债务",
       "date": "2026-11-12",
@@ -1247,20 +1261,6 @@
       "title": "北京向國營銀行保險公司注資 未能提振股價 | 兩岸",
       "date": "2026-11-05",
       "time": "19:22"
-    },
-    {
-      "type": "실시간",
-      "message": "🔥 capital control 관련 뉴스 감지",
-      "title": "国海证券 ( 000750 ): 国海证券股份有限公司2026年中期风险控制指标报告 - CFi . CN 中财网",
-      "date": "2026-11-04",
-      "time": "22:21"
-    },
-    {
-      "type": "실시간",
-      "message": "🔥 capital control 관련 뉴스 감지",
-      "title": "Путин передал во временное управление четыре крупные компании",
-      "date": "2026-11-04",
-      "time": "22:21"
     }
   ],
   "trends": {
