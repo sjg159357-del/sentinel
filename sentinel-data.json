@@ -17,7 +17,7 @@
     "last_bizjet_update": "2026-11-21",
     "bizjet_total_flying": 1159,
     "bizjet_cache_size": 203792,
-    "last_elite_update": "2026-11-15"
+    "last_elite_update": "2026-11-21"
   },
   "pp_rates": [
     {
@@ -205281,49 +205281,40 @@
     }
   },
   "elite_exit": {
-    "AE": {
-      "score": 27,
-      "trend_flee": 38,
-      "bizjet": 1,
-      "media": 32,
-      "spike": false,
-      "updated": "2026-11-15",
-      "alert": false
-    },
     "AR": {
       "score": 27,
       "trend_flee": 38,
-      "bizjet": 1,
+      "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-11-15",
+      "updated": "2026-11-21",
       "alert": false
     },
     "AT": {
-      "score": 28,
+      "score": 27,
       "trend_flee": 38,
-      "bizjet": 3,
+      "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-11-15",
+      "updated": "2026-11-21",
       "alert": false
     },
     "AU": {
       "score": 27,
       "trend_flee": 38,
-      "bizjet": 1,
+      "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-11-15",
+      "updated": "2026-11-21",
       "alert": false
     },
     "BR": {
-      "score": 28,
+      "score": 27,
       "trend_flee": 38,
-      "bizjet": 6,
+      "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-11-15",
+      "updated": "2026-11-21",
       "alert": false
     },
     "CA": {
@@ -205332,43 +205323,25 @@
       "bizjet": 4,
       "media": 32,
       "spike": false,
-      "updated": "2026-11-15",
-      "alert": false
-    },
-    "CH": {
-      "score": 27,
-      "trend_flee": 38,
-      "bizjet": 1,
-      "media": 32,
-      "spike": false,
-      "updated": "2026-11-15",
-      "alert": false
-    },
-    "CN": {
-      "score": 27,
-      "trend_flee": 38,
-      "bizjet": 1,
-      "media": 32,
-      "spike": false,
-      "updated": "2026-11-15",
+      "updated": "2026-11-21",
       "alert": false
     },
     "CO": {
-      "score": 34,
+      "score": 27,
       "trend_flee": 38,
       "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-11-15",
+      "updated": "2026-11-21",
       "alert": false
     },
     "DE": {
-      "score": 29,
+      "score": 27,
       "trend_flee": 38,
-      "bizjet": 7,
+      "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-11-15",
+      "updated": "2026-11-21",
       "alert": false
     },
     "EG": {
@@ -205377,16 +205350,16 @@
       "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-11-15",
+      "updated": "2026-11-21",
       "alert": false
     },
     "GB": {
-      "score": 29,
+      "score": 27,
       "trend_flee": 38,
-      "bizjet": 7,
+      "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-11-15",
+      "updated": "2026-11-21",
       "alert": false
     },
     "GH": {
@@ -205395,16 +205368,16 @@
       "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-11-15",
+      "updated": "2026-11-21",
       "alert": false
     },
     "HU": {
       "score": 27,
       "trend_flee": 38,
-      "bizjet": 1,
+      "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-11-15",
+      "updated": "2026-11-21",
       "alert": false
     },
     "ID": {
@@ -205413,16 +205386,7 @@
       "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-11-15",
-      "alert": false
-    },
-    "IE": {
-      "score": 27,
-      "trend_flee": 38,
-      "bizjet": 1,
-      "media": 32,
-      "spike": false,
-      "updated": "2026-11-15",
+      "updated": "2026-11-21",
       "alert": false
     },
     "IN": {
@@ -205431,7 +205395,7 @@
       "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-11-15",
+      "updated": "2026-11-21",
       "alert": false
     },
     "IR": {
@@ -205440,16 +205404,16 @@
       "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-11-15",
+      "updated": "2026-11-21",
       "alert": false
     },
     "JP": {
-      "score": 28,
+      "score": 34,
       "trend_flee": 38,
-      "bizjet": 2,
+      "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-11-15",
+      "updated": "2026-11-21",
       "alert": false
     },
     "KE": {
@@ -205458,7 +205422,7 @@
       "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-11-15",
+      "updated": "2026-11-21",
       "alert": false
     },
     "KR": {
@@ -205467,7 +205431,7 @@
       "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-11-15",
+      "updated": "2026-11-21",
       "alert": false
     },
     "LB": {
@@ -205476,34 +205440,34 @@
       "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-11-15",
-      "alert": false
-    },
-    "LU": {
-      "score": 28,
-      "trend_flee": 38,
-      "bizjet": 6,
-      "media": 32,
-      "spike": false,
-      "updated": "2026-11-15",
+      "updated": "2026-11-21",
       "alert": false
     },
     "MA": {
       "score": 27,
       "trend_flee": 38,
-      "bizjet": 1,
+      "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-11-15",
+      "updated": "2026-11-21",
       "alert": false
     },
     "MT": {
-      "score": 29,
+      "score": 27,
       "trend_flee": 38,
-      "bizjet": 7,
+      "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-11-15",
+      "updated": "2026-11-21",
+      "alert": false
+    },
+    "MX": {
+      "score": 27,
+      "trend_flee": 38,
+      "bizjet": 1,
+      "media": 32,
+      "spike": false,
+      "updated": "2026-11-21",
       "alert": false
     },
     "NG": {
@@ -205512,7 +205476,7 @@
       "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-11-15",
+      "updated": "2026-11-21",
       "alert": false
     },
     "PK": {
@@ -205521,25 +205485,25 @@
       "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-11-15",
+      "updated": "2026-11-21",
       "alert": false
     },
     "PL": {
-      "score": 28,
+      "score": 27,
       "trend_flee": 38,
-      "bizjet": 3,
+      "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-11-15",
+      "updated": "2026-11-21",
       "alert": false
     },
     "PT": {
-      "score": 30,
+      "score": 27,
       "trend_flee": 38,
-      "bizjet": 10,
+      "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-11-15",
+      "updated": "2026-11-21",
       "alert": false
     },
     "RU": {
@@ -205548,34 +205512,16 @@
       "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-11-15",
-      "alert": false
-    },
-    "SE": {
-      "score": 27,
-      "trend_flee": 38,
-      "bizjet": 1,
-      "media": 32,
-      "spike": false,
-      "updated": "2026-11-15",
+      "updated": "2026-11-21",
       "alert": false
     },
     "TR": {
-      "score": 28,
-      "trend_flee": 38,
-      "bizjet": 2,
-      "media": 32,
-      "spike": false,
-      "updated": "2026-11-15",
-      "alert": false
-    },
-    "TW": {
       "score": 27,
       "trend_flee": 38,
-      "bizjet": 1,
+      "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-11-15",
+      "updated": "2026-11-21",
       "alert": false
     },
     "UA": {
@@ -205584,7 +205530,7 @@
       "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-11-15",
+      "updated": "2026-11-21",
       "alert": false
     },
     "US": {
@@ -205593,16 +205539,16 @@
       "bizjet": 100,
       "media": 32,
       "spike": false,
-      "updated": "2026-11-15",
+      "updated": "2026-11-21",
       "alert": false
     },
     "VE": {
-      "score": 34,
+      "score": 27,
       "trend_flee": 38,
       "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-11-15",
+      "updated": "2026-11-21",
       "alert": false
     },
     "VN": {
@@ -205611,16 +205557,16 @@
       "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-11-15",
+      "updated": "2026-11-21",
       "alert": false
     },
     "ZA": {
-      "score": 28,
+      "score": 34,
       "trend_flee": 38,
-      "bizjet": 2,
+      "bizjet": 0,
       "media": 32,
       "spike": false,
-      "updated": "2026-11-15",
+      "updated": "2026-11-21",
       "alert": false
     }
   }
