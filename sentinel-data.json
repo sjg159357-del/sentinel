@@ -12,7 +12,7 @@
       "dep3y": "World Bank: Official exchange rate (PA.NUS.FCRF), 3-year change %",
       "citizen": "World Bank: Net migration (SM.POP.NETM), indexed 0-100"
     },
-    "last_real_time": "2026-11-22T20:16:12.353494",
+    "last_real_time": "2026-11-23T01:21:37.957464",
     "last_trends_update": "2026-11-22",
     "last_bizjet_update": "2026-11-22",
     "bizjet_total_flying": 1165,
@@ -914,6 +914,20 @@
   "alerts": [
     {
       "type": "실시간",
+      "message": "🔥 capital control 관련 뉴스 감지",
+      "title": "Путин передал во временное управление четыре крупные компании",
+      "date": "2026-11-23",
+      "time": "01:21"
+    },
+    {
+      "type": "실시간",
+      "message": "🔥 capital control 관련 뉴스 감지",
+      "title": "Владимир Путин передал под временное управление активы пяти зарубежных компаний",
+      "date": "2026-11-23",
+      "time": "01:21"
+    },
+    {
+      "type": "실시간",
       "message": "🔥 bank run 관련 뉴스 감지",
       "title": "北京向國營銀行保險公司注資 未能提振股價 | 兩岸",
       "date": "2026-11-22",
@@ -1247,20 +1261,6 @@
       "title": "Paraguay Banking Crisis And The Politics Of Impunity - Analysis",
       "date": "2026-11-14",
       "time": "08:28"
-    },
-    {
-      "type": "실시간",
-      "message": "🔥 bank run 관련 뉴스 감지",
-      "title": "北京向國營銀行保險公司注資 未能提振股價 | 兩岸",
-      "date": "2026-11-14",
-      "time": "01:11"
-    },
-    {
-      "type": "실시간",
-      "message": "🔥 bank run 관련 뉴스 감지",
-      "title": "北京向國營銀行保險公司注資 未能提振股價 | 兩岸",
-      "date": "2026-11-14",
-      "time": "01:11"
     }
   ],
   "trends": {
